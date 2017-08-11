@@ -144,6 +144,22 @@
 							<article class="entry">
 								<div class="entry-content">
 
+									<div class="flash-message">
+										@foreach (['danger', 'warning', 'success', 'info'] as $msg)
+										@if(Session::has('alert-' . $msg))
+
+										<div class="box-message box-message-success">
+											<div class="box-message-content">
+												<p>{{ Session::get('alert-' . $msg) }}</p>
+											</div>
+										</div>
+
+										@endif
+										@endforeach
+
+									</div>
+									
+
 									{!! Form::open(array('route'=>'ingo.store', 'files'=>true, 'id'=>'department-form', 'class'=>'form form-submit-listing' )) !!}
 
 
@@ -188,7 +204,7 @@
 
 
 										<div class="field">
-											<input type="text" id="web_link" >
+											<input type="text" id="web_link" name="web_link">
 										</div>
 									</div>
 

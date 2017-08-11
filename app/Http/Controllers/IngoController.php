@@ -45,8 +45,28 @@ class IngoController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
+
+        // dd($request->all());
+
+        $user = Auth::user();
+
+        $ingo = new Ingos;
+
+        $ingo->user_id = $user->id;
+        $ingo->ingo_name = $request->ingo_name;
+        $ingo->address = $request->ingo_address;
+        $ingo->contact_number = $request->contact_number;
+        $ingo->email = $request->ingo_email;
+        $ingo->web_link = $request->web_link;
+        $ingo->valid = 1;
+
+        $ingo->save();
+
+        $request->session()->flash('alert-success', 'data has been successfully saved!');
+        return redirect()->action('IngoController@create'); 
+
+
+
 
     }
 

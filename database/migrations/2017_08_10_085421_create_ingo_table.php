@@ -18,10 +18,10 @@ class CreateIngoTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('ingo_name');
             $table->text('address');
-            $table->mediumInteger('contact_number');
+            $table->string('contact_number');
             $table->string('email')->unique();
             $table->text('web_link')->nullable();
-            $table->tinyInteger('valid')->default(0); // 0 = valid , 1 = invalid (in other words data has been deleted and not shown in the front end)
+            $table->tinyInteger('valid')->default(1); // 1 = valid , 0 = invalid (in other words data has been deleted and not shown in the front end)
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
