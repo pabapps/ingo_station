@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ingos;
+use Crypt;
+use Auth;
+use Response;
+use DB;
 
 class IngoController extends Controller
 {
@@ -11,6 +16,12 @@ class IngoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         //
@@ -34,7 +45,9 @@ class IngoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        
+
     }
 
     /**

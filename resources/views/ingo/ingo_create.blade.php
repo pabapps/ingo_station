@@ -151,7 +151,7 @@
 										<label for="ingo-name">Ingo name</label>
 
 										<div class="field">
-											<input type="text" id="ingo-name">
+											<input type="text" id="ingo-name" name="ingo_name" required>
 										</div>
 									</div>
 
@@ -160,7 +160,7 @@
 										</label>
 
 										<div class="field">
-											<input type="text" id="address" placeholder='E.g. "London"'>
+											<input type="text" id="address" placeholder='E.g. "London"' name="ingo_address" required>
 										</div>
 									</div>
 
@@ -168,7 +168,7 @@
 										<label for="contact-number">Contact Number</label>
 
 										<div class="field">
-											<input type="text" id="contact-number" >
+											<input type="number" id="contact-number" name="contact_number" required >
 										</div>
 									</div>
 
@@ -176,21 +176,24 @@
 										<label for="email">Email</label>
 
 										<div class="field">
-											<input type="email" id="email" >
+											<input type="email" id="email" name="ingo_email" required >
 										</div>
 									</div>
 
 
 									<div class="form-field form-field-inline">
-										<label for="web_link">URL</label>
+										<label for="web_link">URL
+											<small>(optional)</small>
+										</label>
+
 
 										<div class="field">
-											<input type="text" id="web_link">
+											<input type="text" id="web_link" >
 										</div>
 									</div>
 
 
-									<button type="submit" class="btn">Submit</button>
+									<button type="submit" class="btn">Save</button>
 
 									{!! Form::close() !!}
 

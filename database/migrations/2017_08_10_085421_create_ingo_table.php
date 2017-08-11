@@ -13,14 +13,19 @@ class CreateIngoTable extends Migration
      */
     public function up()
     {
-        Schema::create('inogs', function (Blueprint $table) {
+        Schema::create('ingos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->string('ingo_name');
             $table->text('address');
             $table->mediumInteger('contact_number');
             $table->string('email')->unique();
             $table->text('web_link')->nullable();
+            $table->tinyInteger('valid')->default(0); // 0 = valid , 1 = invalid (in other words data has been deleted and not shown in the front end)
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
@@ -31,6 +36,6 @@ class CreateIngoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inogs');
+        Schema::dropIfExists('ingos');
     }
 }
