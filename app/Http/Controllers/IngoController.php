@@ -34,7 +34,21 @@ class IngoController extends Controller
      */
     public function create()
     {
-        return view('ingo.ingo_create');
+        $user = Auth::user();
+
+        $ingo = Ingos::where('user_id',$user->id)->first();
+
+        if(is_object($ingo)){
+
+            return view('ingo.ingo_create')->with('ingo',$ingo);
+
+        }else{
+
+            return view('ingo.ingo_create');
+        }
+
+
+        
     }
 
     /**

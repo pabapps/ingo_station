@@ -167,7 +167,11 @@
 										<label for="ingo-name">Ingo name</label>
 
 										<div class="field">
+										@if(isset($ingo->ingo_name))
+											<input type="text" id="ingo-name" name="ingo_name" value="{{$ingo->ingo_name}}" required>
+										@else
 											<input type="text" id="ingo-name" name="ingo_name" required>
+										@endif	
 										</div>
 									</div>
 
@@ -176,7 +180,11 @@
 										</label>
 
 										<div class="field">
+										@if(isset($ingo->address))
+											<input type="text" id="address" placeholder='E.g. "London"' name="ingo_address" value="{{$ingo->address}}" required>
+										@else
 											<input type="text" id="address" placeholder='E.g. "London"' name="ingo_address" required>
+										@endif
 										</div>
 									</div>
 
@@ -184,7 +192,11 @@
 										<label for="contact-number">Contact Number</label>
 
 										<div class="field">
+										@if(isset($ingo->contact_number))
+											<input type="number" id="contact-number" name="contact_number" value="{{$ingo->contact_number}}" required >
+										@else
 											<input type="number" id="contact-number" name="contact_number" required >
+										@endif
 										</div>
 									</div>
 
@@ -192,7 +204,11 @@
 										<label for="email">Email</label>
 
 										<div class="field">
+										@if(isset($ingo->email))
+											<input type="email" id="email" name="ingo_email" value="{{$ingo->email}}" required >
+										@else
 											<input type="email" id="email" name="ingo_email" required >
+										@endif
 										</div>
 									</div>
 
@@ -204,7 +220,11 @@
 
 
 										<div class="field">
+										@if(isset($ingo->web_link))
+											<input type="text" id="web_link" name="web_link" value="{{$ingo->web_link}}">
+										@else
 											<input type="text" id="web_link" name="web_link">
+										@endif
 										</div>
 									</div>
 
