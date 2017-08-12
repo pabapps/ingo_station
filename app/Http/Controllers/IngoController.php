@@ -64,25 +64,42 @@ class IngoController extends Controller
 
         $user = Auth::user();
 
-        $ingo = new Ingos;
+        //checking if the ingo info for this user has already been entered or not
+        //if so, just update the existing data
+        //else, create new data
 
-        $ingo->user_id = $user->id;
-        $ingo->ingo_name = $request->ingo_name;
-        $ingo->address = $request->ingo_address;
-        $ingo->contact_number = $request->contact_number;
-        $ingo->email = $request->ingo_email;
-        $ingo->web_link = $request->web_link;
-        $ingo->valid = 1;
+        $old_ingo = Ingos::where('user_id',$user->id)->first();
 
-        $ingo->save();
+        if(is_object($old_ingo)){
 
-        $request->session()->flash('alert-success', 'data has been successfully saved!');
-        return redirect()->action('IngoController@create'); 
+            Ingos::where('id',$old_ingo->id)
+            ->update(['ingo_name'=>$request->ingo_name,'address'=>$request->ingo_address,'contact_number'=>$request->contact_number,'email'=>$request->ingo_email,'web_link'=>$request->web_link]);
+
+        }else{
+
+           $ingo = new Ingos;
+
+           $ingo->user_id = $user->id;
+           $ingo->ingo_name = $request->ingo_name;
+           $ingo->address = $request->ingo_address;
+           $ingo->contact_number = $request->contact_number;
+           $ingo->email = $request->ingo_email;
+           $ingo->web_link = $request->web_link;
+           $ingo->valid = 1;
+
+           $ingo->save();
+
+       }
+
+       
+
+       $request->session()->flash('alert-success', 'data has been successfully saved!');
+       return redirect()->action('IngoController@create'); 
 
 
 
 
-    }
+   }
 
     /**
      * Display the specified resource.
