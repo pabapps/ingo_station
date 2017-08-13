@@ -171,18 +171,18 @@
 
 										<div class="field">
 											<div class="ci-select">
-												<select id="district"class="js-example-basic-single">
+												<select id="district" name="district" class="js-example-basic-single">
 												</select>
 											</div>
 										</div>
 									</div>
 
 									<div class="form-field form-field-inline">
-										<label for="up">Upazila</label>
+										<label for="upazila">Upazila</label>
 
 										<div class="field">
 											<div class="ci-select">
-												<select id="job-category">
+												<select id="upazila" name="upazila" class="js-example-basic-single">
 												</select>
 											</div>
 										</div>
@@ -427,6 +427,34 @@
 					};
 				},
 			}
+		});
+
+
+		$( "#district" ).change(function() {
+
+			var district_id = $("#district").val();
+
+			$('#upazila').select2({
+				placeholder: 'Select an option',
+				ajax: {
+					dataType: 'json',
+					url: '{{URL::to('/')}}/get_upazila',
+					delay: 250,
+					data: function(params) {
+						return {
+							term: params.term,
+							district: district_id
+						}
+					},
+					processResults: function (data, params) {
+						params.page = params.page || 1;
+						return {
+							results: data
+						};
+					},
+				}
+			});
+			
 		});
 
 
