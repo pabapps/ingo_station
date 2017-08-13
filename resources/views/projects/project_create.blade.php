@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Submit Opening &ndash; Specialty</title>
+	<title>Project Create</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/magnific.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
 
 	<link rel="shortcut icon" href="#">
 	<link rel="apple-touch-icon" href="#">
@@ -146,125 +147,115 @@
 
 									{!! Form::open(array('route'=>'ingo_project.store', 'files'=>true, 'id'=>'project', 'class'=>'form form-submit-listing' )) !!}
 
-									<form action="/" class="form form-submit-listing">
-										<div class="form-field form-field-inline">
-											<label for="job-title">Job Title</label>
+									
+									<div class="form-field form-field-inline">
+										<label for="ingo-title">Ingo</label>
 
-											<div class="field">
-												<input type="text" id="job-title">
+										<div class="field">
+											@if(isset($ingo_office))
+											<input type="text" id="ingo-title" value="{{$ingo_office->ingo_name}}" name="ingo_title" readonly>
+											@endif
+										</div>
+									</div>
+
+									<div class="form-field form-field-inline">
+										<label for="project-name">Project Name</label>
+
+										<div class="field">
+											<input type="text" id="project-name" name="project_name" >
+										</div>
+									</div>
+
+									<div class="form-field form-field-inline">
+										<label for="district">District</label>
+
+										<div class="field">
+											<div class="ci-select">
+												<select id="district"class="js-example-basic-single">
+												</select>
 											</div>
 										</div>
+									</div>
 
-										<div class="form-field form-field-inline">
-											<label for="job-location">Location
-												<small>(optional)</small>
-											</label>
+									<div class="form-field form-field-inline">
+										<label for="up">Upazila</label>
 
-											<div class="field">
-												<input type="text" id="job-location" placeholder='E.g. "London"'>
-												<span class="field-hint">Leave this blank if location is not important</span>
+										<div class="field">
+											<div class="ci-select">
+												<select id="job-category">
+												</select>
 											</div>
 										</div>
+									</div>
 
-										<div class="form-field form-field-inline">
-											<label for="job-type">Job Type</label>
+									<div class="form-field form-field-inline">
+										<label for="job-description">Description</label>
 
-											<div class="field">
-												<div class="ci-select">
-													<select id="job-type">
-														<option value="0">Choose a Job Type</option>
-														<option value="full-time">Full Time</option>
-														<option value="part-time">Part Time</option>
-														<option value="contract">Contract</option>
-														<option value="freelance">Freelance</option>
-													</select>
-												</div>
-											</div>
+										<div class="field">
+											<textarea id="job-description" cols="10" rows="10"></textarea>
 										</div>
+									</div>
 
-										<div class="form-field form-field-inline">
-											<label for="job-category">Job Category</label>
+									<div class="form-field form-field-inline">
+										<label for="job-contact">Application e-mail/URL</label>
 
-											<div class="field">
-												<div class="ci-select">
-													<select id="job-category">
-														<option value="0">Choose a Category</option>
-														<option value="marketing">Marketing</option>
-														<option value="engineering">Engineering</option>
-														<option value="advertisement">Advertisement</option>
-													</select>
-												</div>
-											</div>
+										<div class="field">
+											<input type="text" id="job-contact">
 										</div>
+									</div>
 
-										<div class="form-field form-field-inline">
-											<label for="job-description">Description</label>
+									<h2 class="mb-2">Company Details</h2>
 
-											<div class="field">
-												<textarea id="job-description" cols="10" rows="10"></textarea>
-											</div>
+									<div class="form-field form-field-inline">
+										<label for="job-company-name">Company Name</label>
+
+										<div class="field">
+											<input type="text" id="job-company-name" placeholder="Enter the name of your company">
 										</div>
+									</div>
 
-										<div class="form-field form-field-inline">
-											<label for="job-contact">Application e-mail/URL</label>
+									<div class="form-field form-field-inline">
+										<label for="job-company-website">Website
+											<small>(optional)</small>
+										</label>
 
-											<div class="field">
-												<input type="text" id="job-contact">
-											</div>
+										<div class="field">
+											<input type="text" id="job-company-website" placeholder="https://">
 										</div>
+									</div>
 
-										<h2 class="mb-2">Company Details</h2>
+									<div class="form-field form-field-inline">
+										<label for="job-company-tagline">Tagline
+											<small>(optional)</small>
+										</label>
 
-										<div class="form-field form-field-inline">
-											<label for="job-company-name">Company Name</label>
-
-											<div class="field">
-												<input type="text" id="job-company-name" placeholder="Enter the name of your company">
-											</div>
+										<div class="field">
+											<input type="text" id="job-company-tagline" placeholder="Briefly describe your company">
 										</div>
+									</div>
 
-										<div class="form-field form-field-inline">
-											<label for="job-company-website">Website
-												<small>(optional)</small>
-											</label>
+									<div class="form-field form-field-inline">
+										<label for="job-company-linkedin">LinkedIn
+											<small>(optional)</small>
+										</label>
 
-											<div class="field">
-												<input type="text" id="job-company-website" placeholder="https://">
-											</div>
+										<div class="field">
+											<input type="text" id="job-company-linkedin" placeholder="https://">
 										</div>
+									</div>
 
-										<div class="form-field form-field-inline">
-											<label for="job-company-tagline">Tagline
-												<small>(optional)</small>
-											</label>
+									<div class="form-field form-field-inline">
+										<label for="job-company-video">Video
+											<small>(optional)</small>
+										</label>
 
-											<div class="field">
-												<input type="text" id="job-company-tagline" placeholder="Briefly describe your company">
-											</div>
+										<div class="field">
+											<input type="text" id="job-company-video" placeholder="A link to a video about your company">
 										</div>
+									</div>
 
-										<div class="form-field form-field-inline">
-											<label for="job-company-linkedin">LinkedIn
-												<small>(optional)</small>
-											</label>
-
-											<div class="field">
-												<input type="text" id="job-company-linkedin" placeholder="https://">
-											</div>
-										</div>
-
-										<div class="form-field form-field-inline">
-											<label for="job-company-video">Video
-												<small>(optional)</small>
-											</label>
-
-											<div class="field">
-												<input type="text" id="job-company-video" placeholder="A link to a video about your company">
-											</div>
-										</div>
-
-										<button type="submit" class="btn">Submit Listing</button>
-									</form>
+									<button type="submit" class="btn">Save</button>
+									
 								</div>
 								{!! Form::close() !!}
 							</article>
@@ -409,6 +400,40 @@
 		<script src="{{asset('js/jquery.matchHeight.js')}}"></script>
 		<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 		<script src="{{asset('js/scripts.js')}}"></script>
+		<script src="{{asset('js/select2.full.min.js')}}"></script>
 
 	</body>
 	</html>
+
+	<script type="text/javascript">
+	$( document ).ready(function() {
+
+
+		$('#district').select2({
+			placeholder: 'Select an option',
+			ajax: {
+				dataType: 'json',
+				url: '{{URL::to('/')}}/get_disticts',
+				delay: 250,
+				data: function(params) {
+					return {
+						term: params.term
+					}
+				},
+				processResults: function (data, params) {
+					params.page = params.page || 1;
+					return {
+						results: data
+					};
+				},
+			}
+		});
+
+
+	});
+
+
+
+
+	</script>
+	

@@ -35,8 +35,34 @@ class IngoProjectsController extends Controller
      */
     public function create()
     {
-        return view('projects.project_create');
+
+        $user = Auth::user();
+
+        $ingo_office = Ingos::where('user_id',$user->id)->first();
+
+        return view('projects.project_create')->with('ingo_office',$ingo_office);
     }
+
+
+
+
+    public function get_district(Request $request){
+
+        $search_term = $request->input('term');
+
+        $query_departments= "
+        SELECT districts.id , districts.name AS text
+        FROM districts WHERE districts.name LIKE '%{$search_term}%'";
+
+        $departments = DB::select($query_departments);
+
+    
+        return response()->json($departments);
+
+
+    }
+
+
 
     /**
      * Store a newly created resource in storage.

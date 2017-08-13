@@ -21,4 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/ingo','IngoController');
 
+
+Route::get('/get_disticts','IngoProjectsController@get_district');
+
 Route::resource('/ingo_project','IngoProjectsController');
+
