@@ -21,7 +21,8 @@ class CreateIngoProjectTable extends Migration
             $table->string('upozilla');
             $table->string('theme');
             $table->string('key_partners');
-            $table->time('time');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
             $table->tinyInteger('valid')->default(1); // 1 = valid, 0 = invalid (basically deleted or not)
             $table->timestamps();
 
