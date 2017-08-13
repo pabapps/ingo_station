@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ingos;
+use App\IngoProjects;
 use Crypt;
 use Auth;
 use Response;
@@ -21,7 +22,7 @@ class IngoProjectsController extends Controller
         $this->middleware('auth');
     }
 
-    
+
     public function index()
     {
         //
@@ -34,7 +35,7 @@ class IngoProjectsController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.project_create');
     }
 
     /**
