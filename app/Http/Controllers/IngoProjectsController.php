@@ -67,11 +67,13 @@ class IngoProjectsController extends Controller
 
         $district = $request->district;
 
+
+
         $search_term = $request->input('term');
 
         $query_departments= "
         SELECT upazilas.id , upazilas.name AS text
-        FROM upazilas WHERE upazilas.district_id='$district' AND upazilas.name LIKE '%{$search_term}%'";
+        FROM upazilas WHERE upazilas.district_id IN(".implode(',', array_map('intval', $district)).") AND upazilas.name LIKE '%{$search_term}%'";
 
         $departments = DB::select($query_departments);
 

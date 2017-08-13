@@ -171,7 +171,7 @@
 
 										<div class="field">
 											<div class="ci-select">
-												<select id="district" name="district" class="js-example-basic-single">
+												<select id="district" name="district" class="js-example-basic-single"  multiple="multiple">
 												</select>
 											</div>
 										</div>
@@ -182,7 +182,7 @@
 
 										<div class="field">
 											<div class="ci-select">
-												<select id="upazila" name="upazila" class="js-example-basic-single">
+												<select id="upazila" name="upazila" class="js-example-basic-single" multiple="multiple" >
 												</select>
 											</div>
 										</div>
