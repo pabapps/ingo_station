@@ -15,6 +15,9 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker-bs3.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/datepicker/datepicker3.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/timepicker/bootstrap-timepicker.min.css')}}">
 
 	<link rel="shortcut icon" href="#">
 	<link rel="apple-touch-icon" href="#">
@@ -130,7 +133,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="page-hero-content">
-							<h1 class="page-title">Submit your opening</h1>
+							<h1 class="page-title">Create Project</h1>
 						</div>
 					</div>
 				</div>
@@ -189,70 +192,21 @@
 									</div>
 
 									<div class="form-field form-field-inline">
-										<label for="job-description">Description</label>
+										<label for="theme">Theme</label>
 
 										<div class="field">
-											<textarea id="job-description" cols="10" rows="10"></textarea>
+											<input type="text" id="theme" name="theme">
 										</div>
 									</div>
 
 									<div class="form-field form-field-inline">
-										<label for="job-contact">Application e-mail/URL</label>
+										<label for="partners">Key Partners</label>
 
 										<div class="field">
-											<input type="text" id="job-contact">
+											<textarea id="partners" cols="10" rows="10"></textarea>
 										</div>
 									</div>
 
-									<h2 class="mb-2">Company Details</h2>
-
-									<div class="form-field form-field-inline">
-										<label for="job-company-name">Company Name</label>
-
-										<div class="field">
-											<input type="text" id="job-company-name" placeholder="Enter the name of your company">
-										</div>
-									</div>
-
-									<div class="form-field form-field-inline">
-										<label for="job-company-website">Website
-											<small>(optional)</small>
-										</label>
-
-										<div class="field">
-											<input type="text" id="job-company-website" placeholder="https://">
-										</div>
-									</div>
-
-									<div class="form-field form-field-inline">
-										<label for="job-company-tagline">Tagline
-											<small>(optional)</small>
-										</label>
-
-										<div class="field">
-											<input type="text" id="job-company-tagline" placeholder="Briefly describe your company">
-										</div>
-									</div>
-
-									<div class="form-field form-field-inline">
-										<label for="job-company-linkedin">LinkedIn
-											<small>(optional)</small>
-										</label>
-
-										<div class="field">
-											<input type="text" id="job-company-linkedin" placeholder="https://">
-										</div>
-									</div>
-
-									<div class="form-field form-field-inline">
-										<label for="job-company-video">Video
-											<small>(optional)</small>
-										</label>
-
-										<div class="field">
-											<input type="text" id="job-company-video" placeholder="A link to a video about your company">
-										</div>
-									</div>
 
 									<button type="submit" class="btn">Save</button>
 									
@@ -401,6 +355,9 @@
 		<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 		<script src="{{asset('js/scripts.js')}}"></script>
 		<script src="{{asset('js/select2.full.min.js')}}"></script>
+		<script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
+		<script src="{{asset('plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+		<script src="{{asset('plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
 
 	</body>
 	</html>
