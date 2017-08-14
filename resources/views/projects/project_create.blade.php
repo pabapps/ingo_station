@@ -207,6 +207,24 @@
 										</div>
 									</div>
 
+									<div class="form-field form-field-inline">
+										<label>Start Date:</label>
+
+										<div class="field">
+											<input type="text" class="form-control " name="entry_date" data-date-format="dd-mm-yyyy" id="start-date" required>
+										</div>
+									</div>
+
+									<div class="form-field form-field-inline">
+										<label>End Date:</label>
+
+										<div class="field">
+											<input type="text" class="form-control " name="entry_date" data-date-format="dd-mm-yyyy" id="end-date" required>
+										</div>
+									</div>
+										
+									
+
 
 									<button type="submit" class="btn">Save</button>
 									
@@ -365,6 +383,19 @@
 	<script type="text/javascript">
 	$( document ).ready(function() {
 
+		$('#start-date').datepicker({
+			autoclose: true
+
+		});
+
+		$('#end-date').datepicker({
+			autoclose: true
+
+		});
+
+		$("#start-date").datepicker('setDate', new Date());
+
+
 
 		$('#district').select2({
 			placeholder: 'Select an option',
@@ -420,5 +451,5 @@
 
 
 
-	</script>
-	
+</script>
+
