@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
 
 	<link rel="shortcut icon" href="#">
 	<link rel="apple-touch-icon" href="#">
@@ -263,43 +264,26 @@
 														<div class="container">
 															<div class="row">
 																<div class="col-lg-3 col-xs-12">
+																	<label for="district" class="sr-only">Theme</label>
+																	<select class="js-example-responsive" style="width: 100%" id="district" name="district">
+																		
+																	</select>
+																	
+																</div>
+																<div class="col-lg-3 col-xs-12">
 																	<label for="theme" class="sr-only">Theme</label>
-																	<div class="ci-select">
-																		<select id="theme" name="theme">
-																			<option value="0">Category</option>
-																			<option value="1">Full Time</option>
-																			<option value="2">Part Time</option>
-																			<option value="3">Internship</option>
-																			<option value="4">Freelance</option>
-																			<option value="5">Contract</option>
-																		</select>
-																	</div>
+																	
+																	<select class="js-example-responsive" style="width: 100%" id="theme" name="theme">
+																		
+																	</select>
+																	
 																</div>
 																<div class="col-lg-3 col-xs-12">
-																	<label for="district" class="sr-only">District</label>
-																	<div class="ci-select">
-																		<select id="district" name="districe">
-																			<option value="0">Category</option>
-																			<option value="1">Full Time</option>
-																			<option value="2">Part Time</option>
-																			<option value="3">Internship</option>
-																			<option value="4">Freelance</option>
-																			<option value="5">Contract</option>
-																		</select>
-																	</div>
-																</div>
-																<div class="col-lg-3 col-xs-12">
-																	<label for="job-category" class="sr-only">Job Category</label>
-																	<div class="ci-select">
-																		<select id="job-category">
-																			<option value="0">Category</option>
-																			<option value="1">Full Time</option>
-																			<option value="2">Part Time</option>
-																			<option value="3">Internship</option>
-																			<option value="4">Freelance</option>
-																			<option value="5">Contract</option>
-																		</select>
-																	</div>
+																	<label for="year" class="sr-only">Year</label>
+																	<select class="js-example-responsive" style="width: 100%" id="year" name="year">
+																		
+																	</select>
+																	
 																</div>
 																<div class="col-lg-3 col-xs-12">
 																	<button class="btn btn-block" type="submit">Search</button>
@@ -501,6 +485,46 @@
 		<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 		<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 		<script src="{{asset('js/scripts.js')}}"></script>
+		<script src="{{asset('js/select2.full.min.js')}}"></script>
 
 	</body>
 	</html>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+
+
+
+
+		$('#district').select2({
+			placeholder: 'Select an option',
+			ajax: {
+				dataType: 'json',
+				url: '{{URL::to('/')}}/get_disticts',
+				delay: 250,
+				data: function(params) {
+					return {
+						term: params.term
+					}
+				},
+				processResults: function (data, params) {
+					params.page = params.page || 1;
+					return {
+						results: data
+					};
+				},
+			}
+		});
+
+
+		
+
+
+	});
+
+
+
+
+	</script>
+
+
+
