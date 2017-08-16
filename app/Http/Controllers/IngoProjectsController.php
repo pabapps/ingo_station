@@ -95,7 +95,44 @@ class IngoProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // dd($request->all());
+
+        $districts = $request->district;
+
+        $upazilas = $request->upazila;
+
+        $dis_string = "";
+
+        foreach ($districts as $dist) {
+            $dis_string = $dis_string."".$dist.",";
+        }
+
+        $upa_string = "";
+
+        foreach ($upazilas as $upa) {
+            $upa_string = $upa_string."".$upa.",";
+        }
+
+        $ingo_project = new IngoProjects;
+
+        $ingo_project->ingo_office_id = $request->ingo_id;
+        $ingo_project->project_name = $request->project_name;
+        $ingo_project->district_id = $dis_string;
+        $ingo_project->upozilla_id = $upa_string;
+        $ingo_project->theme = $request->theme;
+        $ingo_project->key_partners = $request->partners;
+        $ingo_project->start_date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->start_date)->toDateString();
+
+        if(!empty($request->end_date)){
+            $ingo_project->end_date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->end_date)->toDateString();
+        }
+
+        $ingo_project->save();
+
+        return redirect()->action('IngoProjectsController@create'); 
+
+
     }
 
     /**

@@ -17,8 +17,8 @@ class CreateIngoProjectTable extends Migration
             $table->increments('id');
             $table->integer('ingo_office_id')->unsigned();
             $table->string('project_name');
-            $table->string('district');
-            $table->string('upozilla');
+            $table->string('district_id');
+            $table->string('upozilla_id');
             $table->string('theme');
             $table->string('key_partners');
             $table->date('start_date');

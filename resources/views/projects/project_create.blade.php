@@ -159,13 +159,21 @@
 											<input type="text" id="ingo-title" value="{{$ingo_office->ingo_name}}" name="ingo_title" readonly>
 											@endif
 										</div>
+
+										<div hidden>
+											@if(isset($ingo_office))
+											<input type="text" id="ingo-id" value="{{$ingo_office->id}}" name="ingo_id" readonly>
+											@endif
+										</div>
 									</div>
+
+
 
 									<div class="form-field form-field-inline">
 										<label for="project-name">Project Name</label>
 
 										<div class="field">
-											<input type="text" id="project-name" name="project_name" >
+											<input type="text" id="project-name" name="project_name" required>
 										</div>
 									</div>
 
@@ -174,7 +182,7 @@
 
 										<div class="field">
 											<div class="ci-select">
-												<select id="district" name="district" class="js-example-basic-single"  multiple="multiple">
+												<select id="district" name="district[]" class="js-example-basic-single"  multiple="multiple">
 												</select>
 											</div>
 										</div>
@@ -185,7 +193,7 @@
 
 										<div class="field">
 											<div class="ci-select">
-												<select id="upazila" name="upazila" class="js-example-basic-single" multiple="multiple" >
+												<select id="upazila" name="upazila[]" class="js-example-basic-single" multiple="multiple" >
 												</select>
 											</div>
 										</div>
@@ -195,7 +203,7 @@
 										<label for="theme">Theme</label>
 
 										<div class="field">
-											<input type="text" id="theme" name="theme">
+											<input type="text" id="theme" name="theme" required>
 										</div>
 									</div>
 
@@ -203,7 +211,7 @@
 										<label for="partners">Key Partners</label>
 
 										<div class="field">
-											<textarea id="partners" cols="10" rows="10"></textarea>
+											<textarea id="partners" name="partners" cols="10" rows="10" required></textarea>
 										</div>
 									</div>
 
@@ -211,7 +219,7 @@
 										<label>Start Date:</label>
 
 										<div class="field">
-											<input type="text" class="form-control " name="entry_date" data-date-format="dd-mm-yyyy" id="start-date" required>
+											<input type="text" class="form-control " name="start_date" data-date-format="dd-mm-yyyy" id="start-date" required>
 										</div>
 									</div>
 
@@ -219,7 +227,7 @@
 										<label>End Date:</label>
 
 										<div class="field">
-											<input type="text" class="form-control " name="entry_date" data-date-format="dd-mm-yyyy" id="end-date" required>
+											<input type="text" class="form-control " name="end_date" data-date-format="dd-mm-yyyy" id="end-date" >
 										</div>
 									</div>
 										
