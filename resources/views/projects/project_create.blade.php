@@ -15,9 +15,9 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
-	<link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker-bs3.css')}}">
-	<link rel="stylesheet" href="{{asset('plugins/datepicker/datepicker3.css')}}">
-	<link rel="stylesheet" href="{{asset('plugins/timepicker/bootstrap-timepicker.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/daterangepicker/daterangepicker-bs3.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/datepicker/datepicker3.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/timepicker/bootstrap-timepicker.min.css')}}">
 
 	<link rel="shortcut icon" href="#">
 	<link rel="apple-touch-icon" href="#">

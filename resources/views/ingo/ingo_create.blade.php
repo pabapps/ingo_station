@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/magnific.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
 
 	<link rel="shortcut icon" href="#">
 	<link rel="apple-touch-icon" href="#">
@@ -158,82 +159,205 @@
 										@endforeach
 
 									</div>
-									
 
-									{!! Form::open(array('route'=>'ingo.store', 'files'=>true, 'id'=>'department-form', 'class'=>'form form-submit-listing' )) !!}
+									<div class="col-xs-12">
+										<div class="nav-tabs-custom">
+											<ul class="nav nav-tabs">
+												<li class="active"><a href="#ingo-info" data-toggle="tab">Ingo Info</a></li>
+												<li><a href="#project-list" data-toggle="tab">Project list</a></li>
+											</ul>
+											<div class="tab-content">
+												<div class="active tab-pane" id="ingo-info">
+													{!! Form::open(array('route'=>'ingo.store', 'files'=>true, 'id'=>'department-form', 'class'=>'form form-submit-listing' )) !!}
 
 
-									<div class="form-field form-field-inline">
-										<label for="ingo-name">Ingo name</label>
+													<div class="form-field form-field-inline">
+														<label for="ingo-name">Ingo name</label>
 
-										<div class="field">
-										@if(isset($ingo->ingo_name))
-											<input type="text" id="ingo-name" name="ingo_name" value="{{$ingo->ingo_name}}" required>
-										@else
-											<input type="text" id="ingo-name" name="ingo_name" required>
-										@endif	
+														<div class="field">
+															@if(isset($ingo->ingo_name))
+															<input type="text" id="ingo-name" name="ingo_name" value="{{$ingo->ingo_name}}" required>
+															@else
+															<input type="text" id="ingo-name" name="ingo_name" required>
+															@endif	
+														</div>
+													</div>
+
+													<div class="form-field form-field-inline">
+														<label for="address">Address
+														</label>
+
+														<div class="field">
+															@if(isset($ingo->address))
+															<input type="text" id="address" placeholder='E.g. "London"' name="ingo_address" value="{{$ingo->address}}" required>
+															@else
+															<input type="text" id="address" placeholder='E.g. "London"' name="ingo_address" required>
+															@endif
+														</div>
+													</div>
+
+													<div class="form-field form-field-inline">
+														<label for="contact-number">Contact Number</label>
+
+														<div class="field">
+															@if(isset($ingo->contact_number))
+															<input type="number" id="contact-number" name="contact_number" value="{{$ingo->contact_number}}" required >
+															@else
+															<input type="number" id="contact-number" name="contact_number" required >
+															@endif
+														</div>
+													</div>
+
+													<div class="form-field form-field-inline">
+														<label for="email">Email</label>
+
+														<div class="field">
+															@if(isset($ingo->email))
+															<input type="email" id="email" name="ingo_email" value="{{$ingo->email}}" required >
+															@else
+															<input type="email" id="email" name="ingo_email" required >
+															@endif
+														</div>
+													</div>
+
+
+													<div class="form-field form-field-inline">
+														<label for="web_link">URL
+															<small>(optional)</small>
+														</label>
+
+
+														<div class="field">
+															@if(isset($ingo->web_link))
+															<input type="text" id="web_link" name="web_link" value="{{$ingo->web_link}}">
+															@else
+															<input type="text" id="web_link" name="web_link">
+															@endif
+														</div>
+													</div>
+
+
+													<button type="submit" class="btn">Save</button>
+
+													{!! Form::close() !!}
+
+												</div>
+												<div class="tab-pane" id="project-list">
+
+													<div class="container">
+														<div class="row">
+															<div class="col-xs-8">
+																<div class="page-hero-content">
+																	<h2 class="page-title">
+																		@if(isset($ingo->ingo_name))
+																		<span class="text-theme">{{$ingo->ingo_name}}.</span> Find your projects
+																		@endif
+
+																	</h2>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<form action="/" >
+														<div class="container">
+															<div class="row">
+																<div class="col-lg-3 col-xs-12">
+																	<label for="theme" class="sr-only">Theme</label>
+																	<div class="ci-select">
+																		<select id="theme" name="theme">
+																			<option value="0">Category</option>
+																			<option value="1">Full Time</option>
+																			<option value="2">Part Time</option>
+																			<option value="3">Internship</option>
+																			<option value="4">Freelance</option>
+																			<option value="5">Contract</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-lg-3 col-xs-12">
+																	<label for="district" class="sr-only">District</label>
+																	<div class="ci-select">
+																		<select id="district" name="districe">
+																			<option value="0">Category</option>
+																			<option value="1">Full Time</option>
+																			<option value="2">Part Time</option>
+																			<option value="3">Internship</option>
+																			<option value="4">Freelance</option>
+																			<option value="5">Contract</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-lg-3 col-xs-12">
+																	<label for="job-category" class="sr-only">Job Category</label>
+																	<div class="ci-select">
+																		<select id="job-category">
+																			<option value="0">Category</option>
+																			<option value="1">Full Time</option>
+																			<option value="2">Part Time</option>
+																			<option value="3">Internship</option>
+																			<option value="4">Freelance</option>
+																			<option value="5">Contract</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-lg-3 col-xs-12">
+																	<button class="btn btn-block" type="submit">Search</button>
+																</div>
+															</div>
+														</div>
+													</form>
+													
+
+													<div class="entry-content">
+														<h1>Project List</h1>
+
+														<div id="job-manager-job-dashboard">
+															<table class="job-manager-jobs">
+																<thead>
+																	<tr>
+																		<th class="job_title">Title</th>
+																		<th class="filled">Filled?</th>
+																		<th class="date">Date Posted</th>
+																		<th class="expires">Listing Expires</th>
+																	</tr>
+																</thead>
+
+																<tbody>
+																	<tr>
+																		<td class="job_title">
+																			<a href="single-job.html">Marketing Executive &ndash; Global Brands</a>
+																			<ul class="job-dashboard-actions">
+																				<li>
+																					<a href="#" class="job-dashboard-action-edit">Edit</a>
+																				</li>
+																				<li>
+																					<a href="#" class="job-dashboard-action-delete">Delete</a>
+																				</li>
+																			</ul>
+																		</td>
+
+																		<td class="filled">
+																			&ndash;
+																		</td>
+																		<td class="date">
+																			March 11, 2017
+																		</td>
+																		<td class="expires">
+																			July 31, 2021
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+
 										</div>
 									</div>
-
-									<div class="form-field form-field-inline">
-										<label for="address">Address
-										</label>
-
-										<div class="field">
-										@if(isset($ingo->address))
-											<input type="text" id="address" placeholder='E.g. "London"' name="ingo_address" value="{{$ingo->address}}" required>
-										@else
-											<input type="text" id="address" placeholder='E.g. "London"' name="ingo_address" required>
-										@endif
-										</div>
-									</div>
-
-									<div class="form-field form-field-inline">
-										<label for="contact-number">Contact Number</label>
-
-										<div class="field">
-										@if(isset($ingo->contact_number))
-											<input type="number" id="contact-number" name="contact_number" value="{{$ingo->contact_number}}" required >
-										@else
-											<input type="number" id="contact-number" name="contact_number" required >
-										@endif
-										</div>
-									</div>
-
-									<div class="form-field form-field-inline">
-										<label for="email">Email</label>
-
-										<div class="field">
-										@if(isset($ingo->email))
-											<input type="email" id="email" name="ingo_email" value="{{$ingo->email}}" required >
-										@else
-											<input type="email" id="email" name="ingo_email" required >
-										@endif
-										</div>
-									</div>
-
-
-									<div class="form-field form-field-inline">
-										<label for="web_link">URL
-											<small>(optional)</small>
-										</label>
-
-
-										<div class="field">
-										@if(isset($ingo->web_link))
-											<input type="text" id="web_link" name="web_link" value="{{$ingo->web_link}}">
-										@else
-											<input type="text" id="web_link" name="web_link">
-										@endif
-										</div>
-									</div>
-
-
-									<button type="submit" class="btn">Save</button>
-
-									{!! Form::close() !!}
-
-								</div>
+								</div>	
 							</article>
 						</div>
 					</div>
@@ -375,6 +499,7 @@
 		<script src="{{asset('js/jquery.magnific-popup.js')}}"></script>
 		<script src="{{asset('js/jquery.matchHeight.js')}}"></script>
 		<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+		<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 		<script src="{{asset('js/scripts.js')}}"></script>
 
 	</body>

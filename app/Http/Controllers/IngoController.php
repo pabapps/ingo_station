@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ingos;
+use App\IngoProjects;
 use Crypt;
 use Auth;
 use Response;
@@ -38,9 +39,16 @@ class IngoController extends Controller
 
         $ingo = Ingos::where('user_id',$user->id)->first();
 
+
         if(is_object($ingo)){
 
-            return view('ingo.ingo_create')->with('ingo',$ingo);
+            $project_list = IngoProjects::where('ingo_office_id',$ingo->id)->get();
+
+            if(sizeof($project_list)>0){
+                return view('ingo.ingo_create')->with('ingo',$ingo)->with('project_list',$project_list);
+            }else{
+                return view('ingo.ingo_create')->with('ingo',$ingo);
+            }
 
         }else{
 
@@ -77,29 +85,29 @@ class IngoController extends Controller
 
         }else{
 
-           $ingo = new Ingos;
+         $ingo = new Ingos;
 
-           $ingo->user_id = $user->id;
-           $ingo->ingo_name = $request->ingo_name;
-           $ingo->address = $request->ingo_address;
-           $ingo->contact_number = $request->contact_number;
-           $ingo->email = $request->ingo_email;
-           $ingo->web_link = $request->web_link;
-           $ingo->valid = 1;
+         $ingo->user_id = $user->id;
+         $ingo->ingo_name = $request->ingo_name;
+         $ingo->address = $request->ingo_address;
+         $ingo->contact_number = $request->contact_number;
+         $ingo->email = $request->ingo_email;
+         $ingo->web_link = $request->web_link;
+         $ingo->valid = 1;
 
-           $ingo->save();
+         $ingo->save();
 
-       }
-
-       
-
-       $request->session()->flash('alert-success', 'data has been successfully saved!');
-       return redirect()->action('IngoController@create'); 
+     }
 
 
 
+     $request->session()->flash('alert-success', 'data has been successfully saved!');
+     return redirect()->action('IngoController@create'); 
 
-   }
+
+
+
+ }
 
     /**
      * Display the specified resource.
