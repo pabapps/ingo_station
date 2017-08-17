@@ -139,7 +139,7 @@ class IngoProjectsController extends Controller
 
         $ingo_project->save();
 
-        return redirect()->action('IngoProjectsController@create'); 
+        return redirect()->action('IngoController@create'); 
 
 
     }
