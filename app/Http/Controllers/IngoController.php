@@ -45,7 +45,9 @@ class IngoController extends Controller
             $project_list = IngoProjects::where('ingo_office_id',$ingo->id)->get();
 
             if(sizeof($project_list)>0){
+
                 return view('ingo.ingo_create')->with('ingo',$ingo)->with('project_list',$project_list);
+                
             }else{
                 return view('ingo.ingo_create')->with('ingo',$ingo);
             }

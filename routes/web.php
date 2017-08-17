@@ -27,6 +27,8 @@ Route::get('/get_disticts','IngoProjectsController@get_district');
 //ajax query to get upazilas based on the selected district
 Route::get('/get_upazila','IngoProjectsController@get_upazila');
 
+Route::get('/get_project_themes','IngoProjectsController@project_theme');
+
 
 Route::resource('/ingo_project','IngoProjectsController');
 

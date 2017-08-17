@@ -300,36 +300,17 @@
 															<table class="job-manager-jobs">
 																<thead>
 																	<tr>
-																		<th class="job_title">Title</th>
-																		<th class="filled">Filled?</th>
-																		<th class="date">Date Posted</th>
-																		<th class="expires">Listing Expires</th>
+																		<th >Name</th>
+																		<th >Theme</th>
+																		<th >District</th>
+																		<th >Upazila</th>
+																		<th >Starting Year</th>
 																	</tr>
 																</thead>
 
 																<tbody>
 																	<tr>
-																		<td class="job_title">
-																			<a href="single-job.html">Marketing Executive &ndash; Global Brands</a>
-																			<ul class="job-dashboard-actions">
-																				<li>
-																					<a href="#" class="job-dashboard-action-edit">Edit</a>
-																				</li>
-																				<li>
-																					<a href="#" class="job-dashboard-action-delete">Delete</a>
-																				</li>
-																			</ul>
-																		</td>
-
-																		<td class="filled">
-																			&ndash;
-																		</td>
-																		<td class="date">
-																			March 11, 2017
-																		</td>
-																		<td class="expires">
-																			July 31, 2021
-																		</td>
+																		
 																	</tr>
 																</tbody>
 															</table>
@@ -493,13 +474,31 @@
 	$( document ).ready(function() {
 
 
-
-
 		$('#district').select2({
 			placeholder: 'Select an option',
 			ajax: {
 				dataType: 'json',
 				url: '{{URL::to('/')}}/get_disticts',
+				delay: 250,
+				data: function(params) {
+					return {
+						term: params.term
+					}
+				},
+				processResults: function (data, params) {
+					params.page = params.page || 1;
+					return {
+						results: data
+					};
+				},
+			}
+		});
+
+		$('#theme').select2({
+			placeholder: 'Select an option',
+			ajax: {
+				dataType: 'json',
+				url: '{{URL::to('/')}}/get_project_themes',
 				delay: 250,
 				data: function(params) {
 					return {

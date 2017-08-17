@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ingos;
 use App\IngoProjects;
+use App\District;
+use App\Division;
+use App\Upazila;
 use Crypt;
 use Auth;
 use Response;
@@ -105,13 +108,19 @@ class IngoProjectsController extends Controller
         $dis_string = "";
 
         foreach ($districts as $dist) {
-            $dis_string = $dis_string."".$dist.",";
+
+            $district = District::where('id',$dist)->first();
+
+            $dis_string = $dis_string."".$district->name.",";
         }
 
         $upa_string = "";
 
         foreach ($upazilas as $upa) {
-            $upa_string = $upa_string."".$upa.",";
+
+            $upazila_sub_district = Upazila::where('id',$upa)->first(); 
+
+            $upa_string = $upa_string."".$upazila_sub_district->name.",";
         }
 
         $ingo_project = new IngoProjects;
@@ -134,6 +143,28 @@ class IngoProjectsController extends Controller
 
 
     }
+
+    public function project_theme(Request $request){
+
+        $user = Auth::user();
+
+        $search_term = $request->input('term');
+
+        $ingo = Ingos::where('user_id',$user->id)->first();
+
+        $ingo_id = $ingo->id;
+
+        $query_ingo_projects = "
+        SELECT ingo_projects.id AS id, ingo_projects.theme AS text 
+        FROM ingo_projects WHERE ingo_projects.ingo_office_id='$ingo_id' AND ingo_projects.valid=1 AND ingo_projects.theme LIKE '%{$search_term}%'";
+
+        $ingo_projects = DB::select($query_ingo_projects);
+
+
+        return response()->json($ingo_projects);  
+
+    }
+
 
     /**
      * Display the specified resource.
