@@ -300,7 +300,7 @@
 															<table class="job-manager-jobs">
 																<thead>
 																	<tr>
-																		<th >Name</th>
+																		<th class="job_title" >Name</th>
 																		<th >Theme</th>
 																		<th >District</th>
 																		<th >Upazila</th>
@@ -309,9 +309,26 @@
 																</thead>
 
 																<tbody>
+																	@if(isset($project_list))
+																	@foreach($project_list as $list)
 																	<tr>
-																		
+																		<td class="job_title">{{$list->project_name}}
+																		<ul class="job-dashboard-actions">
+																			<li>
+																				<a href="#" class="job-dashboard-action-edit">Edit</a>
+																			</li>
+																			<li>
+																				<a href="#" class="job-dashboard-action-delete">Delete</a>
+																			</li>
+																		</ul>
+																		</td>
+																		<td>{{$list->theme}}</td>
+																		<td>{{$list->district_id}}</td>
+																		<td>{{$list->upozilla_id}}</td>
+																		<td>{{$list->start_date}}</td>
 																	</tr>
+																	@endforeach
+																	@endif
 																</tbody>
 															</table>
 														</div>
