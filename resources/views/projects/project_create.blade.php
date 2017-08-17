@@ -49,10 +49,10 @@
 										<a href="blog.html">Listings</a>
 										<ul class="sub-menu">
 											<li>
-												<a href="index.html">Job Listing</a>
+												<a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
 											</li>
 											<li>
-												<a href="index-fullwidth.html">Job Listing Full</a>
+												<a href="{{URL::to('/').'/ingo_project/create'}}">Create Project</a>
 											</li>
 											<li>
 												<a href="index-left-sidebar.html">Job Listing Left</a>
@@ -111,7 +111,15 @@
 										</ul>
 									</li>
 									<li class="menu-item-btn">
-										<a href="auth.html">Sign Up</a>
+										<a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
 									</li>
 								</ul>
 								<!-- #navigation -->

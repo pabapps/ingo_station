@@ -47,10 +47,10 @@
 										<a href="blog.html">Listings</a>
 										<ul class="sub-menu">
 											<li>
-												<a href="index.html">Job Listing</a>
+												<a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
 											</li>
 											<li>
-												<a href="index-fullwidth.html">Job Listing Full</a>
+												<a href="{{URL::to('/').'/ingo_project/create'}}">Create Project</a>
 											</li>
 											<li>
 												<a href="index-left-sidebar.html">Job Listing Left</a>
@@ -109,7 +109,15 @@
 										</ul>
 									</li>
 									<li class="menu-item-btn">
-										<a href="auth.html">Sign Up</a>
+										<a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
 									</li>
 								</ul>
 								<!-- #navigation -->
@@ -131,7 +139,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="page-hero-content">
-							<h1 class="page-title">Please enter ingo info</h1>
+							<h1 class="page-title">Please enter Ingo info</h1>
 						</div>
 					</div>
 				</div>
@@ -164,11 +172,11 @@
 									<div class="col-xs-12">
 										<div class="nav-tabs-custom">
 											<ul class="nav nav-tabs">
-												<li class="active"><a href="#ingo-info" data-toggle="tab">Ingo Info</a></li>
-												<li><a href="#project-list" data-toggle="tab">Project list</a></li>
+												<li><a href="#ingo-info" data-toggle="tab">Ingo Info</a></li>
+												<li class="active" ><a href="#project-list" data-toggle="tab">Project list</a></li>
 											</ul>
 											<div class="tab-content">
-												<div class="active tab-pane" id="ingo-info">
+												<div class="tab-pane"  id="ingo-info">
 													{!! Form::open(array('route'=>'ingo.store', 'files'=>true, 'id'=>'department-form', 'class'=>'form form-submit-listing' )) !!}
 
 
@@ -243,7 +251,7 @@
 													{!! Form::close() !!}
 
 												</div>
-												<div class="tab-pane" id="project-list">
+												<div class="active tab-pane"  id="project-list">
 
 													<div class="container">
 														<div class="row">
