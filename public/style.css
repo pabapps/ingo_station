@@ -1023,7 +1023,7 @@ button.mfp-close:hover, button.mfp-arrow:hover {
 
 .page-hero::before {
 	content: "";
-	background-color: rgba(47, 48, 67, 0.82);
+	background-color: rgba(47, 48, 67, 0.11);
 	position: absolute;
 	top: 0;
 	left: 0;
