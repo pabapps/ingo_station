@@ -44,7 +44,7 @@
 										<a href="landing.html">Landing Page</a>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="blog.html">Listings</a>
+										<a href="blog.html">iNGO</a>
 										<ul class="sub-menu">
 											<li>
 												<a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
@@ -64,7 +64,7 @@
 										</ul>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="#">Templates</a>
+										<a href="#">Contacts</a>
 										<ul class="sub-menu">
 											<li>
 												<a href="single.html">Single Article</a>
@@ -90,7 +90,7 @@
 										</ul>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="#">Menu Item</a>
+										<a href="#">Members</a>
 										<ul class="sub-menu">
 											<li>
 												<a href="#">Submenu Item I</a>
@@ -139,7 +139,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="page-hero-content">
-							<h1 class="page-title">Please enter Ingo info</h1>
+							<h1 class="page-title">Please enter iNGO info</h1>
 						</div>
 					</div>
 				</div>
@@ -172,7 +172,7 @@
 									<div class="col-xs-12">
 										<div class="nav-tabs-custom">
 											<ul class="nav nav-tabs">
-												<li><a href="#ingo-info" data-toggle="tab">Ingo Info</a></li>
+												<li><a href="#ingo-info" data-toggle="tab">iNGO Info</a></li>
 												<li class="active" ><a href="#project-list" data-toggle="tab">Project list</a></li>
 											</ul>
 											<div class="tab-content">
@@ -181,7 +181,7 @@
 
 
 													<div class="form-field form-field-inline">
-														<label for="ingo-name">Ingo name</label>
+														<label for="ingo-name">iNGO name</label>
 
 														<div class="field">
 															@if(isset($ingo->ingo_name))

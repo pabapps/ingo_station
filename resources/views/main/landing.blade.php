@@ -58,7 +58,7 @@
 										<a href="landing.html">Landing Page</a>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="blog.html">Listings</a>
+										<a href="blog.html">iNGO</a>
 										<ul class="sub-menu">
 											<li>
 												<a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
@@ -78,7 +78,7 @@
 										</ul>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="#">Templates</a>
+										<a href="#">Contacts</a>
 										<ul class="sub-menu">
 											<li>
 												<a href="single.html">Single Article</a>
@@ -104,7 +104,7 @@
 										</ul>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="#">Menu Item</a>
+										<a href="#">Members</a>
 										<ul class="sub-menu">
 											<li>
 												<a href="#">Submenu Item I</a>
@@ -149,7 +149,7 @@
 					<div class="col-xs-12">
 						<div class="page-hero-content">
 							<h1 class="page-title">
-								<span class="text-theme">Welcome</span> TO INGO FORUM Bangladesh
+								<span class="text-theme">Welcome</span> TO iNGO FORUM Bangladesh
 							</h1>
 							<p class="page-subtitle">
 								<span class="text-theme"></span> 
@@ -177,7 +177,7 @@
 								<i class="fa fa-sliders"></i>
 							</span>
 
-							<p class="item-title">INGO FORUM SUMMARY</p>
+							<p class="item-title">iNGO FORUM SUMMARY</p>
 
 							<p>The INGO Forum Bangladesh aims to influence and increase the effectiveness and coherence of humanitarian relief and development aid in Bangladesh. It does this by exploring opportunities to develop and strengthen policy and best practice through coordinated information sharing, facilitated dialogue and constructive engagement with national and international decision-makers involved in humanitarian and development activities, in doing so it supports an enabling environment for INGOs to better fulfil their mandates.</p>
 						</div>

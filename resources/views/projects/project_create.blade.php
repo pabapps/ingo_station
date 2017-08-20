@@ -46,10 +46,10 @@
 										<a href="landing.html">Landing Page</a>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="blog.html">Listings</a>
+										<a href="blog.html">iNGO</a>
 										<ul class="sub-menu">
 											<li>
-												<a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
+												<a href="{{URL::to('/').'/ingo/create'}}">iNGO</a>
 											</li>
 											<li>
 												<a href="{{URL::to('/').'/ingo_project/create'}}">Create Project</a>
@@ -66,7 +66,7 @@
 										</ul>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="#">Templates</a>
+										<a href="#">Contacts</a>
 										<ul class="sub-menu">
 											<li>
 												<a href="single.html">Single Article</a>
@@ -92,7 +92,7 @@
 										</ul>
 									</li>
 									<li class="menu-item-has-children">
-										<a href="#">Menu Item</a>
+										<a href="#">Members</a>
 										<ul class="sub-menu">
 											<li>
 												<a href="#">Submenu Item I</a>
@@ -160,7 +160,7 @@
 
 
 								<div class="form-field form-field-inline">
-									<label for="ingo-title">Ingo</label>
+									<label for="ingo-title">iNGO</label>
 
 									<div class="field">
 										@if(isset($ingo_office))
