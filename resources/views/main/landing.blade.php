@@ -52,7 +52,7 @@
 							<nav class="nav">
 								<ul class="navigation-main">
 									<li class="menu-item-home current-menu-item">
-										<a href="index.html">Home</a>
+										<a href="{{URL::to('/').'/'}}">Home</a>
 									</li>
 									<li>
 										<a href="landing.html">Landing Page</a>
