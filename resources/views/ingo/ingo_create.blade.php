@@ -259,7 +259,7 @@
 																<div class="page-hero-content">
 																	<h2 class="page-title">
 																		@if(isset($ingo->ingo_name))
-																		<span class="text-theme">{{$ingo->ingo_name}}.</span> Find your projects
+																		<span class="text-theme">{{$ingo->ingo_name}}.</span><br> Find your projects
 																		@endif
 
 																	</h2>
