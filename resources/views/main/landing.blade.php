@@ -333,14 +333,13 @@
 								<div class="row">
 									<div class="col-sm-6 col-xs-12">
 										<p>
-											<a href="">Specialty</a> &ndash; Job Board Template by
-											<a href="https://www.cssigniter.com/ignite" target="_blank">CSSIgniter</a>
+											<a href="https://www.practicalaction.org" target="_blank">Practical Action Bangladesh</a>
 										</p>
 									</div>
 
 									<div class="col-sm-6 col-xs-12 text-right">
 										<p>Powered by
-											<a href="https://www.cssigniter.com/ignite" target="_blank">CSSIgniter</a>
+											<a href="https://www.practicalaction.org" target="_blank">Practical Action Bangladesh</a>
 										</p>
 									</div>
 								</div>
