@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/ingo_maps','IngoController@maps');
+
 Route::resource('/ingo','IngoController');
 
 //ajax query to get all the districts

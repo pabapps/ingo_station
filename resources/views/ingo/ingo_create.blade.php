@@ -6,116 +6,6 @@
 @endsection
 @section('content')
 
-<div id="page">
-	<header class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="mast-head">
-						<h1 class="site-logo">
-							<a href="index.html">
-								<img src="images/logo-light.png" alt="">
-							</a>
-						</h1>
-						<nav class="nav">
-							<ul class="navigation-main">
-								<li class="menu-item-home current-menu-item">
-									<a href="{{URL::to('/').'/'}}">Home</a>
-								</li>
-								<li>
-									<a href="landing.html">Landing Page</a>
-								</li>
-								<li class="menu-item-has-children">
-									<a href="blog.html">iNGO</a>
-									<ul class="sub-menu">
-										<li>
-											<a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
-										</li>
-										<li>
-											<a href="{{URL::to('/').'/ingo_project/create'}}">Create Project</a>
-										</li>
-										<li>
-											<a href="index-left-sidebar.html">Job Listing Left</a>
-										</li>
-										<li>
-											<a href="blog.html">Blog</a>
-										</li>
-										<li>
-											<a href="dashboard.html">Job Dashboard</a>
-										</li>
-									</ul>
-								</li>
-								<li class="menu-item-has-children">
-									<a href="#">Contacts</a>
-									<ul class="sub-menu">
-										<li>
-											<a href="single.html">Single Article</a>
-										</li>
-										<li>
-											<a href="single-job.html">Single Job</a>
-										</li>
-										<li>
-											<a href="page.html">Page Default</a>
-										</li>
-										<li>
-											<a href="page-centered.html">Page Centered</a>
-										</li>
-										<li>
-											<a href="page-fullwidth.html">Page Fullwidth</a>
-										</li>
-										<li>
-											<a href="submit.html">Submit</a>
-										</li>
-										<li>
-											<a href="buttons.html">Button Styles</a>
-										</li>
-									</ul>
-								</li>
-								<li class="menu-item-has-children">
-									<a href="#">Members</a>
-									<ul class="sub-menu">
-										<li>
-											<a href="#">Submenu Item I</a>
-										</li>
-										<li class="menu-item-has-children">
-											<a href="#">Submenu Item II</a>
-											<ul class="sub-menu">
-												<li>
-													<a href="#">Third Level Menu Item</a>
-												</li>
-												<li>
-													<a href="#">Menu Item</a>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="menu-item-btn">
-									<a href="{{ route('logout') }}"
-									onclick="event.preventDefault();
-									document.getElementById('logout-form').submit();">
-									Logout
-								</a>
-
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-									{{ csrf_field() }}
-								</form>
-							</li>
-						</ul>
-						<!-- #navigation -->
-
-						<a href="#mobilemenu" class="mobile-nav-trigger">
-							<i class="fa fa-navicon"></i> Menu
-						</a>
-					</nav>
-					<!-- #nav -->
-
-					<div id="mobilemenu"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
 <div class="page-hero">
 	<div class="container">
 		<div class="row">
@@ -254,14 +144,12 @@
 												<div class="container">
 													<div class="row">
 														<div class="col-lg-3 col-xs-12">
-															<label for="district" class="sr-only">Theme</label>
 															<select class="js-example-responsive" style="width: 100%" id="district" name="district">
 
 															</select>
 
 														</div>
 														<div class="col-lg-3 col-xs-12">
-															<label for="theme" class="sr-only">Theme</label>
 
 															<select class="js-example-responsive" style="width: 100%" id="theme" name="theme">
 
@@ -269,14 +157,7 @@
 
 														</div>
 														<div class="col-lg-3 col-xs-12">
-															<label for="year" class="sr-only">Year</label>
-															<select class="js-example-responsive" style="width: 100%" id="year" name="year">
-
-															</select>
-
-														</div>
-														<div class="col-lg-3 col-xs-12">
-															<button class="btn btn-block" type="submit">Search</button>
+															<button class="btn btn-block" id="search-box" type="submit">Search</button>
 														</div>
 													</div>
 												</div>
@@ -287,7 +168,7 @@
 												<h1>Project List</h1>
 
 												<div id="job-manager-job-dashboard">
-													<table class="job-manager-jobs">
+													<table class="job-manager-jobs" id="project-table">
 														<thead>
 															<tr>
 																<th class="job_title" >Name</th>
@@ -475,7 +356,7 @@
 
 
 		$('#district').select2({
-			placeholder: 'Select an option',
+			placeholder: 'Select a district',
 			ajax: {
 				dataType: 'json',
 				url: '{{URL::to('/')}}/get_disticts',
@@ -512,6 +393,16 @@
 					};
 				},
 			}
+		});
+
+
+		$( "#search-box" ).click(function( event ) {
+			event.preventDefault();
+
+			console.log("working on it");
+
+			$("#project-table td").remove();
+			
 		});
 
 

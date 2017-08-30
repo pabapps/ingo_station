@@ -111,6 +111,20 @@ class IngoController extends Controller
 
  }
 
+ public function maps(){
+
+    // dd("testing");
+
+    $response = \GoogleMaps::load('geocoding')
+    ->setParam (['address' =>'santa cruz'])
+    ->get();
+
+    var_dump( json_decode( $response ) );
+
+    // dd($response);
+
+}
+
     /**
      * Display the specified resource.
      *
