@@ -180,10 +180,10 @@
 														</thead>
 
 														<tbody>
-															@if(isset($project_list))
-															@foreach($project_list as $list)
+															@if(isset($final_array))
+															@foreach($final_array as $list)
 															<tr>
-																<td class="job_title">{{$list->project_name}}
+																<td class="job_title">{{$list['project']->project_name}}
 																	<ul class="job-dashboard-actions">
 																		<li>
 																			<a href="#" class="job-dashboard-action-edit">Edit</a>
@@ -193,10 +193,10 @@
 																		</li>
 																	</ul>
 																</td>
-																<td>{{$list->theme}}</td>
-																<td>{{$list->district_id}}</td>
-																<td>{{$list->upozilla_id}}</td>
-																<td>{{$list->start_date}}</td>
+																<td>{{$list['project']->theme}}</td>
+																<td>{{$list['district']}}</td>
+																<td>{{$list['thana']}}</td>
+																<td>{{$list['project']->start_date}}</td>
 															</tr>
 															@endforeach
 															@endif

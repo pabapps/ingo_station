@@ -8,6 +8,8 @@ use App\IngoProjects;
 use App\District;
 use App\Division;
 use App\Upazila;
+use App\ProjectDistrict;
+use App\ProjectUpazila;
 use Crypt;
 use Auth;
 use Response;
@@ -101,34 +103,12 @@ class IngoProjectsController extends Controller
 
         // dd($request->all());
 
-        $districts = $request->district;
-
-        $upazilas = $request->upazila;
-
-        $dis_string = "";
-
-        foreach ($districts as $dist) {
-
-            $district = District::where('id',$dist)->first();
-
-            $dis_string = $dis_string."".$district->name.",";
-        }
-
-        $upa_string = "";
-
-        foreach ($upazilas as $upa) {
-
-            $upazila_sub_district = Upazila::where('id',$upa)->first(); 
-
-            $upa_string = $upa_string."".$upazila_sub_district->name.",";
-        }
+        
 
         $ingo_project = new IngoProjects;
 
         $ingo_project->ingo_office_id = $request->ingo_id;
         $ingo_project->project_name = $request->project_name;
-        $ingo_project->district_id = $dis_string;
-        $ingo_project->upozilla_id = $upa_string;
         $ingo_project->theme = $request->theme;
         $ingo_project->key_partners = $request->partners;
         $ingo_project->start_date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->start_date)->toDateString();
@@ -138,6 +118,36 @@ class IngoProjectsController extends Controller
         }
 
         $ingo_project->save();
+
+        $districts = $request->district;
+
+        $upazilas = $request->upazila;
+
+        foreach ($districts as $dist) {
+
+            $district = District::where('id',$dist)->first();
+
+            $project_district = new ProjectDistrict;
+
+            $project_district->project_id = $ingo_project->id;
+            $project_district->district_id = $district->id;
+
+            $project_district->save();
+        }
+
+
+        foreach ($upazilas as $upa) {
+
+            $upazila_sub_district = Upazila::where('id',$upa)->first(); 
+
+            $project_upa = new ProjectUpazila;
+
+            $project_upa->project_id = $ingo_project->id;
+            $project_upa->upazila_id = $upazila_sub_district->id;
+
+            $project_upa->save();
+            
+        }
 
         return redirect()->action('IngoController@create'); 
 
