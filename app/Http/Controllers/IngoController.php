@@ -152,35 +152,35 @@ class IngoController extends Controller
 
         }else{
 
-         $ingo = new Ingos;
+           $ingo = new Ingos;
 
-         $ingo->user_id = $user->id;
-         $ingo->ingo_name = $request->ingo_name;
-         $ingo->address = $request->ingo_address;
-         $ingo->contact_number = $request->contact_number;
-         $ingo->email = $request->ingo_email;
-         $ingo->web_link = $request->web_link;
-         $ingo->valid = 1;
+           $ingo->user_id = $user->id;
+           $ingo->ingo_name = $request->ingo_name;
+           $ingo->address = $request->ingo_address;
+           $ingo->contact_number = $request->contact_number;
+           $ingo->email = $request->ingo_email;
+           $ingo->web_link = $request->web_link;
+           $ingo->valid = 1;
 
-         $ingo->save();
+           $ingo->save();
 
-     }
-
-
-
-     $request->session()->flash('alert-success', 'data has been successfully saved!');
-     return redirect()->action('IngoController@create'); 
+       }
 
 
 
+       $request->session()->flash('alert-success', 'data has been successfully saved!');
+       return redirect()->action('IngoController@create'); 
 
- }
+
+
+
+   }
 
 /**
  * search by district id
  */
 
- public function get_project_by_district(Request $request){
+public function get_project_by_district(Request $request){
 
     $user = Auth::user();
 
@@ -188,16 +188,41 @@ class IngoController extends Controller
 
     $ingo_office = Ingos::where('user_id',$user->id)->first();
 
-    $ingo_projects = IngoProjects::where('ingo_office_id','=',$ingo_office->id)->where('district_id','=',$district_id)->get();
+    $project_list = IngoProjects::where('ingo_office_id',$ingo_office->id)->get();
 
-    dd($ingo_projects);
+    $selected_project_id = "";
+
+    $count = 1;
+
+    foreach ($project_list as $project) {
+
+        $district = ProjectDistrict::where('project_id',$project->id)->where('district_id',$district_id)->first();  
+
+
+        if(is_object($district)){
+
+            $selected_project_id[$count] = $district->project_id;
+
+
+            $count++;
+
+        }
+
+    }
+
+    dd($selected_project_id);
+
+    
+
+    
+    
 
     // $projects = IngoProjects::where('');
     
 
- }
+}
 
- public function maps(){
+public function maps(){
 
     // dd("testing");
 
