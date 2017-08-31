@@ -121,6 +121,13 @@ class IngoController extends Controller
 
     $district_id = $request->district_id;
 
+    $ingo_office = Ingos::where('user_id',$user->id)->first();
+
+    $ingo_projects = IngoProjects::where('ingo_office_id','=',$ingo_office->id)->where('district_id','=',$district_id)->get();
+
+    dd($ingo_projects);
+
+    // $projects = IngoProjects::where('');
     
 
  }
