@@ -399,11 +399,43 @@
 		$( "#search-box" ).click(function( event ) {
 			event.preventDefault();
 
-			console.log("working on it");
+			// console.log("working on it");
 
 			$("#project-table td").remove();
-			
-		});
+
+			var district_id = $("#district").val();
+
+			var theme_id = $("#theme").val();
+
+			/**
+			 * checking if the district_id and theme_id is not null,
+			 * if null search function will not work
+			 */
+
+			 if(district_id!= null && theme_id==null){
+			 	var jqxhr = $.get( "{{URL::to('/')}}/ingo_project/get_project_by_district", { district_id: district_id },
+			 		function(data) {
+
+			 			//need to type the remaining code
+
+			 });
+
+
+			 }else if(theme_id!=null && district_id==null){
+
+			 	console.log(theme_id);
+
+			 }else if(theme_id!=null  && district_id!=null){
+
+			 	console.log("both are filled");
+
+			 }else{
+			 	alert("please select one of the options from the dropdown");
+			 }
+
+
+
+			});
 
 
 		

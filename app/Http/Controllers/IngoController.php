@@ -111,6 +111,20 @@ class IngoController extends Controller
 
  }
 
+/**
+ * search by district id
+ */
+
+ public function get_project_by_district(Request $request){
+
+    $user = Auth::user();
+
+    $district_id = $request->district_id;
+
+    
+
+ }
+
  public function maps(){
 
     // dd("testing");

@@ -31,6 +31,9 @@ Route::get('/get_upazila','IngoProjectsController@get_upazila');
 
 Route::get('/get_project_themes','IngoProjectsController@project_theme');
 
+//route for searching by district id
+Route::get('/ingo_project/get_project_by_district','IngoController@get_project_by_district');
+
 
 Route::resource('/ingo_project','IngoProjectsController');
 
