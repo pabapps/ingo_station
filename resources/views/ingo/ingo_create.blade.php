@@ -414,11 +414,28 @@
 
 			 if(district_id!= null && theme_id==null){
 			 	var jqxhr = $.get( "{{URL::to('/')}}/ingo_project/get_project_by_district", { district_id: district_id },
-			 		function(data) {
+			 		function(final_array) {
 
 			 			//need to type the remaining code
+			 			var object = JSON.parse(final_array);
 
-			 });
+			 			console.log(object[0]['project'].project_name);
+
+
+			 			var count = 1;
+
+			 			var trHTML = '';
+
+			 			for (var i = 0; i < object.length; i++) { 
+
+			 				trHTML += '<tr><td>' + object[i]['project'].project_name + '</td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
+
+			 				count++;
+			 			}
+
+			 			$('#project-table').append(trHTML);
+
+			 		});
 
 
 			 }else if(theme_id!=null && district_id==null){

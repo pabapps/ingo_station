@@ -152,29 +152,29 @@ class IngoController extends Controller
 
         }else{
 
-           $ingo = new Ingos;
+         $ingo = new Ingos;
 
-           $ingo->user_id = $user->id;
-           $ingo->ingo_name = $request->ingo_name;
-           $ingo->address = $request->ingo_address;
-           $ingo->contact_number = $request->contact_number;
-           $ingo->email = $request->ingo_email;
-           $ingo->web_link = $request->web_link;
-           $ingo->valid = 1;
+         $ingo->user_id = $user->id;
+         $ingo->ingo_name = $request->ingo_name;
+         $ingo->address = $request->ingo_address;
+         $ingo->contact_number = $request->contact_number;
+         $ingo->email = $request->ingo_email;
+         $ingo->web_link = $request->web_link;
+         $ingo->valid = 1;
 
-           $ingo->save();
+         $ingo->save();
 
-       }
-
-
-
-       $request->session()->flash('alert-success', 'data has been successfully saved!');
-       return redirect()->action('IngoController@create'); 
+     }
 
 
 
+     $request->session()->flash('alert-success', 'data has been successfully saved!');
+     return redirect()->action('IngoController@create'); 
 
-   }
+
+
+
+ }
 
 /**
  * search by district id
@@ -237,7 +237,7 @@ public function get_project_by_district(Request $request){
         $thana_names = "";
 
         foreach ($thanas_for_selected_projects as $thana_selected) {
-            
+
             $project_thana_name = Upazila::where('id',$thana_selected->upazila_id)->first();
 
             $thana_names = $thana_names.$project_thana_name->name.",";
@@ -245,14 +245,47 @@ public function get_project_by_district(Request $request){
         }
 
         $upazilas[$projects] = $thana_names;
-         
-     } 
 
-     dd($upazilas);
-    
-    
+    } 
 
-    // $projects = IngoProjects::where('');
+    // dd($upazilas);
+
+
+    $final_array = array();
+
+    $count = 0;
+
+    foreach ($selected_project_id as $projects) {
+
+        $district_names = "";
+
+        if(array_key_exists($projects,$districts)){
+            $district_names = $districts[$projects];
+        }
+
+        $thana_names = "";
+
+        if(array_key_exists($projects,$upazilas)){
+
+            $thana_names = $upazilas[$projects];
+
+        }
+
+        $particular_project = IngoProjects::where('id',$projects)->first();
+
+        $final_array[$count] = array(
+            'project' => $particular_project,
+            'district' => $district_names,
+            'thana' => $thana_names,
+            );
+
+        $count++;
+    }
+    
+    // dd($final_array[1]['project']);
+
+    return json_encode($final_array);
+    
     
 
 }
