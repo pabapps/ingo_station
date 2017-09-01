@@ -71,7 +71,7 @@ class IngoController extends Controller
                     $thana_name = "";
 
                     foreach ($upazila as $upa) {
-                        
+
                         $project_thana_name = Upazila::where('id',$upa->upazila_id)->first();
 
                         $thana_name = $thana_name.$project_thana_name->name.",";
@@ -210,10 +210,45 @@ public function get_project_by_district(Request $request){
 
     }
 
-    dd($selected_project_id);
+    // dd($selected_project_id);
 
-    
+    $districts = array();
+    $upazilas = array();
 
+    foreach ($selected_project_id as $projects) {
+
+        $district_of_all_selected_projects = ProjectDistrict::where('project_id',$projects)->get();
+
+
+        $district_names = "";
+
+        foreach ($district_of_all_selected_projects as $dist_selected) {
+
+            $project_district_name = District::where('id',$dist_selected->district_id)->first();
+
+            $district_names = $district_names.$project_district_name->name.",";
+            
+        }
+
+        $districts[$projects] = $district_names;
+
+        $thanas_for_selected_projects = ProjectUpazila::where('project_id',$projects)->get();
+
+        $thana_names = "";
+
+        foreach ($thanas_for_selected_projects as $thana_selected) {
+            
+            $project_thana_name = Upazila::where('id',$thana_selected->upazila_id)->first();
+
+            $thana_names = $thana_names.$project_thana_name->name.",";
+
+        }
+
+        $upazilas[$projects] = $thana_names;
+         
+     } 
+
+     dd($upazilas);
     
     
 
