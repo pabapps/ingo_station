@@ -290,6 +290,40 @@ public function get_project_by_district(Request $request){
 
 }
 
+/**
+ * search by theme
+ */
+
+public function get_project_by_theme(Request $request){
+
+    $user = Auth::user();
+
+    $theme = $request->theme;
+
+    $ingo_office = Ingos::where('user_id',$user->id)->first();
+
+    $project_list = IngoProjects::where('ingo_office_id',$ingo_office->id)->where('theme',$theme)->get();
+
+    //finding disticts
+    $district_id = array();
+
+    foreach ($project_list as $project) {
+        
+        $project_district_name = ProjectDistrict::where('project_id',$project->id)->get();
+
+        $districts = "";
+
+        foreach ($project_district_name as $district_name) {
+            # code...
+        }
+
+
+    }
+
+
+
+}
+
 public function maps(){
 
     // dd("testing");

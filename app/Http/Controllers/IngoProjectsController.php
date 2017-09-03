@@ -153,29 +153,6 @@ class IngoProjectsController extends Controller
 
 
     }
-
-    public function project_theme(Request $request){
-
-        $user = Auth::user();
-
-        $search_term = $request->input('term');
-
-        $ingo = Ingos::where('user_id',$user->id)->first();
-
-        $ingo_id = $ingo->id;
-
-        $query_ingo_projects = "
-        SELECT ingo_projects.id AS id, ingo_projects.theme AS text 
-        FROM ingo_projects WHERE ingo_projects.ingo_office_id='$ingo_id' AND ingo_projects.valid=1 AND ingo_projects.theme LIKE '%{$search_term}%'";
-
-        $ingo_projects = DB::select($query_ingo_projects);
-
-
-        return response()->json($ingo_projects);  
-
-    }
-
-
     /**
      * Display the specified resource.
      *

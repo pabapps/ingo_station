@@ -152,6 +152,16 @@
 														<div class="col-lg-3 col-xs-12">
 
 															<select class="js-example-responsive" style="width: 100%" id="theme" name="theme">
+																<option value="Education">Education</option>
+																<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
+																<option value="Energy and Urban Services">Energy and Urban Services</option>
+																<option value="Governence">Governence</option>
+																<option value="Water,Sanitation and Hygiene">Water,Sanitation and Hygiene</option>
+																<option value="Health">Health</option>
+																<option value="Agriculture">Agriculture</option>
+																<option value="Poverty">Poverty</option>
+																<option value="Gender">Gender</option>
+																<option value="Disability and Child Rights">Disability and Child Rights</option>
 
 															</select>
 
@@ -377,22 +387,6 @@
 
 		$('#theme').select2({
 			placeholder: 'Select an option',
-			ajax: {
-				dataType: 'json',
-				url: '{{URL::to('/')}}/get_project_themes',
-				delay: 250,
-				data: function(params) {
-					return {
-						term: params.term
-					}
-				},
-				processResults: function (data, params) {
-					params.page = params.page || 1;
-					return {
-						results: data
-					};
-				},
-			}
 		});
 
 
@@ -421,16 +415,11 @@
 
 			 			console.log(object[0]['project'].project_name);
 
-
-			 			var count = 1;
-
 			 			var trHTML = '';
 
 			 			for (var i = 0; i < object.length; i++) { 
 
-			 				trHTML += '<tr><td>' + object[i]['project'].project_name + '</td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
-
-			 				count++;
+			 				trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="#" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="#" class="job-dashboard-action-delete">Delete</a> </li> </ul>  </td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
 			 			}
 
 			 			$('#project-table').append(trHTML);
@@ -439,6 +428,11 @@
 
 
 			 }else if(theme_id!=null && district_id==null){
+
+			 	var jqxhr = $.get("{{URL::to('/')}}/ingo_project/get_project_by_theme", {theme:theme_id}, function(final_array){
+
+			 	});
+
 
 			 	console.log(theme_id);
 
