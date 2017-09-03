@@ -452,6 +452,17 @@
 
 			 	var jqxhr = $.get("{{URL::to('/')}}/ingo_project/get_project_by_district_theme", {district_id: district_id,theme:theme_id}, function(final_array){
 
+			 		var object = JSON.parse(final_array);
+
+			 		var trHTML = '';
+
+			 		for (var i = 0; i < object.length; i++) { 
+
+			 			trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="#" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="#" class="job-dashboard-action-delete">Delete</a> </li> </ul>  </td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
+			 		}
+
+			 		$('#project-table').append(trHTML);
+
 			 	});
 
 			 }else{
