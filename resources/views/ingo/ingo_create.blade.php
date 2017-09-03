@@ -448,11 +448,11 @@
 			 	});
 
 
-			 	console.log(theme_id);
-
 			 }else if(theme_id.length>0  && district_id!=null){
 
-			 	console.log("both are filled");
+			 	var jqxhr = $.get("{{URL::to('/')}}/ingo_project/get_project_by_district_theme", {district_id: district_id,theme:theme_id}, function(final_array){
+
+			 	});
 
 			 }else{
 			 	alert("please select one of the options from the dropdown");

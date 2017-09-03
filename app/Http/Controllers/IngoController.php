@@ -377,9 +377,26 @@ public function get_project_by_theme(Request $request){
 
     return json_encode($final_array);
 
+}
+
+public function get_project_by_district_theme(Request $request){
+
+    $user = Auth::user();
+
+    $theme = $request->theme;
+
+    $district_id = $request->district_id;
+
+    $ingo_office = Ingos::where('user_id',$user->id)->first();
+
+    $project_list = IngoProjects::where('ingo_office_id',$ingo_office->id)->where('theme',$theme)->get();
+
+    
+
 
 
 }
+
 
 public function maps(){
 

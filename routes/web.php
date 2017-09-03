@@ -35,6 +35,9 @@ Route::get('/ingo_project/get_project_by_district','IngoController@get_project_b
 //route for searching by theme
 Route::get('/ingo_project/get_project_by_theme','IngoController@get_project_by_theme');
 
+//route for searching by both themes and district
+Route::get('/ingo_project/get_project_by_district_theme','IngoController@get_project_by_district_theme');
+
 
 Route::resource('/ingo_project','IngoProjectsController');
 
