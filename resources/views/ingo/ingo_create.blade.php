@@ -152,6 +152,7 @@
 														<div class="col-lg-3 col-xs-12">
 
 															<select class="js-example-responsive" style="width: 100%" id="theme" name="theme">
+																<option ></option>
 																<option value="Education">Education</option>
 																<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
 																<option value="Energy and Urban Services">Energy and Urban Services</option>
@@ -401,19 +402,21 @@
 
 			var theme_id = $("#theme").val();
 
+			console.log(theme_id.length);
+
 			/**
 			 * checking if the district_id and theme_id is not null,
 			 * if null search function will not work
 			 */
 
-			 if(district_id!= null && theme_id==null){
+			 if(district_id!= null && theme_id.length==0){
 			 	var jqxhr = $.get( "{{URL::to('/')}}/ingo_project/get_project_by_district", { district_id: district_id },
 			 		function(final_array) {
 
+			 			console.log("testing");
+
 			 			//need to type the remaining code
 			 			var object = JSON.parse(final_array);
-
-			 			console.log(object[0]['project'].project_name);
 
 			 			var trHTML = '';
 
@@ -427,16 +430,27 @@
 			 		});
 
 
-			 }else if(theme_id!=null && district_id==null){
+			 }else if(theme_id.length>0 && district_id===null){
 
 			 	var jqxhr = $.get("{{URL::to('/')}}/ingo_project/get_project_by_theme", {theme:theme_id}, function(final_array){
+
+			 		var object = JSON.parse(final_array);
+
+			 		var trHTML = '';
+
+			 		for (var i = 0; i < object.length; i++) { 
+
+			 			trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="#" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="#" class="job-dashboard-action-delete">Delete</a> </li> </ul>  </td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
+			 		}
+
+			 		$('#project-table').append(trHTML);
 
 			 	});
 
 
 			 	console.log(theme_id);
 
-			 }else if(theme_id!=null  && district_id!=null){
+			 }else if(theme_id.length>0  && district_id!=null){
 
 			 	console.log("both are filled");
 
