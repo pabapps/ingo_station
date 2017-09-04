@@ -172,7 +172,7 @@ class IngoProjectsController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd("working on it");
     }
 
     /**
