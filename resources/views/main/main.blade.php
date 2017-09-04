@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/datatables/dataTables.bootstrap.css')}}">
 	@yield('styles')
 	<link rel="stylesheet" type="text/css" href="{{asset('css/owl.carousel.min.css')}}" />
 	<link rel="stylesheet" type="text/css" href="{{asset('css/owl.theme.green.min.css')}}" />
@@ -171,6 +172,8 @@
 	<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 	<script src="{{asset('js/scripts.js')}}"></script>
 	<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 	@yield('script')
 </body>
 </html>

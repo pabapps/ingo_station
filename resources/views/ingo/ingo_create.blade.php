@@ -365,6 +365,10 @@
 <script type="text/javascript">
 	$( document ).ready(function() {
 
+		var table = $('#project-table').DataTable({
+			
+		});
+
 
 		$('#district').select2({
 			placeholder: 'Select a district',
