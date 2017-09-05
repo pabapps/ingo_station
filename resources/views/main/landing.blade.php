@@ -17,7 +17,7 @@
 						<span class="text-theme"></span> 
 					</p>
 
-					<a href="index.html" class="btn btn-lg">Search projects</a>
+					<a href="{{URL::to('/')}}/search" class="btn btn-lg">Search projects</a>
 				</div>
 			</div>
 		</div>

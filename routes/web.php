@@ -41,3 +41,5 @@ Route::get('/ingo_project/get_project_by_district_theme','IngoController@get_pro
 
 Route::resource('/ingo_project','IngoProjectsController');
 
+Route::get('/search','GeneralSearchController@general_search');
+
