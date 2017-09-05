@@ -61,9 +61,45 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-12 col-lg-8 col-xs-12">
-				
 
-				
+				<div class="entry-content">
+					<h1>Project List</h1>
+
+					<div id="job-manager-job-dashboard">
+						<table class="job-manager-jobs" id="project-table">
+							<thead>
+								<tr>
+									<th class="job_title" >Name</th>
+									<th >iNGO</th>
+									<th >Theme</th>
+									<th >District</th>
+									<th >Key Partners</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								@if(isset($final_array))
+								@foreach($final_array as $list)
+								<tr>
+									<td class="job_title">{{$list['project']->project_name}}
+										<ul class="job-dashboard-actions">
+											<li>
+												<a href="#" class="job-dashboard-action-edit">Details</a>
+											</li>
+										</ul>
+									</td>
+									<td>{{$list['ingo']->ingo_name}}</td>
+									<td>{{$list['project']->theme}}</td>
+									<td>{{$list['district']}}</td>
+									<td>{{$list['project']->key_partners}}</td>
+									
+								</tr>
+								@endforeach
+								@endif
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -80,6 +116,10 @@
 
 <script type="text/javascript">
 	$( document ).ready(function() {
+
+		var table = $('#project-table').DataTable({
+			
+		});
 
 	});
 
