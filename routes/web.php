@@ -41,5 +41,9 @@ Route::get('/ingo_project/get_project_by_district_theme','IngoController@get_pro
 
 Route::resource('/ingo_project','IngoProjectsController');
 
+
+//project id for the general search
+Route::get('/search/get_project_id','GeneralSearchController@get_project_id');
+
 Route::get('/search','GeneralSearchController@general_search');
 

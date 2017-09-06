@@ -29,12 +29,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-xs-12">
-					<label for="job-description" class="sr-only">Job Description</label>
-					<input type="text" id="job-description" placeholder="Description">
+					<select class="js-example-responsive" style="width: 100%" id="project-id" name="project_id">
+
+					</select>
 				</div>
 
 				<div class="col-lg-3 col-xs-12">
-					<label for="job-location" class="sr-only">Job Location</label>
 					<input type="text" id="job-location" placeholder="Location">
 				</div>
 				<div class="col-lg-3 col-xs-12">
@@ -119,6 +119,27 @@
 
 		var table = $('#project-table').DataTable({
 			
+		});
+
+
+		$('#project-id').select2({
+			placeholder: 'Select a district',
+			ajax: {
+				dataType: 'json',
+				url: '{{URL::to('/')}}/search/get_project_id',
+				delay: 250,
+				data: function(params) {
+					return {
+						term: params.term
+					}
+				},
+				processResults: function (data, params) {
+					params.page = params.page || 1;
+					return {
+						results: data
+					};
+				},
+			}
 		});
 
 	});

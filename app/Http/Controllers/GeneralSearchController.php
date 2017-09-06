@@ -92,7 +92,52 @@ class GeneralSearchController extends Controller
 		}
 		return view('GeneralSearch.search')->with('final_array',$final_array); 
 
-	}	
+	}
+
+	public function get_project_id(Request $request){
+
+		$search_term = $request->input('term');
+
+        $query_projects= "
+        SELECT ingo_projects.id , ingo_projects.project_name AS text
+        FROM ingo_projects WHERE ingo_projects.project_name LIKE '%{$search_term}%'";
+
+        $projects = DB::select($query_projects);
+
+
+        return response()->json($projects);
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
