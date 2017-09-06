@@ -135,7 +135,7 @@ class GeneralSearchController extends Controller
 		//searching only by project_id
 		if($project_id!=null && $district_id==null && $theme_id==null){
 
-			$project_info = IngoProjects::where('id',$project_id)->first();
+			$project_info = IngoProjects::where('id',$project_id)->where('valid',1)->first();
 
 			$ingo_office = Ingos::where('id',$project_info->ingo_office_id)->first();
 
@@ -189,7 +189,7 @@ class GeneralSearchController extends Controller
 
 			foreach ($selected_project_id as $selected_project) {
 
-				$project = IngoProjects::where('id',$selected_project->project_id)->first();
+				$project = IngoProjects::where('id',$selected_project->project_id)->where('valid',1)->first();
 
 				$ingo_office = DB::table('ingos')
 				->join('ingo_projects','ingos.id','=','ingo_projects.ingo_office_id')
@@ -255,6 +255,83 @@ class GeneralSearchController extends Controller
 
 			return json_encode($final_array);
 
+
+		}
+
+		//search by theme 
+		if($theme_id!=null && $project_id==null && $district_id==null){
+
+			//get all the projects by this particular theme
+			$projects_selected_from_the_theme = IngoProjects::where('theme',$theme_id)->where('valid',1)->get();
+
+			$ingo_offices = array();
+
+			$project_districts = array();
+
+			//getting the officed from the selected proejcts
+			foreach ($projects_selected_from_the_theme as $selected_project) {
+				
+				$office = Ingos::where('id',$selected_project->ingo_office_id)->first();
+
+				$ingo_offices[$selected_project->id] = $office;
+
+
+				//get all the districts in where this particular project is taking place
+				$selected_districts = ProjectDistrict::where('project_id',$selected_project->id)->get();
+
+
+				$district_string = "";
+
+				foreach ($selected_districts as $dist) {
+					
+					$dist = District::where('id',$dist->district_id)->first();
+
+					$district_string = $district_string.$dist->name.",";
+
+				}
+
+
+				$project_districts[$selected_project->id] = $district_string;
+
+			}
+
+
+			$final_array = array();
+			$count = 0;
+
+			foreach ($projects_selected_from_the_theme as $selected_project) {
+
+				$demo_office;
+				
+				if(array_key_exists($selected_project->id,$ingo_offices)){
+
+					$demo_office = $ingo_offices[$selected_project->id];
+
+				}
+
+				$demo_district;
+
+				if(array_key_exists($selected_project->id,$project_districts)){
+
+					$demo_district = $project_districts[$selected_project->id];
+
+				}
+
+				$final_array[$count] = array(
+					'project'=>$selected_project,
+					'ingo'=>$demo_office,
+					'district'=> $demo_district
+
+					);
+
+				$count++;
+
+
+			}
+
+			// dd($final_array);
+
+			return json_encode($final_array);
 
 		}
 

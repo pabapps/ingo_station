@@ -125,6 +125,8 @@
 	$( document ).ready(function() {
 
 		var table = $('#project-table').DataTable({
+
+			   "bSort" : false
 			
 		});
 
