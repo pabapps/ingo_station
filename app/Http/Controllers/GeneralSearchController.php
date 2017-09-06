@@ -109,6 +109,21 @@ class GeneralSearchController extends Controller
 
 	}
 
+	public function get_distict_id(Request $request){
+
+		$search_term = $request->input('term');
+
+        $query_districts= "
+        SELECT districts.id , districts.name AS text
+        FROM districts WHERE districts.name LIKE '%{$search_term}%'";
+
+        $districts = DB::select($query_districts);
+
+
+        return response()->json($districts);
+
+	}
+
 
 
 

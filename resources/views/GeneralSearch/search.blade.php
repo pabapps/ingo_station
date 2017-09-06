@@ -35,7 +35,9 @@
 				</div>
 
 				<div class="col-lg-3 col-xs-12">
-					<input type="text" id="job-location" placeholder="Location">
+					<select class="js-example-responsive" style="width: 100%" id="district-id" name="district_id">
+
+					</select>
 				</div>
 				<div class="col-lg-3 col-xs-12">
 					<label for="job-category" class="sr-only">Job Category</label>
@@ -123,10 +125,30 @@
 
 
 		$('#project-id').select2({
-			placeholder: 'Select a district',
+			placeholder: 'Select a project',
 			ajax: {
 				dataType: 'json',
 				url: '{{URL::to('/')}}/search/get_project_id',
+				delay: 250,
+				data: function(params) {
+					return {
+						term: params.term
+					}
+				},
+				processResults: function (data, params) {
+					params.page = params.page || 1;
+					return {
+						results: data
+					};
+				},
+			}
+		});
+
+		$('#district-id').select2({
+			placeholder: 'Select a district',
+			ajax: {
+				dataType: 'json',
+				url: '{{URL::to('/')}}/search/get_distict_id',
 				delay: 250,
 				data: function(params) {
 					return {
