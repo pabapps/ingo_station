@@ -126,7 +126,8 @@
 
 		var table = $('#project-table').DataTable({
 
-			   "bSort" : false
+			   "bSort" : false,
+			    paging: false
 			
 		});
 
