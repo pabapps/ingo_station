@@ -15,7 +15,7 @@ use DB;
 
 class GeneralSearchController extends Controller
 {
-    
+
 	public function general_search(){
 
 		$project_list = IngoProjects::where('valid',1)->get();
@@ -44,15 +44,15 @@ class GeneralSearchController extends Controller
 
 			$names_of_thanas = "";
 
-			 foreach ($project_thanas as $thanas) {
-			 	
-			 	$thana = Upazila::where('id',$thanas->project_id)->first();
+			foreach ($project_thanas as $thanas) {
 
-			 	$names_of_thanas = $names_of_thanas.$thana->name.",";
+				$thana = Upazila::where('id',$thanas->project_id)->first();
 
-			 }
+				$names_of_thanas = $names_of_thanas.$thana->name.",";
 
-			 $thana_name[$project->id] = $names_of_thanas;
+			}
+
+			$thana_name[$project->id] = $names_of_thanas;
 
 			
 		}
@@ -98,14 +98,14 @@ class GeneralSearchController extends Controller
 
 		$search_term = $request->input('term');
 
-        $query_projects= "
-        SELECT ingo_projects.id , ingo_projects.project_name AS text
-        FROM ingo_projects WHERE ingo_projects.project_name LIKE '%{$search_term}%'";
+		$query_projects= "
+		SELECT ingo_projects.id , ingo_projects.project_name AS text
+		FROM ingo_projects WHERE ingo_projects.project_name LIKE '%{$search_term}%'";
 
-        $projects = DB::select($query_projects);
+		$projects = DB::select($query_projects);
 
 
-        return response()->json($projects);
+		return response()->json($projects);
 
 	}
 
@@ -113,14 +113,14 @@ class GeneralSearchController extends Controller
 
 		$search_term = $request->input('term');
 
-        $query_districts= "
-        SELECT districts.id , districts.name AS text
-        FROM districts WHERE districts.name LIKE '%{$search_term}%'";
+		$query_districts= "
+		SELECT districts.id , districts.name AS text
+		FROM districts WHERE districts.name LIKE '%{$search_term}%'";
 
-        $districts = DB::select($query_districts);
+		$districts = DB::select($query_districts);
 
 
-        return response()->json($districts);
+		return response()->json($districts);
 
 	}
 
@@ -172,7 +172,89 @@ class GeneralSearchController extends Controller
 
 		}
 
+
+		//search by district
 		if($district_id!=null && $theme_id==null && $project_id==null){
+
+			//take all the project that belongs to this particular district
+			$selected_project_id = ProjectDistrict::where('district_id',$district_id)->get();
+
+			$project_objects = array();
+			$ingo_offices = array();
+			$project_districts = array();
+
+			$final_array = array();
+
+			$count = 0;
+
+			foreach ($selected_project_id as $selected_project) {
+
+				$project = IngoProjects::where('id',$selected_project->project_id)->first();
+
+				$ingo_office = DB::table('ingos')
+				->join('ingo_projects','ingos.id','=','ingo_projects.ingo_office_id')
+				->select('ingos.*')->where('ingo_projects.id',$selected_project->project_id)->first();
+
+				$project_objects[$selected_project->project_id] = $project;
+				$ingo_offices[$selected_project->project_id] = $ingo_office;
+
+				$selected_districts_id = ProjectDistrict::where('project_id',$selected_project->project_id)->get();
+
+				$district_string = "";
+
+				foreach ($selected_districts_id as $selected_district) {
+					
+					$district = District::where('id',$selected_district->district_id)->first();	
+
+					$district_string = $district_string.$district->name.",";
+
+				}
+
+				$project_districts[$selected_project->project_id] = $district_string;
+
+			}
+
+			foreach ($selected_project_id as $selected_project) {
+
+				$demo_project;
+
+				if(array_key_exists($selected_project->project_id,$project_objects)){
+
+					$demo_project = $project_objects[$selected_project->project_id];
+
+				}
+
+				$demo_office;
+
+				if(array_key_exists($selected_project->project_id,$ingo_offices)){
+					$demo_office = $ingo_offices[$selected_project->project_id];
+
+				}
+
+				$demo_district;
+
+				if(array_key_exists($selected_project->project_id,$project_districts)){
+					$demo_district = $project_districts[$selected_project->project_id];
+				}
+
+				$final_array[$count] = array(
+					'project'=>$demo_project,
+					'ingo'=>$demo_office,
+					'district'=> $demo_district
+
+					);
+
+				$count++;
+			}
+
+			
+
+
+
+			// dd($final_array);
+
+			return json_encode($final_array);
+
 
 		}
 
