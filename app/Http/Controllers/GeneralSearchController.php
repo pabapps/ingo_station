@@ -440,6 +440,107 @@ class GeneralSearchController extends Controller
 
 		}
 
+		//search by district_id and theme_id excepty project_id
+
+		if($project_id==null && $district_id!=null && $theme_id!=null){
+
+			//selecting projects by the theme_id
+			$project_by_theme_id = IngoProjects::where('theme',$theme_id)->get();
+
+			//scanning the porjects for this particual district
+			
+			$selected_project_id_district = array();
+			$ingo_offices = array();
+			$project_districts = array();
+
+			foreach ($project_by_theme_id as $project_by_theme) {
+				
+				$project_district_pivot = ProjectDistrict::where('project_id',$project_by_theme->id)
+				->where('district_id',$district_id)->first();
+
+				if(sizeof($project_district_pivot)>0){
+
+					$selected_project_id_district[$project_by_theme->id] = 
+					IngoProjects::where('id',$project_district_pivot->project_id)->first();
+				}
+
+			}
+
+
+			foreach ($selected_project_id_district as $selected_project) {
+
+				$office = Ingos::where('id',$selected_project->ingo_office_id)->first();
+
+				$ingo_offices[$selected_project->id] = $office;
+
+				$selected_project_district = ProjectDistrict::where('project_id',$selected_project->id)->get();
+
+				$district_string = "";
+
+				foreach ($selected_project_district as $p_dist) {
+					
+					$district = District::where('id',$p_dist->district_id)->first(); 
+
+					$district_string = $district_string.$district->name.",";	
+
+				}
+
+				$project_districts[$selected_project->id] = $district_string; 
+
+
+			}
+
+
+			$final_array = array();
+			$count = 0;
+
+			if(sizeof($selected_project_id_district)>0 && sizeof($project_districts)>0){
+
+				foreach ($selected_project_id_district as $selected_project) {
+
+					$dummy_project;
+					
+					if(array_key_exists($selected_project->id, $selected_project_id_district)){
+						$dummy_project = $selected_project;
+					}
+
+					$dummy_ingo;
+
+					if(array_key_exists($selected_project->id,$ingo_offices)){
+
+						$dummy_ingo = $ingo_offices[$selected_project->id];
+
+					}
+
+					$dummy_district;
+
+					if(array_key_exists($selected_project->id,$project_districts)){
+
+						$dummy_district = $project_districts[$selected_project->id];
+
+					}
+
+					$final_array[$count] = array(
+
+						'project'=>$dummy_project,
+						'ingo'=>$dummy_ingo,
+						'district'=> $dummy_district
+
+						);
+
+					$count++;
+
+				}
+
+			}
+
+			return json_encode($final_array);
+
+
+		}
+
+
+
 
 
 	}
