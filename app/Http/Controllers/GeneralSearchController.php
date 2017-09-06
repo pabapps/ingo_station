@@ -404,9 +404,39 @@ class GeneralSearchController extends Controller
 
 			}
 
-			
+		}
 
+		//search by project_id and theme_id not by district_id
 
+		if($project_id!=null && $district_id==null && $theme_id!=null){
+
+			$selected_project = IngoProjects::where('id',$project_id)->where('theme',$theme_id)->first();
+
+			$ingo_office = Ingos::where('id',$selected_project->ingo_office_id)->first();
+
+			$project_districts = ProjectDistrict::where('project_id',$project_id)->get();
+
+			$district_string = "";
+
+			foreach ($project_districts as $p_dist) {
+				
+				$project_district = District::where('id',$p_dist->district_id)->first();
+
+				$district_string = $district_string.$project_district->name.",";
+
+			}
+
+			$final_array = array();
+			$count = 0;
+
+			$final_array[$count] = array(
+				'project'=>$selected_project,
+				'ingo'=>$ingo_office,
+				'district'=> $district_string
+
+				);
+
+			return json_encode($final_array);
 
 		}
 
