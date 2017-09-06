@@ -42,18 +42,23 @@
 				<div class="col-lg-3 col-xs-12">
 					<label for="job-category" class="sr-only">Job Category</label>
 					<div class="ci-select">
-						<select id="job-category">
-							<option value="0">Category</option>
-							<option value="1">Full Time</option>
-							<option value="2">Part Time</option>
-							<option value="3">Internship</option>
-							<option value="4">Freelance</option>
-							<option value="5">Contract</option>
+						<select class="js-example-responsive" style="width: 100%" id="theme" name="theme">
+							<option ></option>
+							<option value="Education">Education</option>
+							<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
+							<option value="Energy and Urban Services">Energy and Urban Services</option>
+							<option value="Governence">Governence</option>
+							<option value="Water,Sanitation and Hygiene">Water,Sanitation and Hygiene</option>
+							<option value="Health">Health</option>
+							<option value="Agriculture">Agriculture</option>
+							<option value="Poverty">Poverty</option>
+							<option value="Gender">Gender</option>
+							<option value="Disability and Child Rights">Disability and Child Rights</option>
 						</select>
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-12">
-					<button class="btn btn-block" type="submit">Search</button>
+					<button class="btn btn-block" id="search-box" type="submit">Search</button>
 				</div>
 			</div>
 		</div>
@@ -163,6 +168,40 @@
 				},
 			}
 		});
+
+		$('#theme').select2({
+			placeholder: 'Select an option'
+		});
+
+		$( "#search-box" ).click(function( event ) {
+			event.preventDefault();
+
+			var project_id = $("#project-id").val();
+			var district_id = $("#district-id").val();
+			var theme_id = $("#theme").val();
+
+			$("#project-table td").remove();
+
+			var jqxhr = $.get("{{URL::to('/')}}/search/general_search_query", {project_id: project_id ,district_id: district_id,theme_id:theme_id }, function(final_array){
+
+				var object = JSON.parse(final_array);
+
+				// console.log(object);
+
+				var trHTML = '';
+
+				for (var i = 0; i < object.length; i++) { 
+
+					trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="#" class="job-dashboard-action-edit">Details</a></li></ul></td><td>' + object[i]['ingo'].ingo_name + '</td><td>' + object[i]['project'].theme+'</td><td>'+object[i]['district']+'</td><td>'+object[i]['project'].key_partners+'</td></tr>';
+				}
+
+				$('#project-table').append(trHTML);
+
+			});
+		});
+
+
+
 
 	});
 

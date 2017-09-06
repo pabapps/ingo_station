@@ -48,6 +48,9 @@ Route::get('/search/get_project_id','GeneralSearchController@get_project_id');
 //district id for the general search
 Route::get('/search/get_distict_id','GeneralSearchController@get_distict_id');
 
+//route for general search
+Route::get('/search/general_search_query','GeneralSearchController@general_search_query');
+
 
 Route::get('/search','GeneralSearchController@general_search');
 
