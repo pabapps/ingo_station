@@ -126,8 +126,8 @@
 
 		var table = $('#project-table').DataTable({
 
-			   "bSort" : false,
-			    paging: false
+			"bSort" : false,
+			paging: false
 			
 		});
 
@@ -183,7 +183,9 @@
 			var district_id = $("#district-id").val();
 			var theme_id = $("#theme").val();
 
-			$("#project-table td").remove();
+			// $("#project-table td").remove();
+
+			table.clear().draw();
 
 			var jqxhr = $.get("{{URL::to('/')}}/search/general_search_query", {project_id: project_id ,district_id: district_id,theme_id:theme_id }, function(final_array){
 
@@ -193,12 +195,24 @@
 
 				var trHTML = '';
 
-				for (var i = 0; i < object.length; i++) { 
+				for(var i =0; i<object.length; i++){
 
-					trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="#" class="job-dashboard-action-edit">Details</a></li></ul></td><td>' + object[i]['ingo'].ingo_name + '</td><td>' + object[i]['project'].theme+'</td><td>'+object[i]['district']+'</td><td>'+object[i]['project'].key_partners+'</td></tr>';
+					table.row.add( [
+						object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="#" class="job-dashboard-action-edit">Details</a></li></ul>',
+						object[i]['ingo'].ingo_name,
+						object[i]['project'].theme,
+						object[i]['district'],
+						object[i]['project'].key_partners
+						] ).draw( false );
+
 				}
 
-				$('#project-table').append(trHTML);
+				// for (var i = 0; i < object.length; i++) { 
+
+				// 	trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="#" class="job-dashboard-action-edit">Details</a></li></ul></td><td>' + object[i]['ingo'].ingo_name + '</td><td>' + object[i]['project'].theme+'</td><td>'+object[i]['district']+'</td><td>'+object[i]['project'].key_partners+'</td></tr>';
+				// }
+
+				// $('#project-table').append(trHTML);
 
 			});
 		});
