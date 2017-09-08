@@ -594,16 +594,16 @@ class GeneralSearchController extends Controller
 				return json_encode($final_array);
 
 
-			}
-
-
-			
+			}	
 
 		}
 
+	}
 
 
+	public function project_details_by_id(Request $request,$id){
 
+		dd("working on it");
 
 	}
 

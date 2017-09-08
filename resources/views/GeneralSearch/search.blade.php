@@ -91,7 +91,7 @@
 									<td class="job_title">{{$list['project']->project_name}}
 										<ul class="job-dashboard-actions">
 											<li>
-												<a href="#" class="job-dashboard-action-edit">Details</a>
+												<a href="{{URL::to('/') . '/search/project_details_by_id/'.$list['project']->id}}" class="job-dashboard-action-edit">Details</a>
 											</li>
 										</ul>
 									</td>
@@ -198,7 +198,7 @@
 				for(var i =0; i<object.length; i++){
 
 					table.row.add( [
-						object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="#" class="job-dashboard-action-edit">Details</a></li></ul>',
+						object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="{{URL::to('/')}}/search/project_details_by_id/'+object[i]['project'].id+'" class="job-dashboard-action-edit">Details</a></li></ul>',
 						object[i]['ingo'].ingo_name,
 						object[i]['project'].theme,
 						object[i]['district'],

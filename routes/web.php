@@ -52,5 +52,9 @@ Route::get('/search/get_distict_id','GeneralSearchController@get_distict_id');
 Route::get('/search/general_search_query','GeneralSearchController@general_search_query');
 
 
+//showing the details of each project along with the office details
+Route::get('/search/project_details_by_id/{id}','GeneralSearchController@project_details_by_id');
+
+
 Route::get('/search','GeneralSearchController@general_search');
 
