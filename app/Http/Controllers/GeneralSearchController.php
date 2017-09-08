@@ -600,10 +600,43 @@ class GeneralSearchController extends Controller
 
 	}
 
+	//details of each  project found by the id
 
 	public function project_details_by_id(Request $request,$id){
 
-		dd("working on it");
+		$project_id = $id;
+
+		$project_object = IngoProjects::where('id',$project_id)->first();
+
+		$ingo_office = Ingos::where('id',$project_object->ingo_office_id)->first();
+
+		$district_string = "";
+
+		$project_districts = ProjectDistrict::where('project_id',$project_id)->get();
+
+		foreach ($project_districts as $p_dist) {
+
+			$district = District::where('id',$p_dist->district_id)->first();
+
+			$district_string = $district_string.$district->name.",";
+			
+		}
+
+		$project_thanas = ProjectUpazila::where('project_id',$project_id)->get();
+
+		$thana_string = "";
+
+		foreach ($project_thanas as $p_thana) {
+			
+			$upazila = Upazila::where('id',$p_thana->upazila_id)->first();
+
+			$thana_string = $thana_string.$upazila->name.",";
+
+		}
+
+		dd($thana_string);
+
+
 
 	}
 
