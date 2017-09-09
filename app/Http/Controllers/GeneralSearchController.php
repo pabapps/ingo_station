@@ -634,7 +634,9 @@ class GeneralSearchController extends Controller
 
 		}
 
-		return view('GeneralSearch.single_project')->with('project_object',$project_object);
+		// dd($ingo_office->web_link);
+
+		return view('GeneralSearch.single_project')->with('project_object',$project_object)->with('district',$district_string)->with('thana',$thana_string)->with('ingo_office',$ingo_office);
 
 
 
