@@ -634,7 +634,7 @@ class GeneralSearchController extends Controller
 
 		}
 
-		dd($thana_string);
+		return view('GeneralSearch.single_project')->with('project_object',$project_object);
 
 
 
