@@ -176,7 +176,29 @@ class IngoProjectsController extends Controller
      */
     public function edit($id)
     {
-        dd("working on it");
+        $project_id = $id;
+
+        $project_detail = IngoProjects::where('id',$project_id)->first();
+
+        $ingo_office = Ingos::where('id',$project_detail->ingo_office_id)->first();
+
+        $project_district = ProjectDistrict::where('project_id',$project_detail->id)->get();
+
+        $districts = array();
+
+        $count = 0;
+
+        foreach ($project_district as $p_dist) {
+            
+            $dist = District::where('id',$p_dist->district_id)->first();
+
+            $districts[$count] = $dist;
+
+            $count++;
+
+        }
+
+        return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts);
     }
 
     /**
