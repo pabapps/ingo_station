@@ -117,6 +117,10 @@ class IngoProjectsController extends Controller
             $ingo_project->end_date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->end_date)->toDateString();
         }
 
+        if(!empty($request->project_url)){
+            $ingo_project->url = $request->project_url;
+        }
+
         $ingo_project->save();
 
         $districts = $request->district;
