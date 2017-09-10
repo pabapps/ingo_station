@@ -197,7 +197,7 @@
 																<td class="job_title">{{$list['project']->project_name}}
 																	<ul class="job-dashboard-actions">
 																		<li>
-																			<a href="#" class="job-dashboard-action-edit">Edit</a>
+																			<a href="{{URL::to('/') .'/ingo_project/'.$list['project']->id.'/edit'}}" class="job-dashboard-action-edit">Edit</a>
 																		</li>
 																		<li>
 																			<a href="#" class="job-dashboard-action-delete">Delete</a>
