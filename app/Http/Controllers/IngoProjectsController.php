@@ -198,7 +198,26 @@ class IngoProjectsController extends Controller
 
         }
 
-        return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts);
+        $project_thanas = ProjectUpazila::where('project_id',$project_detail->id)->get();
+
+        $count = 0;
+
+        $thanas = array();
+
+        foreach ($project_thanas as $p_thanas) {
+            
+            $thana = Upazila::where('id',$p_thanas->upazila_id)->first();
+
+            $thanas[$count] = $thana;
+
+            $count++;
+
+        }
+
+
+
+        return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts)
+        ->with('project_thanas',$thanas);
     }
 
     /**

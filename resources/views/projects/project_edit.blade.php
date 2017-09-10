@@ -64,11 +64,11 @@
 								<div class="field">
 									<div class="ci-select">
 										<select id="district" name="district[]" class="js-example-basic-single"  multiple="multiple">
-										@if(isset($districts))
-										@foreach($districts as $dist)
+											@if(isset($districts))
+											@foreach($districts as $dist)
 											<option value="{{$dist->id}}" selected="selected">{{$dist->name}}</option>
-										@endforeach
-										@endif
+											@endforeach
+											@endif
 										</select>
 									</div>
 								</div>
@@ -80,6 +80,11 @@
 								<div class="field">
 									<div class="ci-select">
 										<select id="upazila" name="upazila[]" class="js-example-basic-single" multiple="multiple" >
+											@if(isset($project_thanas))
+											@foreach($project_thanas as $p_thana)
+											<option value="{{$p_thana->id}}" selected="selected">{{$p_thana->name}}</option>
+											@endforeach
+											@endif
 										</select>
 									</div>
 								</div>
@@ -91,6 +96,9 @@
 								<div class="field">
 									<div  class="ci-select">
 										<select id="theme" name="theme" required>
+											@if(isset($project->theme))
+											<option value="{{$project->theme}}">{{$project->theme}}</option>
+											@endif
 											<option value="Education">Education</option>
 											<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
 											<option value="Energy and Urban Services">Energy and Urban Services</option>
@@ -110,7 +118,9 @@
 								<label for="partners">Key Partners</label>
 
 								<div class="field">
-									<textarea id="partners" name="partners" cols="10" rows="10" required></textarea>
+									@if(isset($project->key_partners))
+									<textarea id="partners" name="partners" cols="10" rows="10" required>{{$project->key_partners}}</textarea>
+									@endif
 								</div>
 							</div>
 
@@ -118,7 +128,11 @@
 								<label for="project-name">Project URL(If any)</label>
 
 								<div class="field">
-									<input type="text" id="project-url" name="project_url" >
+								@if(isset($project->url))
+									<input type="text" id="project-url" name="project_url" value="{{$project->url}}" >
+									@else
+									<input type="text" id="project-url" name="project_url"  >
+									@endif
 								</div>
 							</div>
 
@@ -126,7 +140,9 @@
 								<label>Start Date:</label>
 
 								<div class="field">
-									<input type="text" class="form-control " name="start_date" data-date-format="dd-mm-yyyy" id="start-date" required>
+								@if(isset($project->start_date))
+									<input type="text" class="form-control " name="start_date" data-date-format="dd-mm-yyyy" id="start-date" value="{{$project->start_date}}" required>
+									@endif
 								</div>
 							</div>
 
@@ -134,7 +150,11 @@
 								<label>End Date:</label>
 
 								<div class="field">
+								@if(isset($project->end_date))
+									<input type="text" class="form-control " name="end_date" data-date-format="dd-mm-yyyy" id="end-date" value="{{$project->end_date}}">
+									@else
 									<input type="text" class="form-control " name="end_date" data-date-format="dd-mm-yyyy" id="end-date" >
+									@endif
 								</div>
 							</div>
 
@@ -303,9 +323,6 @@
 			autoclose: true
 
 		});
-
-		$("#start-date").datepicker('setDate', new Date());
-
 
 
 		$('#district').select2({
