@@ -41,6 +41,14 @@
 								</li>
 								<li>{{$thana}}</li>
 							</ul>
+
+							<h2>Project Link</h2>
+							@if(isset($project_object->url))
+								<a href="{{$project_object->url}}" target="_blank" class="btn btn-block"><p>{{$project_object->url}}</p></a>
+							@else
+								<p>No Url Provided!</p>
+
+							@endif
 							
 							<h2>Start Date</h2>
 							<p>{{$project_object->start_date}}</p>
