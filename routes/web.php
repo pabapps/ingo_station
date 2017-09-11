@@ -58,3 +58,5 @@ Route::get('/search/project_details_by_id/{id}','GeneralSearchController@project
 
 Route::get('/search','GeneralSearchController@general_search');
 
+// route for maps
+Route::resource('/info_maps','MapsController'); 
