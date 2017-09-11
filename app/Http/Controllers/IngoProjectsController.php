@@ -229,7 +229,28 @@ class IngoProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project_id = $id;
+
+        if(!empty($request->project_name){
+            $project = IngoProjects::where('id',$project_id)->update(['project_name'=>$request->project_name]);
+        }
+
+        if(!empty($request->partners)){
+            $project = IngoProjects::where('id',$project_id)->update(['key_partners'=>$request->partners]);
+        }
+
+        if(!empty($request->project_url)){
+            $project = IngoProjects::where('id',$project_id)->update(['url'=>$request->project_url]);
+        }
+
+        if(!empty($request->start_date)){
+            $project = IngoProjects::where('id',$project_id)->update(['start_date'=>$request->start_date]);
+        }
+
+        if(!empty($request->end_date)){
+            $project = IngoProjects::where('id',$project_id)->update(['end_date'=>$request->end_date]);
+        }
+
     }
 
     /**
