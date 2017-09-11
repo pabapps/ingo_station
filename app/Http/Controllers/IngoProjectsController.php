@@ -103,7 +103,7 @@ class IngoProjectsController extends Controller
 
         // dd($request->all());
 
-        
+
 
         $ingo_project = new IngoProjects;
 
@@ -189,7 +189,7 @@ class IngoProjectsController extends Controller
         $count = 0;
 
         foreach ($project_district as $p_dist) {
-            
+
             $dist = District::where('id',$p_dist->district_id)->first();
 
             $districts[$count] = $dist;
@@ -205,7 +205,7 @@ class IngoProjectsController extends Controller
         $thanas = array();
 
         foreach ($project_thanas as $p_thanas) {
-            
+
             $thana = Upazila::where('id',$p_thanas->upazila_id)->first();
 
             $thanas[$count] = $thana;
@@ -231,7 +231,68 @@ class IngoProjectsController extends Controller
     {
         $project_id = $id;
 
-        if(!empty($request->project_name){
+
+        if(!empty($request->district)){
+
+            //first delete all the existing district linked to this project
+            ProjectDistrict::where('project_id',$project_id)->delete();
+
+            //add the new district after removing them
+
+            $districts = $request->district;
+
+            foreach ($districts as $dist) {
+
+                $district = District::where('id',$dist)->first();
+
+                $project_district = new ProjectDistrict;
+
+                $project_district->project_id = $project_id;
+                $project_district->district_id = $district->id;
+
+                $project_district->save();
+            }
+
+        }
+
+        if(!empty($request->upazila)){
+
+            // dd("working");
+
+            ProjectUpazila::where('project_id',$project_id)->delete();
+
+            $project_district = ProjectDistrict::where('project_id',$project_id)->get();
+
+            $project_upazila = $request->upazila;
+
+            // dd($project_upazila);
+
+            foreach ($project_district as $p_dist) {
+
+                foreach ($project_upazila as $p_upazila) {
+
+                    $upazila = Upazila::where('id',$p_upazila)->first();
+
+                    if($p_dist->district_id == $upazila->district_id){
+
+                        $project_upa = new ProjectUpazila;
+
+                        $project_upa->project_id = $project_id;
+                        $project_upa->upazila_id = $upazila->id;
+
+                        $project_upa->save();
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
+
+        if(!empty($request->project_name)){
             $project = IngoProjects::where('id',$project_id)->update(['project_name'=>$request->project_name]);
         }
 
@@ -250,6 +311,8 @@ class IngoProjectsController extends Controller
         if(!empty($request->end_date)){
             $project = IngoProjects::where('id',$project_id)->update(['end_date'=>$request->end_date]);
         }
+
+        return redirect()->action('IngoController@create'); 
 
     }
 
