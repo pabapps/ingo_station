@@ -60,3 +60,19 @@ Route::get('/search','GeneralSearchController@general_search');
 
 // route for maps
 Route::resource('/info_maps','MapsController'); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
