@@ -13,7 +13,7 @@ class MapsController extends Controller
      */
     public function index()
     {
-        //
+        return view('maps.maps');
     }
 
     /**
