@@ -23,12 +23,27 @@
 			<div class="col-xs-12">
 				<div class="content-wrap">
 					<article class="entry">
-						<figure class="entry-thumb">
-							<div id="map" style="width:100%;height:400px;"></div>
-						</figure>
+						<iframe src="{{asset('images/map/country.svg')}}" width="1000" height="1000">
+						</iframe>
 
 						<div class="entry-content">
-							
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-3 col-xs-12">
+										<ul class="map-project">
+											@foreach($all_projects as $project)
+
+											<li>
+												<a href="#"> <span class="t"><strong>{{$project->project_name}}</strong></span>
+													<span hidden class="id">{{$project->id}}</span>
+												</a>
+											</li>
+
+											@endforeach
+										</ul>
+									</div>
+								</div>
+							</div>
 						</div>
 					</article>
 				</div>
@@ -39,18 +54,26 @@
 
 
 
+
 @endsection
 
 @section('script')
-<script src="{{asset('googleMaps/maps.js')}}"></script>
+
+{{-- <script src="{{asset('googleMaps/maps.js')}}"></script> --}}
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_NcajouIQ0&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_NcajouIQ0">
+
+
 </script>
 
+
 <script type="text/javascript">
- 
 
+	$(document).ready(function() 
+	{
+		
 
+	});
 
 </script>
 
