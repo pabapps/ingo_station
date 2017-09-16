@@ -1,6 +1,7 @@
 @extends('main.main')
 @section('styles')
 
+<link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
 @endsection
 
 @section('content')
@@ -16359,28 +16360,13 @@
 							</g>
 						</g>
 					</svg>
-
-
-
-
-
-
-
 					<div class="entry-content">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-3 col-xs-12">
-									<ul class="map-project">
-										@foreach($all_projects as $project)
+									<select class="js-example-responsive" style="width: 100%" id="project-id" name="project_id">
 
-										<li>
-											<a href="#"> <span class="t"><strong>{{$project->project_name}}</strong></span>
-												<span hidden class="id">{{$project->id}}</span>
-											</a>
-										</li>
-
-										@endforeach
-									</ul>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -16392,7 +16378,6 @@
 </div>
 </main>
 
-<button class="btn" id="btn-test1">Test 1</button>
 
 
 
@@ -16407,17 +16392,38 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 </script>
 
-
+<script src="{{asset('js/select2.full.min.js')}}"></script>
 <script type="text/javascript">
 
 	$(document).ready(function() 
 	{
-		
-
-		$('#btn-test1').on("click", function() {
-			console.log("testing");
-			$('#Mymensingh').css({ fill: "#ff0000" });
+		$('#project-id').select2({
+			placeholder: 'Select a project',
+			ajax: {
+				dataType: 'json',
+				url: '{{URL::to('/')}}/search/get_project_id',
+				delay: 250,
+				data: function(params) {
+					return {
+						term: params.term
+					}
+				},
+				processResults: function (data, params) {
+					params.page = params.page || 1;
+					return {
+						results: data
+					};
+				},
+			}
 		});
+
+		$( "#project-id" ).change(function() {
+
+			
+
+
+		});
+
 
 	});
 
