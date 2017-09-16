@@ -16419,6 +16419,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 		var default_color = "#D0D2D3";
 
+		var previous_colored_district = [];
+
 		$( "#project-id" ).change(function() {
 
 			var project = $('#project-id').val();
@@ -16427,9 +16429,21 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				var object = JSON.parse(district_name);
 
+				if(previous_colored_district.length>0){
+					for (var i = 0; i < previous_colored_district.length; i++) {
+						$(previous_colored_district[i]).css({fill: "#D0D2D3"});
+					}
+				}
+				
+
+				previous_colored_district.length = 0;
+
 				for(var i =0; i<object.length; i++){
 
 					console.log(object[i]);
+
+					previous_colored_district[i] = '#'+object[i];
+
 					$('#'+object[i]).css({ fill: "#ff0000" });
 				}
 
