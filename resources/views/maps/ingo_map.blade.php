@@ -16427,7 +16427,11 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				var object = JSON.parse(district_name);
 
-				console.log(object);
+				for(var i =0; i<object.length; i++){
+
+					console.log(object[i]);
+					$('#'+object[i]).css({ fill: "#ff0000" });
+				}
 
 			});
 		});
