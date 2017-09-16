@@ -16417,9 +16417,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 			}
 		});
 
+		var default_color = "#D0D2D3";
+
 		$( "#project-id" ).change(function() {
 
-			
+			var project = $('#project-id').val();
+
+
 
 
 		});
