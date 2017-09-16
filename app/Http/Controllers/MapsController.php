@@ -22,7 +22,7 @@ class MapsController extends Controller
      */
     public function index()
     {
-        
+
         $all_projects = IngoProjects::where('valid',1)->get();
 
         return view('maps.ingo_map')->with('all_projects',$all_projects);
@@ -30,7 +30,7 @@ class MapsController extends Controller
 
     // get all the district for a specific project
     public function get_districts(Request $request){
-        
+
         $project_id = $request->project_id;
 
         $project_details = IngoProjects::where('id',$project_id)->first();
@@ -41,17 +41,23 @@ class MapsController extends Controller
         $count = 0;
 
         foreach ($districts as $dist) {
-            
+
             $district = District::where('id',$dist->district_id)->first();
 
-            $district_name[$count] = $district->name;
+            if($district->id == 45){
+                $district_name[$count] = "Coxs_Bazar";
+            }else{
+                $district_name[$count] = $district->name;    
+            }
 
             $count++;
         }
 
-        dd($district_name);
+        // dd($district_name);
 
-        return response()->json($district_name );
+        return json_encode($district_name);
+
+        
     }
 
     /**
