@@ -35,8 +35,23 @@ class MapsController extends Controller
 
         $project_details = IngoProjects::where('id',$project_id)->first();
 
-        dd($project_details); 
+        $districts = ProjectDistrict::where('project_id',$project_id)->get();
 
+        $district_name = array();
+        $count = 0;
+
+        foreach ($districts as $dist) {
+            
+            $district = District::where('id',$dist->district_id)->first();
+
+            $district_name[$count] = $district->name;
+
+            $count++;
+        }
+
+        dd($district_name);
+
+        return response()->json($district_name);
     }
 
     /**
