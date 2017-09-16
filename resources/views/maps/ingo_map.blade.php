@@ -16423,12 +16423,12 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 			var project = $('#project-id').val();
 
+			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_districts", {project_id: project}, function(final_array){
 
+				
 
-
+			});
 		});
-
-
 	});
 
 </script>

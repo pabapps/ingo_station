@@ -28,6 +28,17 @@ class MapsController extends Controller
         return view('maps.ingo_map')->with('all_projects',$all_projects);
     }
 
+    // get all the district for a specific project
+    public function get_districts(Request $request){
+        
+        $project_id = $request->project_id;
+
+        $project_details = IngoProjects::where('id',$project_id)->first();
+
+        dd($project_details); 
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

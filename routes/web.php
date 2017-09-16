@@ -59,6 +59,10 @@ Route::get('/search/project_details_by_id/{id}','GeneralSearchController@project
 Route::get('/search','GeneralSearchController@general_search');
 
 // route for maps
+
+//get all the district for a project
+Route::get('/info_maps/get_districts','MapsController@get_districts');
+
 Route::resource('/info_maps','MapsController'); 
 
 
