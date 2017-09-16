@@ -51,7 +51,7 @@ class MapsController extends Controller
 
         dd($district_name);
 
-        return response()->json($district_name);
+        return response()->json($district_name );
     }
 
     /**
