@@ -21,11 +21,11 @@
 <main class="main main-elevated">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xl-9 col-lg-8 col-xs-12">
 				<div class="content-wrap">
 					<article class="entry">
 						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-						width="1000px" height="1000px" viewBox="0 0 612 612" enable-background="new 0 0 612 612" xml:space="preserve">
+						width="100%" height="100%" viewBox="0 0 612 612" enable-background="new 0 0 612 612" xml:space="preserve">
 						<rect id="XMLID_1949_" x="73.164" y="301.43" fill="none" width="47.761" height="310.57"/>
 						<g id="XMLID_1192_">
 							<rect id="XMLID_19262_" fill="none" width="612" height="612"/>
@@ -16360,18 +16360,105 @@
 							</g>
 						</g>
 					</svg>
-					<div class="entry-content">
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-3 col-xs-12">
-									<select class="js-example-responsive" style="width: 100%" id="project-id" name="project_id">
+				</article>
+			</div>
+		</div>
 
-									</select>
+		
+		<div class="col-xl-3 col-lg-4 col-xs-12">
+			<div class="sidebar">
+
+				<aside class="widget widget_ci-company-info-widget">
+					<h3 class="widget-title">Projects</h3>
+
+					<div class="card-info">
+						<div class="card-info-media">
+
+							<div class="card-info-details">
+								<select class="js-example-responsive" style="width: 100%" id="project-id" name="project_id">
+
+								</select>
+							</div>
+						</div>
+
+						<div class="card-info-description">
+							<p>There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly.</p>
+						</div>
+					</div>
+				</aside>
+				<aside class="widget widget_ci-related-items">
+					<h3 class="widget-title">Related Jobs</h3>
+
+					<div class="item-listing">
+						<div class="list-item list-item-sm">
+							<div class="list-item-main-info">
+								<p class="list-item-title">
+									<a href="single-job.html">Lion Tamer</a>
+								</p>
+
+								<div class="list-item-meta">
+									<a href="" class="list-item-tag item-badge" style="background-color: #0071c2;">Full Time</a>
+									<span class="list-item-company">Amazing Circus</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="list-item list-item-sm">
+							<div class="list-item-main-info">
+								<p class="list-item-title">
+									<a href="single-job.html">User Experience Designer</a>
+								</p>
+
+								<div class="list-item-meta">
+									<a href="" class="list-item-tag item-badge" style="backgroud-color: #ec1a5b;">Freelance</a>
+									<span class="list-item-company">McIntire Solutions, LLC</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="list-item list-item-sm">
+							<div class="list-item-main-info">
+								<p class="list-item-title">
+									<a href="single-job.html">Software Tester</a>
+								</p>
+
+								<div class="list-item-meta">
+									<a href="#" class="list-item-tag item-badge" style="background-color: #1fbbb4;">Contract</a>
+									<span class="list-item-company">McIntire Solutions, LLC</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="list-item list-item-sm">
+							<div class="list-item-main-info">
+								<p class="list-item-title">
+									<a href="single-job.html">Senior Software Engineer</a>
+								</p>
+
+								<div class="list-item-meta">
+									<a href="" class="list-item-tag item-badge" style="background-color: #f26d46;">Part Time</a>
+									<span class="list-item-company">Google, Inc.</span>
 								</div>
 							</div>
 						</div>
 					</div>
-				</article>
+				</aside>
+				<aside class="widget widget_ci-callout-widget">
+					<div class="callout-wrapper">
+						<img class="callout-thumb" src="images/logo-dark.png" alt="">
+
+						<p>
+							<strong>Find the right pros for your business. Post a new job today</strong>
+						</p>
+
+						<p class="text-secondary">From just
+							<strong>$199</strong> for
+							<strong>60 days</strong>
+						</p>
+
+						<a href="" class="btn btn-round btn-transparent">Post a new job</a>
+					</div>
+				</aside>
 			</div>
 		</div>
 	</div>

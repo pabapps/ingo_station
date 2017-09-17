@@ -56,9 +56,6 @@
 									<li class="menu-item-home current-menu-item">
 										<a href="{{URL::to('/').'/'}}">Home</a>
 									</li>
-									<li>
-										<a href="landing.html">Landing Page</a>
-									</li>
 									<li class="menu-item-has-children">
 										<a href="blog.html">iNGO</a>
 										<ul class="sub-menu">
@@ -67,60 +64,6 @@
 											</li>
 											<li>
 												<a href="{{URL::to('/').'/ingo_project/create'}}">Create Project</a>
-											</li>
-											<li>
-												<a href="index-left-sidebar.html">Job Listing Left</a>
-											</li>
-											<li>
-												<a href="blog.html">Blog</a>
-											</li>
-											<li>
-												<a href="dashboard.html">Job Dashboard</a>
-											</li>
-										</ul>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Contacts</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="single.html">Single Article</a>
-											</li>
-											<li>
-												<a href="single-job.html">Single Job</a>
-											</li>
-											<li>
-												<a href="page.html">Page Default</a>
-											</li>
-											<li>
-												<a href="page-centered.html">Page Centered</a>
-											</li>
-											<li>
-												<a href="page-fullwidth.html">Page Fullwidth</a>
-											</li>
-											<li>
-												<a href="submit.html">Submit</a>
-											</li>
-											<li>
-												<a href="buttons.html">Button Styles</a>
-											</li>
-										</ul>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Members</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="#">Submenu Item I</a>
-											</li>
-											<li class="menu-item-has-children">
-												<a href="#">Submenu Item II</a>
-												<ul class="sub-menu">
-													<li>
-														<a href="#">Third Level Menu Item</a>
-													</li>
-													<li>
-														<a href="#">Menu Item</a>
-													</li>
-												</ul>
 											</li>
 										</ul>
 									</li>
