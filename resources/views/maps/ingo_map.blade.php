@@ -25,7 +25,7 @@
 				<div class="content-wrap">
 					<article class="entry">
 						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-						width="100%" height="100%" viewBox="0 0 612 612" enable-background="new 0 0 612 612" xml:space="preserve">
+						width="100%" height="100%" viewBox="50 0 540 540" enable-background="new 0 0 612 612" xml:space="preserve">
 						<rect id="XMLID_1949_" x="73.164" y="301.43" fill="none" width="47.761" height="310.57"/>
 						<g id="XMLID_1192_">
 							<rect id="XMLID_19262_" fill="none" width="612" height="612"/>
@@ -16380,64 +16380,30 @@
 								</select>
 							</div>
 						</div>
+					</div>
+					<h3 class="widget-title">INGOS</h3>
 
-						<div class="card-info-description">
-							<p>There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly.</p>
+					<div class="card-info">
+						<div class="card-info-media">
+
+							<div class="card-info-details">
+								<select class="js-example-responsive" style="width: 100%" id="ingo-id" name="ingo_id">
+
+									</select>
+							</div>
 						</div>
 					</div>
 				</aside>
 				<aside class="widget widget_ci-related-items">
-					<h3 class="widget-title">Related Jobs</h3>
+					<h3 class="widget-title"></h3>
 
 					<div class="item-listing">
 						<div class="list-item list-item-sm">
 							<div class="list-item-main-info">
-								<p class="list-item-title">
-									<a href="single-job.html">Lion Tamer</a>
-								</p>
+								
 
 								<div class="list-item-meta">
-									<a href="" class="list-item-tag item-badge" style="background-color: #0071c2;">Full Time</a>
-									<span class="list-item-company">Amazing Circus</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="list-item list-item-sm">
-							<div class="list-item-main-info">
-								<p class="list-item-title">
-									<a href="single-job.html">User Experience Designer</a>
-								</p>
-
-								<div class="list-item-meta">
-									<a href="" class="list-item-tag item-badge" style="backgroud-color: #ec1a5b;">Freelance</a>
-									<span class="list-item-company">McIntire Solutions, LLC</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="list-item list-item-sm">
-							<div class="list-item-main-info">
-								<p class="list-item-title">
-									<a href="single-job.html">Software Tester</a>
-								</p>
-
-								<div class="list-item-meta">
-									<a href="#" class="list-item-tag item-badge" style="background-color: #1fbbb4;">Contract</a>
-									<span class="list-item-company">McIntire Solutions, LLC</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="list-item list-item-sm">
-							<div class="list-item-main-info">
-								<p class="list-item-title">
-									<a href="single-job.html">Senior Software Engineer</a>
-								</p>
-
-								<div class="list-item-meta">
-									<a href="" class="list-item-tag item-badge" style="background-color: #f26d46;">Part Time</a>
-									<span class="list-item-company">Google, Inc.</span>
+									
 								</div>
 							</div>
 						</div>
@@ -16504,6 +16470,26 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 			}
 		});
 
+		$('#ingo-id').select2({
+			placeholder: 'Select a project',
+			ajax: {
+				dataType: 'json',
+				url: '{{URL::to('/')}}/search/get_project_id',
+				delay: 250,
+				data: function(params) {
+					return {
+						term: params.term
+					}
+				},
+				processResults: function (data, params) {
+					params.page = params.page || 1;
+					return {
+						results: data
+					};
+				},
+			}
+		});
+
 		var default_color = "#D0D2D3";
 
 		var previous_colored_district = [];
@@ -16536,6 +16522,12 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 			});
 		});
+
+
+		$("#ingo-id").change(function(){
+			console.log("testing");
+		});
+
 	});
 
 </script>
