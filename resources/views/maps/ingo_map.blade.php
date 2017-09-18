@@ -16516,6 +16516,14 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 			console.log(ingo_id);
 
+			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_districts", {project_id: project}, function(district_name){
+
+				var object = JSON.parse(district_name);
+				
+				color_map(object);
+
+			});
+
 		});
 
 
