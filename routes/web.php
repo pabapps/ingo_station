@@ -63,6 +63,9 @@ Route::get('/search','GeneralSearchController@general_search');
 //get all the district for a project
 Route::get('/info_maps/get_districts','MapsController@get_districts');
 
+//get all the ingos for the map
+Route::get('/info_maps/get_ingos','MapsController@get_ingos');
+
 Route::resource('/info_maps','MapsController'); 
 
 

@@ -61,6 +61,27 @@ class MapsController extends Controller
     }
 
     /**
+     * ingo office id for the maps 
+     */
+
+    public function get_ingos(Request $request){
+
+
+        $search_term = $request->input('term');
+
+        $query_ingos= "
+        SELECT ingos.id , ingos.ingo_name AS text
+        FROM ingos WHERE ingos.ingo_name LIKE '%{$search_term}%'";
+
+        $ingos = DB::select($query_ingos);
+
+
+        return response()->json($ingos);
+    }
+
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

@@ -16474,7 +16474,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 			placeholder: 'Select a project',
 			ajax: {
 				dataType: 'json',
-				url: '{{URL::to('/')}}/search/get_project_id',
+				url: '{{URL::to('/')}}/info_maps/get_ingos',
 				delay: 250,
 				data: function(params) {
 					return {
