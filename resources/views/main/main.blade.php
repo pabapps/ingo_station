@@ -56,6 +56,9 @@
 									<li class="menu-item-home current-menu-item">
 										<a href="{{URL::to('/').'/'}}">Home</a>
 									</li>
+									<li class="menu-item-home current-menu-item">
+										<a href="{{ url('/info_maps') }}">Map</a>
+									</li>
 									<li class="menu-item-has-children">
 										<a href="blog.html">iNGO</a>
 										<ul class="sub-menu">
