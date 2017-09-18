@@ -16389,7 +16389,7 @@
 							<div class="card-info-details">
 								<select class="js-example-responsive" style="width: 100%" id="ingo-id" name="ingo_id">
 
-									</select>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -16502,31 +16502,43 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				var object = JSON.parse(district_name);
 
-				if(previous_colored_district.length>0){
-					for (var i = 0; i < previous_colored_district.length; i++) {
-						$(previous_colored_district[i]).css({fill: "#D0D2D3"});
-					}
-				}
 				
-
-				previous_colored_district.length = 0;
-
-				for(var i =0; i<object.length; i++){
-
-					console.log(object[i]);
-
-					previous_colored_district[i] = '#'+object[i];
-
-					$('#'+object[i]).css({ fill: "#ff0000" });
-				}
+				
+				color_map(object);
 
 			});
 		});
 
 
 		$("#ingo-id").change(function(){
-			console.log("testing");
+
+			var ingo_id = $("#ingo-id").val();
+
+			console.log(ingo_id);
+
 		});
+
+
+		function color_map(object){
+
+			if(previous_colored_district.length>0){
+				for (var i = 0; i < previous_colored_district.length; i++) {
+					$(previous_colored_district[i]).css({fill: "#D0D2D3"});
+				}
+			}
+
+			previous_colored_district.length = 0;
+
+			for(var i =0; i<object.length; i++){
+
+				console.log(object[i]);
+
+				previous_colored_district[i] = '#'+object[i];
+
+				$('#'+object[i]).css({ fill: "#ff0000" });
+			}
+
+		}
 
 	});
 
