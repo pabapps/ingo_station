@@ -16393,6 +16393,30 @@
 							</div>
 						</div>
 					</div>
+
+					<h3 class="widget-title">Themes</h3>
+
+					<div class="card-info">
+						<div class="card-info-media">
+
+							<div class="card-info-details">
+								<select class="js-example-responsive" style="width: 100%" id="theme-id" name="theme_id">
+									<option ></option>
+									<option value="Education">Education</option>
+									<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
+									<option value="Energy and Urban Services">Energy and Urban Services</option>
+									<option value="Governence">Governence</option>
+									<option value="Water,Sanitation and Hygiene">Water,Sanitation and Hygiene</option>
+									<option value="Health">Health</option>
+									<option value="Agriculture">Agriculture</option>
+									<option value="Poverty">Poverty</option>
+									<option value="Gender">Gender</option>
+									<option value="Disability and Child Rights">Disability and Child Rights</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
 				</aside>
 				<aside class="widget widget_ci-related-items">
 					<h3 class="widget-title"></h3>
@@ -16490,6 +16514,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 					};
 				},
 			}
+		});
+
+		$('#theme-id').select2({
+			placeholder: 'Select an option'
 		});
 
 		var default_color = "#D0D2D3";
