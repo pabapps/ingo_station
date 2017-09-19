@@ -70,6 +70,7 @@ Route::get('/info_maps/get_ingos','MapsController@get_ingos');
 Route::get('/info_maps/get_disticts_for_ingos','MapsController@get_disticts_for_ingos');
 
 //get districts by theme
+Route::get('/info_maps/get_district_ by_theme','MapsController@get_district_by_theme');
 
 Route::resource('/info_maps','MapsController'); 
 

@@ -16517,7 +16517,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 		});
 
 		$('#theme-id').select2({
-			placeholder: 'Select an option'
+			placeholder: 'Select an option',
+			allowClear: true,
 		});
 
 		var default_color = "#D0D2D3";
@@ -16557,6 +16558,25 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 			});
 
 		});
+
+		$("#theme-id").change(function(){
+
+			var theme_id = $("#theme-id").val();
+
+			if(theme_id.length>0){
+
+				var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_district_ by_theme", {theme_id: theme_id}, function(district_name){
+
+					var object = JSON.parse(district_name);
+
+					color_map(object);
+
+				});
+
+			}
+
+		});
+
 
 
 		function color_map(object){
