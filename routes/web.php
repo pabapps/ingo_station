@@ -66,6 +66,9 @@ Route::get('/info_maps/get_districts','MapsController@get_districts');
 //get all the ingos for the map
 Route::get('/info_maps/get_ingos','MapsController@get_ingos');
 
+//get districts from the ingo offices
+Route::get('/info_maps/get_disticts_for_ingos','MapsController@get_disticts_for_ingos');
+
 Route::resource('/info_maps','MapsController'); 
 
 

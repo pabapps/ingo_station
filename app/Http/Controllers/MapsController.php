@@ -79,7 +79,21 @@ class MapsController extends Controller
         return response()->json($ingos);
     }
 
+    /*
+    
+     */
+    
+    public function get_disticts_for_ingos(Request $request){
 
+        $ingo_id = $request->ingo_id;
+
+        //get all the projecs under this ingo
+        $projects = IngoProjects::where('ingo_office_id',$ingo_id)->get();
+
+        
+
+
+    }
 
     /**
      * Show the form for creating a new resource.
