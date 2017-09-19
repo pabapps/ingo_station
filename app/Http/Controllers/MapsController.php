@@ -88,10 +88,27 @@ class MapsController extends Controller
         $ingo_id = $request->ingo_id;
 
         //get all the projecs under this ingo
-        $projects = IngoProjects::where('ingo_office_id',$ingo_id)->get();
+        $projects = IngoProjects::where('ingo_office_id',$ingo_id)->where('valid',1)->get();
+        //get all the district fron the above selected projects`
+        $district_name = array();
+        $count = 0;
 
-        
+        foreach ($projects as $pro) {
+            $district_id = ProjectDistrict::where('project_id',$pro->id)->get();
 
+            foreach ($district_id as $dist) {
+                $district = District::where('id',$dist->district_id)->first();
+
+                if($district->id == 45){
+                    $district_name[$count] = "Coxs_Bazar";
+                }else{
+                    $district_name[$count] = $district->name;    
+                }
+                $count++;
+            }
+        }
+
+        return json_encode($district_name);
 
     }
 
