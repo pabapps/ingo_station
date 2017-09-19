@@ -16452,6 +16452,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 	{
 		$('#project-id').select2({
 			placeholder: 'Select a project',
+			allowClear: true,
 			ajax: {
 				dataType: 'json',
 				url: '{{URL::to('/')}}/search/get_project_id',
@@ -16472,6 +16473,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 		$('#ingo-id').select2({
 			placeholder: 'Select a project',
+			allowClear: true,
 			ajax: {
 				dataType: 'json',
 				url: '{{URL::to('/')}}/info_maps/get_ingos',
@@ -16495,6 +16497,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 		var previous_colored_district = [];
 
 		$( "#project-id" ).change(function() {
+			console.log("testing");
+			$('#ingo-id').val('');
+			// $('#ingo-id').trigger('change');
+			// $('#ingo-id').select2('data', null);
 
 			var project = $('#project-id').val();
 
@@ -16510,8 +16516,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 		$("#ingo-id").change(function(){
 
 			var ingo_id = $("#ingo-id").val();
-
-			console.log(ingo_id);
+			$('#project-id').val('');
+			// $('#project-id').trigger('change'); 
+			// $('#project-id').select2('data', null);
 
 			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_disticts_for_ingos", {ingo_id: ingo_id}, function(district_name){
 
@@ -16535,8 +16542,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 			previous_colored_district.length = 0;
 
 			for(var i =0; i<object.length; i++){
-
-				console.log(object[i]);
 
 				previous_colored_district[i] = '#'+object[i];
 
