@@ -16369,18 +16369,6 @@
 			<div class="sidebar">
 
 				<aside class="widget widget_ci-company-info-widget">
-					<h3 class="widget-title">Projects</h3>
-
-					<div class="card-info">
-						<div class="card-info-media">
-
-							<div class="card-info-details">
-								<select class="js-example-responsive" style="width: 100%" id="project-id" name="project_id">
-
-								</select>
-							</div>
-						</div>
-					</div>
 					<h3 class="widget-title">INGOS</h3>
 
 					<div class="card-info">
@@ -16417,22 +16405,21 @@
 						</div>
 					</div>
 
-				</aside>
-				<aside class="widget widget_ci-related-items">
-					<h3 class="widget-title"></h3>
+					<h3 class="widget-title">Projects</h3>
 
-					<div class="item-listing">
-						<div class="list-item list-item-sm">
-							<div class="list-item-main-info">
-								
+					<div class="card-info">
+						<div class="card-info-media">
 
-								<div class="list-item-meta">
-									
-								</div>
+							<div class="card-info-details">
+								<select class="js-example-responsive" style="width: 100%" id="project-id" name="project_id">
+
+								</select>
 							</div>
 						</div>
 					</div>
+
 				</aside>
+				
 				<aside class="widget widget_ci-callout-widget">
 					<div class="callout-wrapper">
 						<img class="callout-thumb" src="images/logo-dark.png" alt="">
@@ -16593,7 +16580,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				previous_colored_district[i] = '#'+object[i];
 
-				$('#'+object[i]).css({ fill: "#ff0000" });
+				$('#'+object[i]).css({ fill: "#41f4f1" });
 			}
 
 		}
