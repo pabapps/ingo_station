@@ -15561,7 +15561,7 @@
 						<img class="callout-thumb" src="images/logo-dark.png" alt="">
 
 						<p>
-							<strong>Find the right pros for your business. Post a new job today</strong>
+							<strong>Working on it</strong>
 						</p>
 
 						<p class="text-secondary">From just
