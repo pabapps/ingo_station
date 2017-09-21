@@ -417,7 +417,7 @@
 			 	var jqxhr = $.get( "{{URL::to('/')}}/ingo_project/get_project_by_district", { district_id: district_id },
 			 		function(final_array) {
 
-			 			console.log("testing");
+			 			
 
 			 			//need to type the remaining code
 			 			var object = JSON.parse(final_array);
