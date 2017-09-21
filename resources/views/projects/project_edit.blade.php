@@ -100,7 +100,9 @@
 											<option value="{{$project->theme}}">{{$project->theme}}</option>
 											@endif
 											<option value="Education">Education</option>
-											<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
+											<option value="Energy">Energy</option>
+											<option value="Nutrition">Nutrition</option>
+											<option value="Urban Services">Urban Services</option>
 											<option value="Energy and Urban Services">Energy and Urban Services</option>
 											<option value="Governence">Governence</option>
 											<option value="Water,Sanitation and Hygiene">Water,Sanitation and Hygiene</option>
@@ -108,7 +110,8 @@
 											<option value="Agriculture">Agriculture</option>
 											<option value="Poverty">Poverty</option>
 											<option value="Gender">Gender</option>
-											<option value="Disability and Child Rights">Disability and Child Rights</option>
+											<option value="Disability">Disability</option>
+											<option value="Child Focused">Child Focused</option>
 										</select>
 									</div>
 								</div>
