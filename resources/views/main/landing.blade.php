@@ -91,9 +91,72 @@
 						<i class="fa fa-life-saver"></i>
 					</span>
 
-					<p class="item-title">Goal</p>
+					<p class="item-title">BASIC PRINCIPLES AND OPERATING GUIDELINES</p>
 
-					<p>The INGO Forum aims to influence and increase the effectiveness and coherence of humanitarian relief and development aid in Bangladesh. It does this by exploring opportunities to develop and strengthen policy and best practice through coordinated information sharing, facilitated dialogue and constructive engagement with national and international decision-makers involved in humanitarian and development activities, in doing so it supports an enabling environment for INGOs to better fulfil their mandates .</p>
+					<p>We the INGOs operating in Bangladesh commit ourselves to adhering to the following principles and guidelines:</p>
+					<ul>
+						<li>
+							<p align="justify">
+								We are in Bangladesh to contribute to improvement in the quality of life of the people of Bangladesh.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								Our work focuses on responding to emergencies, reducing the impact of disasters and climate change, addressing the root causes of poverty, meeting basic needs and enabling communities to become more inclusive and self-sufficient.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We respect the constitution and laws of Bangladesh and work within them.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We will not engage in any partisan political activities within Bangladesh.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We respect the dignity of the peoples of Bangladesh: their cultures, religions and customs.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We support and work with the peoples of Bangladesh based on objective assessment of need alone, and not on any political, ethnic or religious agenda.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We will not discriminate against any individual or group on the grounds of gender, political affiliation, ethnic origin, religious belief or sexual orientation.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We will work to ensure that our work is transparent and undertake to involve program partners and their communities in the planning, management and implementation of programmes.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We are accountable to those whom we seek to assist and to those providing the resources.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								In our recruitment, procurement and other transactions we are guided by suitability, qualification, expertise and experience and not by political, religious, personal or any other considerations that may lead to conflict of interest.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We are committed to comply strictly with international humanitarian principles and human rights law.
+							</p>
+						</li>
+						<li>
+							<p align="justify">
+								We are performance oriented to achieve the best results possible based on targets and achievements agreed with those we work for/with and those we mobilize resources from and we welcome objective evaluation of our work.
+							</p>
+						</li>						
+					</ul>	
+
 				</div>
 			</div>
 		</div>
