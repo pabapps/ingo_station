@@ -22,7 +22,7 @@ class MapRelated{
 
 		$districts = ProjectDistrict::where('project_id',$project_id)->get();
 
-		$district_name = array();
+		$district_array = array();
 		$count = 0;
 
 		foreach ($districts as $dist) {
@@ -30,15 +30,20 @@ class MapRelated{
 			$district = District::where('id',$dist->district_id)->first();
 
 			if($district->id == 45){
-				$district_name[$count] = "Coxs_Bazar";
+				$district_array[$count] = "Coxs_Bazar";
 			}else{
-				$district_name[$count] = $district->name;    
+				$district_array[$count] = $district->name;    
 			}
 
 			$count++;
 		}
 
-		return $district_name;
+		$district_pack = array(
+			'districts'=> $district_array,
+			'project'=> $project_details,
+		);
+
+		return $district_pack;
 
 	}
 

@@ -36,8 +36,6 @@ class MapsController extends Controller
 
         $district_name = MapRelated::district_for_project($request); 
 
-        // dd($district_name);
-
         return json_encode($district_name);
 
         

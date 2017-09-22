@@ -15569,7 +15569,7 @@
 						<ul id="dynamic-ul">
 							
 						</ul>
-						<a href="" class="btn btn-round btn-transparent">Post a new job</a>
+						
 					</div>
 				</aside>
 			</div>
@@ -15649,25 +15649,27 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 		var previous_colored_district = [];
 
 		$( "#project-id" ).change(function() {
-			console.log("testing");
+			
 			var project = $('#project-id').val();
 
 			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_districts", {project_id: project}, function(district_name){
 
 				var object = JSON.parse(district_name);
-				color_map(object);
 
-				document.getElementById("dynamic-paragraph").innerHTML = "<h2>New text!</h2>";
+				color_map(object['districts']);
 
-				var myList = document.getElementById('dynamic-ul');
-				myList.innerHTML = '';
+				document.getElementById("dynamic-paragraph").innerHTML = "<h2>"+object['project'].project_name+"</h2>";
 
-				var ul = document.getElementById('dynamic-ul');
 
-				var li = document.createElement('li');
+				$('#dynamic-ul').append('<li>Key partners:'+object['project'].key_partners+'</li>');
+				$('#dynamic-ul').append('<li> Start Date: '+object['project'].start_date+'</li>');
+				$('#dynamic-ul').append('<li> Theme: '+object['project'].theme+'</li>');
+				var url_link = object['project'].url;
 
-				li.appendChild(document.createTextNode("Four"));
-				ul.appendChild(li);
+				if(url_link !=null){
+					$('#dynamic-ul').append('<li> <a  target="_blank" href="'+url_link +'" class="btn btn-round btn-transparent">visit</a> </li>');
+				}
+
 
 			});
 		});
@@ -15677,7 +15679,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 			var ingo_id = $("#ingo-id").val();
 			
-			console.log("testing");
+			// console.log("testing");
 
 			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_disticts_for_ingos", {ingo_id: ingo_id}, function(district_name){
 
