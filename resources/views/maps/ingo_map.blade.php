@@ -15679,7 +15679,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 			var ingo_id = $("#ingo-id").val();
 			
-			// console.log("testing");
+			$('#dynamic-ul').remove();
+			$('#dynamic-paragraph').remove();
 
 			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_disticts_for_ingos", {ingo_id: ingo_id}, function(district_name){
 
