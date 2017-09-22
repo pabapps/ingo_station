@@ -15561,17 +15561,14 @@
 
 				<aside class="widget widget_ci-callout-widget">
 					<div class="callout-wrapper">
-						<img class="callout-thumb" src="images/logo-dark.png" alt="">
 
-						<p>
-							<strong>Working on it</strong>
+						<p id="dynamic-paragraph">
+							
 						</p>
 
-						<p class="text-secondary">From just
-							<strong>$199</strong> for
-							<strong>60 days</strong>
-						</p>
-
+						<ul id="dynamic-ul">
+							
+						</ul>
 						<a href="" class="btn btn-round btn-transparent">Post a new job</a>
 					</div>
 				</aside>
@@ -15653,16 +15650,24 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 		$( "#project-id" ).change(function() {
 			console.log("testing");
-			$('#ingo-id').val('');
-			// $('#ingo-id').trigger('change');
-			// $('#ingo-id').select2('data', null);
-
 			var project = $('#project-id').val();
 
 			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_districts", {project_id: project}, function(district_name){
 
 				var object = JSON.parse(district_name);
 				color_map(object);
+
+				document.getElementById("dynamic-paragraph").innerHTML = "<h2>New text!</h2>";
+
+				var myList = document.getElementById('dynamic-ul');
+				myList.innerHTML = '';
+
+				var ul = document.getElementById('dynamic-ul');
+
+				var li = document.createElement('li');
+
+				li.appendChild(document.createTextNode("Four"));
+				ul.appendChild(li);
 
 			});
 		});
@@ -15671,15 +15676,16 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 		$("#ingo-id").change(function(){
 
 			var ingo_id = $("#ingo-id").val();
-			$('#project-id').val('');
-			// $('#project-id').trigger('change'); 
-			// $('#project-id').select2('data', null);
+			
+			console.log("testing");
 
 			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_disticts_for_ingos", {ingo_id: ingo_id}, function(district_name){
 
 				var object = JSON.parse(district_name);
 				
 				color_map(object);
+
+				
 
 			});
 

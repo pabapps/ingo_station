@@ -13,6 +13,9 @@ use Crypt;
 use Response;
 use DB;
 
+//testing
+use App\MapCode\MapRelated;
+
 class MapsController extends Controller
 {
     /**
@@ -31,27 +34,7 @@ class MapsController extends Controller
     // get all the district for a specific project
     public function get_districts(Request $request){
 
-        $project_id = $request->project_id;
-
-        $project_details = IngoProjects::where('id',$project_id)->first();
-
-        $districts = ProjectDistrict::where('project_id',$project_id)->get();
-
-        $district_name = array();
-        $count = 0;
-
-        foreach ($districts as $dist) {
-
-            $district = District::where('id',$dist->district_id)->first();
-
-            if($district->id == 45){
-                $district_name[$count] = "Coxs_Bazar";
-            }else{
-                $district_name[$count] = $district->name;    
-            }
-
-            $count++;
-        }
+        $district_name = MapRelated::district_for_project($request); 
 
         // dd($district_name);
 
