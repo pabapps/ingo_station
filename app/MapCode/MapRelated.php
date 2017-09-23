@@ -62,38 +62,89 @@ class MapRelated{
 		$ingo_office = Ingos::where('id',$ingo_id)->first();
 
         //get all the projecs under this ingo
-        $projects = IngoProjects::where('ingo_office_id',$ingo_id)->where('valid',1)->get();
+		$projects = IngoProjects::where('ingo_office_id',$ingo_id)->where('valid',1)->get();
         //get all the district fron the above selected projects`
-        $district_array = array();
-        $count = 0;
+		$district_array = array();
+		$count = 0;
 
-        foreach ($projects as $pro) {
-            $district_id = ProjectDistrict::where('project_id',$pro->id)->get();
+		foreach ($projects as $pro) {
+			$district_id = ProjectDistrict::where('project_id',$pro->id)->get();
 
-            foreach ($district_id as $dist) {
-                $district = District::where('id',$dist->district_id)->first();
+			foreach ($district_id as $dist) {
+				$district = District::where('id',$dist->district_id)->first();
 
-                if($district->id == 45){
-                    $district_array[$count] = "Coxs_Bazar";
-                }else{
-                    $district_array[$count] = $district->name;    
-                }
-                $count++;
-            }
-        }
+				if($district->id == 45){
+					$district_array[$count] = "Coxs_Bazar";
+				}else{
+					$district_array[$count] = $district->name;    
+				}
+				$count++;
+			}
+		}
 
-        $district_name = array(
-        	'districts'=> $district_array,
+		$district_name = array(
+			'districts'=> $district_array,
 			'ingo_office'=> $ingo_office->about,
-        );
+		);
 
-        return $district_name;
+		return $district_name;
 
 	}
 
 
 
+	public static function get_district_by_theme(Request $request){
 
+
+		$theme = $request->theme_id;
+
+        //get all the projects that are under this theme
+		$projects = IngoProjects::where('theme',$theme)->get();
+
+		$district_array = array();
+
+		$project_name = array();
+
+		$project_counter = 0;
+
+		foreach ($projects as $proc) {
+			$project_name[$project_counter] = $proc->project_name;
+
+			$project_counter++;
+		}
+
+		$count = 0;
+
+		foreach ($projects as $proc) {
+			$district_id = ProjectDistrict::where('project_id',$proc->id)->get();
+
+			foreach ($district_id as $dist) {
+
+				$district = District::where('id',$dist->district_id)->first();
+
+				if($district->id == 45){
+					$district_array[$count] = "Coxs_Bazar";
+				}else{
+					$district_array[$count] = $district->name;    
+				}
+				$count++;
+
+			}
+
+		}
+
+
+		$district_name = array(
+			'districts'=> $district_array,
+			'project_name'=> $project_name,
+		);
+		
+		
+
+		return $district_name;
+
+
+	}
 
 
 

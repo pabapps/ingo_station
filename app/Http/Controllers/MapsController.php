@@ -80,31 +80,9 @@ class MapsController extends Controller
      */
     public function get_district_by_theme(Request $request){
 
-        $theme = $request->theme_id;
 
-        //get all the projects that are under this theme
-        $projects = IngoProjects::where('theme',$theme)->get();
+        $district_name = MapRelated::get_district_by_theme($request);    
 
-        $district_name = array();
-        $count = 0;
-
-        foreach ($projects as $proc) {
-            $district_id = ProjectDistrict::where('project_id',$proc->id)->get();
-
-            foreach ($district_id as $dist) {
-                
-                $district = District::where('id',$dist->district_id)->first();
-
-                if($district->id == 45){
-                    $district_name[$count] = "Coxs_Bazar";
-                }else{
-                    $district_name[$count] = $district->name;    
-                }
-                $count++;
-
-            }
-
-        }
         return json_encode($district_name);
 
 

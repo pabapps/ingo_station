@@ -15695,10 +15695,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				document.getElementById("dynamic-paragraph").innerHTML = "<h2>About</h2>";
 
-				$('#dynamic-ul').append('<li>Key partners:'+object['ingo_office']+'</li>');
-
-				console.log(object['ingo_office']);
-
+				$('#dynamic-ul').append('<li>'+object['ingo_office']+'</li>');
 				
 
 			});
@@ -15715,7 +15712,18 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 					var object = JSON.parse(district_name);
 
-					color_map(object);
+					color_map(object['districts']);
+
+					$('#dynamic-ul').empty();
+					$('#dynamic-paragraph').val("");
+
+					document.getElementById("dynamic-paragraph").innerHTML = "<h2>Projects</h2>";
+
+					var project_name = object['project_name'];
+
+					for (var i = 0; i < project_name.length; i++) {
+						$('#dynamic-ul').append('<li>Key partners:'+project_name[i]+'</li>');
+					}
 
 				});
 
