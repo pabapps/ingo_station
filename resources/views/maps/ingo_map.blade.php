@@ -15658,6 +15658,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				color_map(object['districts']);
 
+				$('#dynamic-ul').remove();
+				$('#dynamic-paragraph').remove();
+
 				document.getElementById("dynamic-paragraph").innerHTML = "<h2>"+object['project'].project_name+"</h2>";
 
 
@@ -15679,14 +15682,18 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 			var ingo_id = $("#ingo-id").val();
 			
-			$('#dynamic-ul').remove();
-			$('#dynamic-paragraph').remove();
+			
 
 			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_disticts_for_ingos", {ingo_id: ingo_id}, function(district_name){
 
 				var object = JSON.parse(district_name);
 				
 				color_map(object);
+
+				$('#dynamic-ul').remove();
+				$('#dynamic-paragraph').remove();
+
+				console.log("testing");
 
 				
 
