@@ -151,7 +151,7 @@ class IngoController extends Controller
         if(is_object($old_ingo)){
 
             Ingos::where('id',$old_ingo->id)
-            ->update(['ingo_name'=>$request->ingo_name,'address'=>$request->ingo_address,'contact_number'=>$request->contact_number,'email'=>$request->ingo_email,'web_link'=>$request->web_link]);
+            ->update(['ingo_name'=>$request->ingo_name,'address'=>$request->ingo_address,'contact_number'=>$request->contact_number,'email'=>$request->ingo_email,'web_link'=>$request->web_link,'about'=>$request->about_org]);
 
         }else{
 
@@ -164,6 +164,7 @@ class IngoController extends Controller
          $ingo->email = $request->ingo_email;
          $ingo->web_link = $request->web_link;
          $ingo->valid = 1;
+         $ingo->about = $request->about_org;
 
          $ingo->save();
 
