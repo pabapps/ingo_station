@@ -66,28 +66,8 @@ class MapsController extends Controller
     
     public function get_disticts_for_ingos(Request $request){
 
-        $ingo_id = $request->ingo_id;
 
-        //get all the projecs under this ingo
-        $projects = IngoProjects::where('ingo_office_id',$ingo_id)->where('valid',1)->get();
-        //get all the district fron the above selected projects`
-        $district_name = array();
-        $count = 0;
-
-        foreach ($projects as $pro) {
-            $district_id = ProjectDistrict::where('project_id',$pro->id)->get();
-
-            foreach ($district_id as $dist) {
-                $district = District::where('id',$dist->district_id)->first();
-
-                if($district->id == 45){
-                    $district_name[$count] = "Coxs_Bazar";
-                }else{
-                    $district_name[$count] = $district->name;    
-                }
-                $count++;
-            }
-        }
+        $district_name = MapRelated::get_district_for_ingo($request);        
 
         return json_encode($district_name);
 
