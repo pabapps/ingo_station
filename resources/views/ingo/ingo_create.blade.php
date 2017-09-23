@@ -117,6 +117,24 @@
 												</div>
 											</div>
 
+											<div class="form-field form-field-inline">
+												<label for="web_link">About Us
+												</label>
+
+												<div class="field">
+													
+													@if(isset($ingo->about))
+													<textarea rows="4" cols="50" id="about-org" name="about_org">
+														
+													</textarea>
+													@else
+													<textarea rows="4" cols="50" id="about-org" name="about_org">
+														
+													</textarea>
+													@endif
+												</div>
+											</div>
+
 
 											<button type="submit" class="btn">Save</button>
 
