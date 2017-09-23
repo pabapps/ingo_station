@@ -28,18 +28,11 @@ class MapRelated{
 		$district_array = array();
 		$count = 0;
 
-		foreach ($districts as $dist) {
+		$modify_array = MapRelated::create_district_array($district_array,$districts,$count);
 
-			$district = District::where('id',$dist->district_id)->first();
+		$district_array = $modify_array['district'];
+		$count = $modify_array['count'];
 
-			if($district->id == 45){
-				$district_array[$count] = "Coxs_Bazar";
-			}else{
-				$district_array[$count] = $district->name;    
-			}
-
-			$count++;
-		}
 
 		$district_pack = array(
 			'districts'=> $district_array,
@@ -70,16 +63,10 @@ class MapRelated{
 		foreach ($projects as $pro) {
 			$district_id = ProjectDistrict::where('project_id',$pro->id)->get();
 
-			foreach ($district_id as $dist) {
-				$district = District::where('id',$dist->district_id)->first();
+			$modify_array = MapRelated::create_district_array($district_array,$district_id,$count);
 
-				if($district->id == 45){
-					$district_array[$count] = "Coxs_Bazar";
-				}else{
-					$district_array[$count] = $district->name;    
-				}
-				$count++;
-			}
+			$district_array = $modify_array['district'];
+			$count = $modify_array['count'];
 		}
 
 		$district_name = array(
@@ -103,6 +90,8 @@ class MapRelated{
 
 		$district_array = array();
 
+		$count = 0;
+
 		$project_name = array();
 
 		$project_counter = 0;
@@ -113,26 +102,17 @@ class MapRelated{
 			$project_counter++;
 		}
 
-		$count = 0;
-
 		foreach ($projects as $proc) {
 			$district_id = ProjectDistrict::where('project_id',$proc->id)->get();
 
-			foreach ($district_id as $dist) {
+			$modify_array = MapRelated::create_district_array($district_array,$district_id,$count);
 
-				$district = District::where('id',$dist->district_id)->first();
-
-				if($district->id == 45){
-					$district_array[$count] = "Coxs_Bazar";
-				}else{
-					$district_array[$count] = $district->name;    
-				}
-				$count++;
-
-			}
+			$district_array = $modify_array['district'];
+			$count = $modify_array['count'];
 
 		}
 
+		
 
 		$district_name = array(
 			'districts'=> $district_array,
@@ -148,7 +128,29 @@ class MapRelated{
 
 
 
+	private static function create_district_array($district_array,$district_id,$count){
 
+		foreach ($district_id as $dist) {
+
+			$district_data = District::where('id',$dist->district_id)->first();
+
+			if($district_data->id == 45){
+				$district_array[$count] = "Coxs_Bazar";
+			}else{
+				$district_array[$count] = $district_data->name;    
+			}
+			$count++;
+
+		}
+
+		$modify_array = array(
+			'district'=>$district_array,
+			'count'=>$count,
+		);
+
+		return $modify_array;
+
+	}
 
 
 
