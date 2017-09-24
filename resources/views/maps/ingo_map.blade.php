@@ -15720,9 +15720,12 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 					document.getElementById("dynamic-paragraph").innerHTML = "<h2>Projects</h2>";
 
 					var project_name = object['project_name'];
+					var project_district_name = object['project_district'];
+
+					console.log(project_district_name);
 
 					for (var i = 0; i < project_name.length; i++) {
-						$('#dynamic-ul').append('<li class="list-group-item" >'+project_name[i]+'</li>');
+						$('#dynamic-ul').append('<li class="list-group-item"><b>'+project_name[i]+'</b>: '+project_district_name[i]+'</li>');
 					}
 
 				});

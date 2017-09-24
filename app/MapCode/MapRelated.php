@@ -96,6 +96,10 @@ class MapRelated{
 
 		$project_counter = 0;
 
+		$project_district_names = array();
+
+		$project_district_count = 0;
+
 		foreach ($projects as $proc) {
 			$project_name[$project_counter] = $proc->project_name;
 
@@ -107,6 +111,20 @@ class MapRelated{
 
 			$modify_array = MapRelated::create_district_array($district_array,$district_id,$count);
 
+			$district_string = "";
+
+			foreach ($district_id as $dist) {
+				
+				$actual_district = District::where('id',$dist->district_id)->first();
+
+				$district_string = $district_string.$actual_district->name.', ';
+				
+			}
+
+			$project_district_names[$project_district_count] = $district_string;
+
+			$project_district_count++;
+
 			$district_array = $modify_array['district'];
 			$count = $modify_array['count'];
 
@@ -117,6 +135,7 @@ class MapRelated{
 		$district_name = array(
 			'districts'=> $district_array,
 			'project_name'=> $project_name,
+			'project_district'=>$project_district_names,
 		);
 		
 		
