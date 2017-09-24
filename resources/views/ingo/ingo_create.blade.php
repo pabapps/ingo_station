@@ -124,13 +124,9 @@
 												<div class="field">
 													
 													@if(isset($ingo->about))
-													<textarea id="about-org" name="about_org" cols="4" rows="4"  >
-														{{$ingo->about}}
-													</textarea>
+													<textarea id="about-org" name="about_org" cols="4" rows="4"  >{{$ingo->about}}</textarea>
 													@else
-													<textarea id="about-org" name="about_org" cols="4" rows="4" >
-														
-													</textarea>
+													<textarea id="about-org" name="about_org" cols="4" rows="4" ></textarea>
 													@endif
 												</div>
 											</div>

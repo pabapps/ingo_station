@@ -15566,7 +15566,7 @@
 							
 						</p>
 
-						<ul id="dynamic-ul">
+						<ul id="dynamic-ul" class="list-group">
 							
 						</ul>
 						
@@ -15664,13 +15664,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 				document.getElementById("dynamic-paragraph").innerHTML = "<h2>"+object['project'].project_name+"</h2>";
 
 
-				$('#dynamic-ul').append('<li>Key partners:'+object['project'].key_partners+'</li>');
-				$('#dynamic-ul').append('<li> Start Date: '+object['project'].start_date+'</li>');
-				$('#dynamic-ul').append('<li> Theme: '+object['project'].theme+'</li>');
+				$('#dynamic-ul').append('<li class="list-group-item"  >Key partners:'+object['project'].key_partners+'</li>');
+				$('#dynamic-ul').append('<li class="list-group-item"  > Start Date: '+object['project'].start_date+'</li>');
+				$('#dynamic-ul').append('<li class="list-group-item"  > Theme: '+object['project'].theme+'</li>');
 				var url_link = object['project'].url;
 
 				if(url_link !=null){
-					$('#dynamic-ul').append('<li> <a  target="_blank" href="'+url_link +'" class="btn btn-round btn-transparent">visit</a> </li>');
+					$('#dynamic-ul').append('<li class="list-group-item"  > <a  target="_blank" href="'+url_link +'" class="btn btn-round btn-transparent">visit</a> </li>');
 				}
 
 
@@ -15695,7 +15695,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				document.getElementById("dynamic-paragraph").innerHTML = "<h2>About</h2>";
 
-				$('#dynamic-ul').append('<li>'+object['ingo_office']+'</li>');
+				$('#dynamic-ul').append('<li class="list-group-item"  >'+object['ingo_office']+'</li>');
 				
 
 			});
@@ -15722,7 +15722,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 					var project_name = object['project_name'];
 
 					for (var i = 0; i < project_name.length; i++) {
-						$('#dynamic-ul').append('<li>Key partners:'+project_name[i]+'</li>');
+						$('#dynamic-ul').append('<li class="list-group-item" >'+project_name[i]+'</li>');
 					}
 
 				});

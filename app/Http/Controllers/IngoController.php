@@ -114,6 +114,8 @@ class IngoController extends Controller
                     $count++;
                 }
 
+                
+
                 return view('ingo.ingo_create')->with('ingo',$ingo)->with('final_array',$final_array);
                 
             }else{
