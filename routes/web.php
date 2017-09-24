@@ -38,6 +38,9 @@ Route::get('/ingo_project/get_project_by_theme','IngoController@get_project_by_t
 //route for searching by both themes and district
 Route::get('/ingo_project/get_project_by_district_theme','IngoController@get_project_by_district_theme');
 
+//route for deleting a project
+Route::get('/ingo_project/delete_project/{id}','IngoProjectsController@delete_project');
+
 
 Route::resource('/ingo_project','IngoProjectsController');
 
