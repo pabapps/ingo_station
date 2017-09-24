@@ -131,7 +131,7 @@
 								<label for="project-name">Project URL(If any)</label>
 
 								<div class="field">
-								@if(isset($project->url))
+									@if(isset($project->url))
 									<input type="text" id="project-url" name="project_url" value="{{$project->url}}" >
 									@else
 									<input type="text" id="project-url" name="project_url"  >
@@ -143,8 +143,8 @@
 								<label>Start Date:</label>
 
 								<div class="field">
-								@if(isset($project->start_date))
-									<input type="text" class="form-control " name="start_date" data-date-format="dd-mm-yyyy" id="start-date" value="{{$project->start_date}}" required>
+									@if(isset($start_date))
+									<input type="text" class="form-control " name="start_date" data-date-format="dd-mm-yyyy" id="start-date" value="{{$start_date}}" required>
 									@endif
 								</div>
 							</div>
@@ -153,7 +153,7 @@
 								<label>End Date:</label>
 
 								<div class="field">
-								@if(isset($project->end_date))
+									@if(isset($project->end_date))
 									<input type="text" class="form-control " name="end_date" data-date-format="dd-mm-yyyy" id="end-date" value="{{$project->end_date}}">
 									@else
 									<input type="text" class="form-control " name="end_date" data-date-format="dd-mm-yyyy" id="end-date" >
@@ -185,121 +185,121 @@
 						<aside class="widget widget_text group">
 							<h3 class="widget-title">Text Widget</h3>
 							<p>Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis
-								aliquet egestas purus.</p>
-							</aside>
-							<!-- /widget -->
-						</div>
-
-						<div class="col-lg-3 col-md-6 col-xs-12">
-							<aside class="widget widget_categories group">
-								<h3 class="widget-title">Widget Title</h3>
-								<ul>
-									<li>
-										<a href="#">Privacy Policy</a>
-									</li>
-									<li>
-										<a href="#">Terms &amp; Conditions</a>
-									</li>
-									<li>
-										<a href="#">Careers</a>
-									</li>
-									<li>
-										<a href="#">History</a>
-									</li>
-									<li>
-										<a href="#">Disclaimer</a>
-									</li>
-								</ul>
-							</aside>
-							<!-- /widget -->
-						</div>
-
-						<div class="col-lg-3 col-md-6 col-xs-12">
-							<aside class="widget widget_categories group">
-								<h3 class="widget-title">Widget Title</h3>
-								<ul>
-									<li>
-										<a href="#">Privacy Policy</a>
-									</li>
-									<li>
-										<a href="#">Terms &amp; Conditions</a>
-									</li>
-									<li>
-										<a href="#">Careers</a>
-									</li>
-									<li>
-										<a href="#">History</a>
-									</li>
-									<li>
-										<a href="#">Disclaimer</a>
-									</li>
-								</ul>
-							</aside>
-							<!-- /widget -->
-						</div>
-
-						<div class="col-lg-3 col-md-6 col-xs-12">
-							<!-- For a list of all supported social icons please see: http://fontawesome.io/icons/#brand -->
-
-							<aside class="widget widget_ci_social_widget ci-socials group">
-								<h3 class="widget-title">Socials</h3>
-
-								<ul class="list-social-icons">
-									<li>
-										<a class="social-icon" href="#">
-											<i class="fa fa-rss"></i>
-										</a>
-									</li>
-									<li>
-										<a class="social-icon" href="#">
-											<i class="fa fa-facebook"></i>
-										</a>
-									</li>
-									<li>
-										<a class="social-icon" href="#">
-											<i class="fa fa-twitter"></i>
-										</a>
-									</li>
-									<li>
-										<a class="social-icon" href="#">
-											<i class="fa fa-pinterest-p"></i>
-										</a>
-									</li>
-									<li>
-										<a class="social-icon" href="#">
-											<i class="fa fa-vimeo"></i>
-										</a>
-									</li>
-									<li>
-										<a class="social-icon" href="#">
-											<i class="fa fa-medium"></i>
-										</a>
-									</li>
-								</ul>
-							</aside>
-						</div>
+							aliquet egestas purus.</p>
+						</aside>
+						<!-- /widget -->
 					</div>
 
-					<div class="footer-copy">
-						<div class="row">
-							<div class="col-sm-6 col-xs-12">
-								<p>
-									<a href="">Specialty</a> &ndash; Job Board Template by
-									<a href="https://www.cssigniter.com/ignite" target="_blank">CSSIgniter</a>
-								</p>
-							</div>
+					<div class="col-lg-3 col-md-6 col-xs-12">
+						<aside class="widget widget_categories group">
+							<h3 class="widget-title">Widget Title</h3>
+							<ul>
+								<li>
+									<a href="#">Privacy Policy</a>
+								</li>
+								<li>
+									<a href="#">Terms &amp; Conditions</a>
+								</li>
+								<li>
+									<a href="#">Careers</a>
+								</li>
+								<li>
+									<a href="#">History</a>
+								</li>
+								<li>
+									<a href="#">Disclaimer</a>
+								</li>
+							</ul>
+						</aside>
+						<!-- /widget -->
+					</div>
 
-							<div class="col-sm-6 col-xs-12 text-right">
-								<p>Powered by
-									<a href="https://www.cssigniter.com/ignite" target="_blank">CSSIgniter</a>
-								</p>
-							</div>
+					<div class="col-lg-3 col-md-6 col-xs-12">
+						<aside class="widget widget_categories group">
+							<h3 class="widget-title">Widget Title</h3>
+							<ul>
+								<li>
+									<a href="#">Privacy Policy</a>
+								</li>
+								<li>
+									<a href="#">Terms &amp; Conditions</a>
+								</li>
+								<li>
+									<a href="#">Careers</a>
+								</li>
+								<li>
+									<a href="#">History</a>
+								</li>
+								<li>
+									<a href="#">Disclaimer</a>
+								</li>
+							</ul>
+						</aside>
+						<!-- /widget -->
+					</div>
+
+					<div class="col-lg-3 col-md-6 col-xs-12">
+						<!-- For a list of all supported social icons please see: http://fontawesome.io/icons/#brand -->
+
+						<aside class="widget widget_ci_social_widget ci-socials group">
+							<h3 class="widget-title">Socials</h3>
+
+							<ul class="list-social-icons">
+								<li>
+									<a class="social-icon" href="#">
+										<i class="fa fa-rss"></i>
+									</a>
+								</li>
+								<li>
+									<a class="social-icon" href="#">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a class="social-icon" href="#">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a class="social-icon" href="#">
+										<i class="fa fa-pinterest-p"></i>
+									</a>
+								</li>
+								<li>
+									<a class="social-icon" href="#">
+										<i class="fa fa-vimeo"></i>
+									</a>
+								</li>
+								<li>
+									<a class="social-icon" href="#">
+										<i class="fa fa-medium"></i>
+									</a>
+								</li>
+							</ul>
+						</aside>
+					</div>
+				</div>
+
+				<div class="footer-copy">
+					<div class="row">
+						<div class="col-sm-6 col-xs-12">
+							<p>
+								<a href="">Specialty</a> &ndash; Job Board Template by
+								<a href="https://www.cssigniter.com/ignite" target="_blank">CSSIgniter</a>
+							</p>
+						</div>
+
+						<div class="col-sm-6 col-xs-12 text-right">
+							<p>Powered by
+								<a href="https://www.cssigniter.com/ignite" target="_blank">CSSIgniter</a>
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</footer>
+	</div>
+</footer>
 </div>
 <!-- #page -->
 @endsection

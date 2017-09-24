@@ -214,10 +214,11 @@ class IngoProjectsController extends Controller
 
         }
 
-
+        $originalDate = $project_detail->start_date;
+        $newDate = date("d-m-Y", strtotime($originalDate));
 
         return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts)
-        ->with('project_thanas',$thanas);
+        ->with('project_thanas',$thanas)->with('start_date',$newDate);
     }
 
     /**
