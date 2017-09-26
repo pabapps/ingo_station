@@ -13,7 +13,7 @@ class CreateEmailDomainTable extends Migration
      */
     public function up()
     {
-        Schema::create('=email_domain', function (Blueprint $table) {
+        Schema::create('email_domain', function (Blueprint $table) {
             $table->increments('id');
             $table->string('domain_name');
             $table->timestamps();
