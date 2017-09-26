@@ -42,7 +42,7 @@
                                         <a href="{{ url('/info_maps') }}">Map</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="blog.html">iNGO</a>
+                                        <a href="{{URL::to('/').'/ingo/create'}}">iNGO</a>
                                         <ul class="sub-menu">
                                             <li>
                                                 <a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
