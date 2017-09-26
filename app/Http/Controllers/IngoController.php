@@ -16,6 +16,7 @@ use DB;
 
 //testing
 use App\search\ProjectSearch;
+use App\emailDomain\domain;
 
 class IngoController extends Controller
 {
@@ -42,6 +43,9 @@ class IngoController extends Controller
      */
     public function create()
     {
+        //for domain verify will be removed
+        // domain::create_domain();
+
         $user = Auth::user();
 
         $ingo = Ingos::where('user_id',$user->id)->first();
