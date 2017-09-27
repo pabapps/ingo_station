@@ -94,7 +94,7 @@ class RegisterController extends Controller
         if($domain_exsit){
             event(new Registered($user = $this->create($request->all())));
 
-            Mail::to(user->email)->send(new Verify);
+            Mail::to($user->email)->send(new Verify($user));
 
             return redirect()->back();
         }else{
