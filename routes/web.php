@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/ingo_maps','IngoController@maps');

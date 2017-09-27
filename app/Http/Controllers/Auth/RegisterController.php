@@ -106,6 +106,20 @@ class RegisterController extends Controller
 
     }
 
+
+    public function sendEmailDone($email,$verifyToken){
+        $user = User::where(['email'=>$email,'verify_token'=>$verifyToken])->first();
+
+        if($user){
+            User::where(['email'=>$email,'verify_token'=>$verifyToken])->update(['valid'=>1,'verify_token'=>null]);
+
+            return "done now please login";
+        }else{
+            return "user not found";
+        }
+        
+    }
+
     /*
     checking the domain of an incoming email address if the domain exist, new user is valid 
     if not the new user is invalid. 
