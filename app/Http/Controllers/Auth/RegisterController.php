@@ -87,11 +87,16 @@ class RegisterController extends Controller
 
         $domain_exsit = RegisterController::domain_check($request);
 
-        dd($domain_exsit);
+        if($domain_exsit){
+            event(new Registered($user = $this->create($request->all())));
 
-        event(new Registered($user = $this->create($request->all())));
+            return redirect()->back();
+        }else{
+            //need to send a message that domain does not exist
+            return redirect()->back();
+        }
 
-        return redirect()->back();
+        
 
     }
 
