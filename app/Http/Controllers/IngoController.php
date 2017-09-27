@@ -43,8 +43,8 @@ class IngoController extends Controller
      */
     public function create()
     {
-        //for domain verify will be removed
-        domain::create_domain();
+        //for domain verify will be commented out for production purpose
+        // domain::create_domain();
 
         $user = Auth::user();
 
