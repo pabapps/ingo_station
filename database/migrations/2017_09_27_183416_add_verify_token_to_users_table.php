@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmailDomainTable extends Migration
+class AddVerifyTokenToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateEmailDomainTable extends Migration
      */
     public function up()
     {
-        Schema::create('email_domain', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('domain_name');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('verify_token')->nullable(); // 0=inactive, 1=active
         });
     }
 
@@ -27,6 +25,8 @@ class CreateEmailDomainTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('email_domain');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('verify_token');
+        });
     }
 }
