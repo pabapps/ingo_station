@@ -1,6 +1,8 @@
 <?php
 namespace App\emailDomain;
 
+use App\EmailDomain;
+
 class domain{
 
 	public static function create_domain(){
@@ -58,13 +60,26 @@ class domain{
 
 		}
 
-		
+		domain::put_domain_to_database($refined_array);
 
-		dd($refined_array);
+		// dd($refined_array);
+		dd("done");
+
+	}
 
 
 
+	private static function put_domain_to_database($refined_array){
 
+		foreach ($refined_array as $email_domain) {
+			
+			$create_email = new EmailDomain;
+
+			$create_email->domain_name = $email_domain;
+
+			$create_email->save();
+
+		}
 
 	}
 
