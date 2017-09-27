@@ -442,7 +442,7 @@
 
 			 			for (var i = 0; i < object.length; i++) { 
 
-			 				trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="{{URL::to('/')}}/ingo_project/'+object[i]['project'].id+'/edit" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="{{URL::to('/')}}/ingo_project/delete_project/'+object[i]['project'].id+'" class="job-dashboard-action-delete" onClick="'+return confirm("Sure you want to delete!")+'"  >Delete</a> </li> </ul>  </td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
+			 				trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="{{URL::to('/')}}/ingo_project/'+object[i]['project'].id+'/edit" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="{{URL::to('/')}}/ingo_project/delete_project/'+object[i]['project'].id+'" class="job-dashboard-action-delete">Delete</a> </li> </ul>  </td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
 			 			}
 
 			 			$('#project-table').append(trHTML);
