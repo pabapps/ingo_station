@@ -10,6 +10,9 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\EmailDomain;
+use Illuminate\Support\Str;
+use Mail;
+use App\Mail\Verify;
 
 class RegisterController extends Controller
 {
@@ -71,6 +74,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'verify_token' => Str::random(40),
         ]);
     }
 
@@ -89,6 +93,8 @@ class RegisterController extends Controller
 
         if($domain_exsit){
             event(new Registered($user = $this->create($request->all())));
+
+            Mail::to(user->email)->send(new Verify);
 
             return redirect()->back();
         }else{
