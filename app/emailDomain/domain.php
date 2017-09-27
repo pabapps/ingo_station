@@ -1,9 +1,7 @@
-<?
+<?php
 namespace App\emailDomain;
 
 class domain{
-
-
 
 	public static function create_domain(){
 
@@ -35,19 +33,28 @@ class domain{
 		$count = 0 ;
 
 		foreach ($domain_array as $array) {
-			
-
 			$string = explode("@",$array);
 
+			$final =  preg_replace('/[^A-Za-z0-9\-]/', '', $string[1]);
 
+			$does_it_exist = false; 
 
-		// dd($string[1]);
+			foreach ($refined_array as $r_array) {
+				
+				if($r_array == $array){
+					$does_it_exist = true;
+					break;
+				}
 
-			$final =  preg_replace('/[^A-Za-z0-9\-]/', '', $string[1]); 
+			}
 
-			$refined_array[$count] = $string[1];
+			if($does_it_exist==false && $string[1]!="gmail.com"){
+				$refined_array[$count] = $string[1];
 
-			$count++;
+				$count++;
+			}
+
+			
 
 		}
 
