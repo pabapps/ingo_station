@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\EmailDomain;
 
 class RegisterController extends Controller
 {
@@ -80,13 +81,42 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
-    {
+     public function register(Request $request)
+     {
         $this->validator($request->all())->validate();
+
+        $domain_exsit = RegisterController::domain_check($request);
+
+        dd($domain_exsit);
 
         event(new Registered($user = $this->create($request->all())));
 
         return redirect()->back();
+
+    }
+
+    /*
+    checking the domain of an incoming email address if the domain exist, new user is valid 
+    if not the new user is invalid. 
+    */
+    private static function domain_check(Request $request){
+        
+        $email = $request->email;
+
+        $string = explode("@",$email);
+
+        $modified_email = $string[1];
+
+        $database_domain = EmailDomain::where('domain_name',$modified_email)->first();
+
+        if(is_object($database_domain)){
+            return true;
+        }else{
+            return false;
+        }
+
+
+
 
     }
 
