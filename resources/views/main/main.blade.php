@@ -28,16 +28,16 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="#">
 
 	<style>
-		.page-hero::before {
-			content: "";
-			background-color: rgba(47, 48, 67, 0.40);
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-		}
-	</style>
+	.page-hero::before {
+		content: "";
+		background-color: rgba(47, 48, 67, 0.40);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+</style>
 
 </head>
 <body>
@@ -51,75 +51,76 @@
 							<h1 class="site-logo">
 								
 							</h1>
-							<nav class="nav">
-								<ul class="navigation-main">
-									<li class="menu-item-home current-menu-item">
-										<a href="{{URL::to('/').'/'}}">Home</a>
-									</li>
-									<li class="menu-item-home current-menu-item">
-										<a href="{{ url('/info_maps') }}">Map</a>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="{{URL::to('/').'/ingo/create'}}">iNGO</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
-											</li>
-											<li>
-												<a href="{{URL::to('/').'/ingo_project/create'}}">Create Project</a>
-											</li>
-										</ul>
-									</li>
-									@if(Auth::user())
-
-									<li class="menu-item-btn">
-										<a href="{{ route('logout') }}"
-										onclick="event.preventDefault();
-										document.getElementById('logout-form').submit();">
-										Logout
-									</a>
-
-									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-										{{ csrf_field() }}
-									</form>
+							<nav class="nav" style="background-color: #333;
+							overflow: hidden;">
+							<ul class="navigation-main">
+								<li class="menu-item-home current-menu-item">
+									<a href="{{URL::to('/').'/'}}">Home</a>
 								</li>
-								
-								@else
+								<li class="menu-item-home current-menu-item">
+									<a href="{{ url('/info_maps') }}">Map</a>
+								</li>
+								<li class="menu-item-has-children">
+									<a href="{{URL::to('/').'/ingo/create'}}">iNGO</a>
+									<ul class="sub-menu">
+										<li>
+											<a href="{{URL::to('/').'/ingo/create'}}">Ingo</a>
+										</li>
+										<li>
+											<a href="{{URL::to('/').'/ingo_project/create'}}">Create Project</a>
+										</li>
+									</ul>
+								</li>
+								@if(Auth::user())
+
 								<li class="menu-item-btn">
-									<a href="{{ url('/login') }}">Login</a>
-								</li>
-								<li class="menu-item-btn">
-									<a href="{{ url('/register') }}">Register</a>
-								</li>
-								@endif
-							</ul>
-							<!-- #navigation -->
+									<a href="{{ route('logout') }}"
+									onclick="event.preventDefault();
+									document.getElementById('logout-form').submit();">
+									Logout
+								</a>
 
-							<a href="#mobilemenu" class="mobile-nav-trigger">
-								<i class="fa fa-navicon"></i> Menu
-							</a>
-						</nav>
-						<!-- #nav -->
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+									{{ csrf_field() }}
+								</form>
+							</li>
+							
+							@else
+							<li class="menu-item-btn">
+								<a href="{{ url('/login') }}">Login</a>
+							</li>
+							<li class="menu-item-btn">
+								<a href="{{ url('/register') }}">Register</a>
+							</li>
+							@endif
+						</ul>
+						<!-- #navigation -->
 
-						<div id="mobilemenu"></div>
-					</div>
+						<a href="#mobilemenu" class="mobile-nav-trigger">
+							<i class="fa fa-navicon"></i> Menu
+						</a>
+					</nav>
+					<!-- #nav -->
+
+					<div id="mobilemenu"></div>
 				</div>
 			</div>
 		</div>
-	</header>
-	@yield('content')	
+	</div>
+</header>
+@yield('content')	
 
-	<script src="{{asset('js/jquery-1.12.3.min.js')}}"></script>
-	<script src="{{asset('js/owl.carousel.min.js')}}"></script>
-	<script src="{{asset('js/jquery.mmenu.min.all.js')}}"></script>
-	<script src="{{asset('js/jquery.fitvids.js')}}"></script>
-	<script src="{{asset('js/jquery.magnific-popup.js')}}"></script>
-	<script src="{{asset('js/jquery.matchHeight.js')}}"></script>
-	<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
-	<script src="{{asset('js/scripts.js')}}"></script>
-	<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-	<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
-	<script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
-	@yield('script')
+<script src="{{asset('js/jquery-1.12.3.min.js')}}"></script>
+<script src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('js/jquery.mmenu.min.all.js')}}"></script>
+<script src="{{asset('js/jquery.fitvids.js')}}"></script>
+<script src="{{asset('js/jquery.magnific-popup.js')}}"></script>
+<script src="{{asset('js/jquery.matchHeight.js')}}"></script>
+<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{asset('js/scripts.js')}}"></script>
+<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+@yield('script')
 </body>
 </html>

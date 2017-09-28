@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Login / Register &ndash; Specialty</title>
+    <title>Login / Register</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,12 +29,9 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="mast-head">
-                            <h1 class="site-logo">
-                                <a href="index.html">
-                                    <img src="images/logo-light.png" alt="">
-                                </a>
-                            </h1>
-                            <nav class="nav">
+                           
+                            <nav class="nav" style="background-color: #333;
+                            overflow: hidden;">
                                 <ul class="navigation-main">
                                     <li class="menu-item-home current-menu-item">
                                         <a href="{{URL::to('/').'/'}}">Home</a>
@@ -72,7 +69,7 @@
                 </div>
             </div>
         </header>
-        <div class="page-hero">
+        <div class="page-hero" style="background-image: url({{asset('images/login.jpg')}}); opacity: 1;>
             <div class="container">
                 <div class="row">
                     <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-xs-12">

@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'ingoforum@test.com'),
-        'name' => env('MAIL_FROM_NAME', 'ingoforum'),
+        'name' => env('MAIL_FROM_NAME', 'iNGO forum Bangladesh'),
     ],
 
     /*

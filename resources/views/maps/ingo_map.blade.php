@@ -15695,7 +15695,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				document.getElementById("dynamic-paragraph").innerHTML = "<h2>About</h2>";
 
-				$('#dynamic-ul').append('<li class="list-group-item"  >'+object['ingo_office']+'</li>');
+				$('#dynamic-ul').append('<li class="list-group-item" align="left" >'+object['ingo_office']+'</li>');
 				
 
 			});
