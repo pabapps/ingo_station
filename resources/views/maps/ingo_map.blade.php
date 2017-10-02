@@ -16,7 +16,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="page-hero-content">
-					<h1 class="page-title">Maps</h1>
+					<h1 class="page-title">Digital footprint</h1>
 				</div>
 			</div>
 		</div>

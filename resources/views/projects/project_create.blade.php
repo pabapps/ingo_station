@@ -62,7 +62,7 @@
 
 								<div class="field">
 									<div class="ci-select">
-										<select id="district" name="district[]" class="js-example-basic-single"  multiple="multiple">
+										<select id="district" name="district[]" class="js-example-basic-single"  multiple="multiple" required>
 										</select>
 									</div>
 								</div>
@@ -73,7 +73,7 @@
 
 								<div class="field">
 									<div class="ci-select">
-										<select id="upazila" name="upazila[]" class="js-example-basic-single" multiple="multiple" >
+										<select id="upazila" name="upazila[]" class="js-example-basic-single" multiple="multiple" required >
 										</select>
 									</div>
 								</div>
