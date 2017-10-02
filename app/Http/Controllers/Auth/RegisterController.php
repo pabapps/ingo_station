@@ -96,9 +96,12 @@ class RegisterController extends Controller
 
             Mail::to($user->email)->send(new Verify($user));
 
+             $request->session()->flash('alert-success', 'Please check your e-mail for verification');
+
             return redirect()->back();
         }else{
             //need to send a message that domain does not exist
+            $request->session()->flash('alert-danger', 'Sorry your email domain does not exist');
             return redirect()->back();
         }
 
@@ -113,7 +116,7 @@ class RegisterController extends Controller
         if($user){
             User::where(['email'=>$email,'verify_token'=>$verifyToken])->update(['valid'=>1,'verify_token'=>null]);
 
-            return "done now please login";
+            return view('auth.login');
         }else{
             return "user not found";
         }

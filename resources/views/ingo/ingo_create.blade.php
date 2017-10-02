@@ -13,6 +13,7 @@
 				<div class="page-hero-content">
 					<h1 class="page-title">Please enter iNGO info</h1>
 				</div>
+				<a href="{{URL::to('/')}}/ingo_project/create" class="btn btn-lg">Create A Project</a>
 			</div>
 		</div>
 	</div>
