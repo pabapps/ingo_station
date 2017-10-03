@@ -51,8 +51,7 @@
 							<h1 class="site-logo">
 								
 							</h1>
-							<nav class="nav" style="background-color: #333;
-							overflow: hidden;">
+							<nav class="nav" >
 							<ul class="navigation-main">
 								<li class="menu-item-home current-menu-item">
 									<a href="{{URL::to('/').'/'}}">Home</a>

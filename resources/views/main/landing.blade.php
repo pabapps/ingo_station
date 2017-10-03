@@ -5,28 +5,79 @@
 
 @section('content')
 
-<div class="page-hero page-hero-xl page-hero-center page-hero-parallax" style="background-image: url({{asset('images/bangladesh.jpg')}}); opacity: 1;">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="page-hero-content">
-					<h1 class="page-title">
-						<span class="text-theme">Welcome</span> TO iNGO FORUM Bangladesh
-					</h1>
-					<p class="page-subtitle">
-						<span class="text-theme"></span> 
-					</p>
+<div class="owl-carousel owl-theme" id="main-page">
 
-					<a href="{{URL::to('/')}}/search" class="btn btn-lg">Search projects</a>
+	<div class="page-hero page-hero-xl page-hero-center " style="background-image: url({{asset('images/pics/p1_sunlight.jpg')}}); opacity: 1;">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="page-hero-content">
+						<h1 class="page-title">
+							<span class="text-theme">Welcome</span> TO iNGO FORUM Bangladesh
+						</h1>
+						<p class="page-subtitle">
+							<span class="text-theme"></span> 
+						</p>
+
+						<a href="{{URL::to('/')}}/search" class="btn btn-lg">Search projects</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="section-shape section-shape-bottom section-shape-bg-color">
-		<svg style="height: 40px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-			<path class="section-shape-fill" d="M761.9,44.1L643.1,27.2L333.8,98L0,3.8V0l1000,0v3.9"></path>
-		</svg>
+		<div class="section-shape section-shape-bottom section-shape-bg-color">
+			<svg style="height: 40px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+				<path class="section-shape-fill" d="M761.9,44.1L643.1,27.2L333.8,98L0,3.8V0l1000,0v3.9"></path>
+			</svg>
+		</div>
+	</div>
+	<div class="page-hero page-hero-xl page-hero-center " style="background-image: url({{asset('images/pics/p11_smile.jpg')}}); opacity: 1;">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="page-hero-content">
+						<h1 class="page-title">
+							<span class="text-theme">Welcome</span> TO iNGO FORUM Bangladesh
+						</h1>
+						<p class="page-subtitle">
+							<span class="text-theme"></span> 
+						</p>
+
+						<a href="{{URL::to('/')}}/search" class="btn btn-lg">Search projects</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section-shape section-shape-bottom section-shape-bg-color">
+			<svg style="height: 40px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+				<path class="section-shape-fill" d="M761.9,44.1L643.1,27.2L333.8,98L0,3.8V0l1000,0v3.9"></path>
+			</svg>
+		</div>
+	</div>
+	<div class="page-hero page-hero-xl page-hero-center " style="background-image: url({{asset('images/pics/p4_children.jpg')}}); opacity: 1;">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="page-hero-content">
+						<h1 class="page-title">
+							<span class="text-theme">Welcome</span> TO iNGO FORUM Bangladesh
+						</h1>
+						<p class="page-subtitle">
+							<span class="text-theme"></span> 
+						</p>
+
+						<a href="{{URL::to('/')}}/search" class="btn btn-lg">Search projects</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section-shape section-shape-bottom section-shape-bg-color">
+			<svg style="height: 40px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+				<path class="section-shape-fill" d="M761.9,44.1L643.1,27.2L333.8,98L0,3.8V0l1000,0v3.9"></path>
+			</svg>
+		</div>
 	</div>
 </div>
 
@@ -163,7 +214,7 @@
 	</div>
 </section>
 
-<div class="owl-carousel owl-theme">
+<div class="owl-carousel owl-theme" id="logo">
 	<div class="item"><img src="{{asset('images/carousel/bbc.jpg')}}" alt="" style=""></div>
 	<div class="item"><img src="{{asset('images/carousel/care.png')}}" alt="" style=""></div>
 	<div class="item"><img src="{{asset('images/carousel/PA.png')}}" alt="" style=""></div>
@@ -309,7 +360,7 @@
 
 
 
-		$('.owl-carousel').owlCarousel({
+		$('#logo').owlCarousel({
 			rtl:false,
 			loop:true,
 			margin:10,
@@ -331,7 +382,20 @@
 			}
 		})
 
-		console.log("testing");
+		$('#main-page').owlCarousel({
+			rtl:false,
+			loop:true,
+			center: true,
+			items:1,
+			nav:false,
+			autoHeight:false,
+			autoplay:false,
+			autoplayTimeout:1000,
+			autoplayHoverPause:false,
+			
+		})
+
+		
 
 
 
