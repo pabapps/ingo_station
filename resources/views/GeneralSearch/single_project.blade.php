@@ -5,7 +5,7 @@
 
 @endsection
 @section('content')
-<div class="page-hero">
+<div class="page-hero" style="background-image: url({{asset('images/pics/p1_sunlight.jpg')}}); opacity: 1;>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">

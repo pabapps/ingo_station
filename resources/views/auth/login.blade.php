@@ -30,8 +30,7 @@
                     <div class="col-xs-12">
                         <div class="mast-head">
                            
-                            <nav class="nav" style="background-color: #333;
-                            overflow: hidden;">
+                            <nav class="nav" >
                                 <ul class="navigation-main">
                                     <li class="menu-item-home current-menu-item">
                                         <a href="{{URL::to('/').'/'}}">Home</a>
@@ -69,7 +68,8 @@
                 </div>
             </div>
         </header>
-        <div class="page-hero" style="background-image: url({{asset('images/login.jpg')}}); opacity: 1;>
+       
+        <div class="page-hero page-hero-xl" style="background-image: url({{asset('images/pics/p14_jute.jpg')}}); opacity: 1;>
             <div class="container">
                 <div class="row">
                     <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-xs-12">
@@ -80,6 +80,7 @@
                 </div>
             </div>
         </div>
+    
 
         <main class="main main-elevated">
             <div class="container">
@@ -193,7 +194,6 @@
 
 
 
-        console.log("tesitng");
 
 
     });

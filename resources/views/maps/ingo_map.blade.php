@@ -11,7 +11,8 @@
 
 @section('content')
 
-<div class="page-hero" style="background-image: url({{asset('images/bangladesh.jpg')}}); opacity: 1;">
+<div class="owl-carousel owl-theme" id="main-page">
+<div class="page-hero page-hero-xl page-hero-center" style="background-image: url({{asset('images/pics/p6_boat.jpg')}}); opacity: 1;">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -22,7 +23,7 @@
 		</div>
 	</div>
 </div>
-
+</div>
 <main class="main main-elevated">
 	<div class="container">
 		<div class="row">
@@ -15597,6 +15598,20 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 	$(document).ready(function() 
 	{
+
+		$('#main-page').owlCarousel({
+			rtl:false,
+			loop:true,
+			center: true,
+			items:1,
+			nav:false,
+			autoHeight:false,
+			autoplay:false,
+			autoplayTimeout:1000,
+			autoplayHoverPause:false,
+			
+		})
+
 		$('#project-id').select2({
 			placeholder: 'Select a project',
 			allowClear: true,
@@ -15750,7 +15765,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				previous_colored_district[i] = '#'+object[i];
 
-				$('#'+object[i]).css({ fill: "#41f4f1" });
+				$('#'+object[i]).css({ fill: "#19bed1" });
 			}
 
 		}

@@ -393,7 +393,7 @@
 			autoplayTimeout:1000,
 			autoplayHoverPause:false,
 			
-		})
+		});
 
 		
 

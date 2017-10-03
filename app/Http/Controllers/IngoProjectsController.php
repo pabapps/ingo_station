@@ -217,6 +217,12 @@ class IngoProjectsController extends Controller
         $originalDate = $project_detail->start_date;
         $newDate = date("d-m-Y", strtotime($originalDate));
 
+        if(!is_null($project_detail->end_date)){
+            $end_date = $project_detail->end_date;
+            $end_date = date("d-m-Y",strtotime($end_date));
+        }
+        
+
         return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts)
         ->with('project_thanas',$thanas)->with('start_date',$newDate);
     }
@@ -334,8 +340,8 @@ class IngoProjectsController extends Controller
     {   
 
         dd("testing");
-       IngoProjects::destroy($id);
+        IngoProjects::destroy($id);
 
-       return redirect()->back();
-   }
+        return redirect()->back();
+    }
 }
