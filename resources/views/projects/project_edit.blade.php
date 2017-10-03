@@ -153,8 +153,8 @@
 								<label>End Date:</label>
 
 								<div class="field">
-									@if(isset($project->end_date))
-									<input type="text" class="form-control " name="end_date" data-date-format="dd-mm-yyyy" id="end-date" value="{{$project->end_date}}">
+									@if(isset($end_date))
+									<input type="text" class="form-control " name="end_date" data-date-format="dd-mm-yyyy" id="end-date" value="{{$end_date}}">
 									@else
 									<input type="text" class="form-control " name="end_date" data-date-format="dd-mm-yyyy" id="end-date" >
 									@endif

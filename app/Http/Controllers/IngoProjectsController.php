@@ -220,11 +220,16 @@ class IngoProjectsController extends Controller
         if(!is_null($project_detail->end_date)){
             $end_date = $project_detail->end_date;
             $end_date = date("d-m-Y",strtotime($end_date));
+
+            return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts)
+            ->with('project_thanas',$thanas)->with('start_date',$newDate)->with('end_date',$end_date);
+        }else{
+            return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts)
+            ->with('project_thanas',$thanas)->with('start_date',$newDate);
         }
         
 
-        return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts)
-        ->with('project_thanas',$thanas)->with('start_date',$newDate);
+        
     }
 
     /**
@@ -312,11 +317,12 @@ class IngoProjectsController extends Controller
         }
 
         if(!empty($request->start_date)){
-            $project = IngoProjects::where('id',$project_id)->update(['start_date'=>$request->start_date]);
+            $project = IngoProjects::where('id',$project_id)->update(['start_date'=>\Carbon\Carbon::createFromFormat('d-m-Y', $request->start_date)->toDateString()]);
+
         }
 
         if(!empty($request->end_date)){
-            $project = IngoProjects::where('id',$project_id)->update(['end_date'=>$request->end_date]);
+            $project = IngoProjects::where('id',$project_id)->update(['end_date'=>\Carbon\Carbon::createFromFormat('d-m-Y', $request->end_date)->toDateString()]);
         }
 
         return redirect()->action('IngoController@create'); 
