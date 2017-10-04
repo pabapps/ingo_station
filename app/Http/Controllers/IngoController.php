@@ -18,6 +18,8 @@ use DB;
 use App\search\ProjectSearch;
 use App\emailDomain\domain;
 
+use App\ingoOfficeCode\ingoOfficeUserDomain;
+
 class IngoController extends Controller
 {
     /**
@@ -48,7 +50,14 @@ class IngoController extends Controller
 
         $user = Auth::user();
 
-        $ingo = Ingos::where('user_id',$user->id)->first();
+        $string = explode("@",$user->email);
+
+        // dd($string[1]);  
+
+        $ingo_id = ingoOfficeUserDomain::check_domain($string[1]);
+
+
+        $ingo = Ingos::where('id',$ingo_id)->first();
 
 
         if(is_object($ingo)){
@@ -113,7 +122,7 @@ class IngoController extends Controller
                         'project' => $project,
                         'district' => $district_names,
                         'thana' => $thana_names,
-                        );
+                    );
 
                     $count++;
                 }
@@ -161,30 +170,30 @@ class IngoController extends Controller
 
         }else{
 
-         $ingo = new Ingos;
+           $ingo = new Ingos;
 
-         $ingo->user_id = $user->id;
-         $ingo->ingo_name = $request->ingo_name;
-         $ingo->address = $request->ingo_address;
-         $ingo->contact_number = $request->contact_number;
-         $ingo->email = $request->ingo_email;
-         $ingo->web_link = $request->web_link;
-         $ingo->valid = 1;
-         $ingo->about = $request->about_org;
+           $ingo->user_id = $user->id;
+           $ingo->ingo_name = $request->ingo_name;
+           $ingo->address = $request->ingo_address;
+           $ingo->contact_number = $request->contact_number;
+           $ingo->email = $request->ingo_email;
+           $ingo->web_link = $request->web_link;
+           $ingo->valid = 1;
+           $ingo->about = $request->about_org;
 
-         $ingo->save();
+           $ingo->save();
 
-     }
-
-
-
-     $request->session()->flash('alert-success', 'data has been successfully saved!');
-     return redirect()->action('IngoController@create'); 
+       }
 
 
 
+       $request->session()->flash('alert-success', 'data has been successfully saved!');
+       return redirect()->action('IngoController@create'); 
 
- }
+
+
+
+   }
 
 /**
  * search by district id
@@ -225,13 +234,13 @@ public function get_project_by_theme(Request $request){
     $thana_id = array();
 
     foreach ($project_list as $project) {
-        
+
         $project_district_name = ProjectDistrict::where('project_id',$project->id)->get();
 
         $districts = "";
 
         foreach ($project_district_name as $district_name) {
-            
+
             $dist = District::where('id',$district_name->district_id)->first();
 
             $districts = $districts.$dist->name.",";
@@ -245,14 +254,14 @@ public function get_project_by_theme(Request $request){
         $thana_names = "";
 
         foreach ($project_thana_name as $project_thana) {
-             
+
             $thana = Upazila::where('id',$project_thana->upazila_id)->first();
 
             $thana_names = $thana_names.$thana->name.",";
 
-         } 
+        } 
 
-         $thana_id[$project->id] = $thana_names;
+        $thana_id[$project->id] = $thana_names;
 
 
 
@@ -282,7 +291,7 @@ public function get_project_by_theme(Request $request){
             'project' => $project,
             'district' => $district_names,
             'thana' => $thana_names,
-            );
+        );
 
         $count++;
 
@@ -398,7 +407,7 @@ public function get_project_by_district_theme(Request $request){
             'project' => $particular_project,
             'district' => $district_names,
             'thana' => $thana_names,
-            );
+        );
 
         $count++;
     }
