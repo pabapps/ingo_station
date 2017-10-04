@@ -38,14 +38,21 @@ class IngoProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
 
         $user = Auth::user();
 
         $ingo_office = Ingos::where('user_id',$user->id)->first();
 
-        return view('projects.project_create')->with('ingo_office',$ingo_office);
+        if(is_null($ingo_office)){
+            $request->session()->flash('alert-danger', 'Please fill in your office information, before creating any project');
+            return redirect()->back();
+        }else{
+            return view('projects.project_create')->with('ingo_office',$ingo_office);    
+        }
+
+        
     }
 
 

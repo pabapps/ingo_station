@@ -15765,7 +15765,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				previous_colored_district[i] = '#'+object[i];
 
-				$('#'+object[i]).css({ fill: "#19bed1" });
+				$('#'+object[i]).css({ fill: "#0066FF" });
 			}
 
 		}

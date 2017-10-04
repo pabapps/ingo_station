@@ -36,7 +36,7 @@
 
 								<div class="field">
 									@if(isset($ingo_office))
-									<input type="text" id="ingo-title" value="{{$ingo_office->ingo_name}}" name="ingo_title" readonly>
+									<input type="text" id="ingo-title" value="{{$ingo_office->ingo_name}}" name="ingo_title" readonly required>
 									@endif
 								</div>
 
