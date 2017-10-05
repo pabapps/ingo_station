@@ -4,7 +4,7 @@ namespace App\ingoOfficeCode;
 
 use App\Ingos;
 
-class ingoOfficeUserDomain{
+class IngoOfficeUserDomain{
 
 	public static function check_domain($userDomain){
 		

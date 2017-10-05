@@ -18,7 +18,7 @@ use DB;
 use App\search\ProjectSearch;
 use App\emailDomain\domain;
 
-use App\ingoOfficeCode\ingoOfficeUserDomain;
+use App\ingoOfficeCode\IngoOfficeUserDomain;
 
 class IngoController extends Controller
 {
@@ -54,7 +54,7 @@ class IngoController extends Controller
 
         // dd($string[1]);  
 
-        $ingo_id = ingoOfficeUserDomain::check_domain($string[1]);
+        $ingo_id = IngoOfficeUserDomain::check_domain($string[1]);
 
 
         $ingo = Ingos::where('id',$ingo_id)->first();
@@ -181,30 +181,61 @@ class IngoController extends Controller
 
         }else{
 
-           $ingo = new Ingos;
 
-           $ingo->user_id = $user->id;
-           $ingo->ingo_name = $request->ingo_name;
-           $ingo->address = $request->ingo_address;
-           $ingo->contact_number = $request->contact_number;
-           $ingo->email = $request->ingo_email;
-           $ingo->web_link = $request->web_link;
-           $ingo->valid = 1;
-           $ingo->about = $request->about_org;
+            // dd($request->ingo_email);
 
-           $ingo->save();
+            $valid_domain = IngoController::domain_check($user->email,$request->ingo_email);
 
-       }
+            if($valid_domain){
+                $ingo = new Ingos;
+
+                $ingo->user_id = $user->id;
+                $ingo->ingo_name = $request->ingo_name;
+                $ingo->address = $request->ingo_address;
+                $ingo->contact_number = $request->contact_number;
+                $ingo->email = $request->ingo_email;
+                $ingo->web_link = $request->web_link;
+                $ingo->valid = 1;
+                $ingo->about = $request->about_org;
+
+                $ingo->save();
+
+                $request->session()->flash('alert-success', 'data has been successfully saved!');
+            }else{
+                $request->session()->flash('alert-success', 'Sorry the your ingo mail domain does not match with your email address domain!');
+            }
+            
+
+        }
 
 
 
-       $request->session()->flash('alert-success', 'data has been successfully saved!');
-       return redirect()->action('IngoController@create'); 
+        
+        return redirect()->action('IngoController@create'); 
 
 
 
 
-   }
+    }
+
+    /**
+    checking the user domain with the domain of the new ingo that has been entered by the user.
+    if the domain matches, returns true otherwise returns false
+    **/
+
+    private function domain_check($user_domain, $new_ingo_domain){
+
+        $user_domain = explode("@",$user_domain);
+
+        $new_ingo_domain = explode("@",$new_ingo_domain);
+
+        if($new_ingo_domain[1] == $user_domain[1]){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
 /**
  * search by district id
