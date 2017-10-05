@@ -14,6 +14,7 @@ use Crypt;
 use Auth;
 use Response;
 use DB;
+use App\ingoOfficeCode\ingoOfficeUserDomain;
 
 class IngoProjectsController extends Controller
 {
@@ -43,7 +44,11 @@ class IngoProjectsController extends Controller
 
         $user = Auth::user();
 
-        $ingo_office = Ingos::where('user_id',$user->id)->first();
+        $string = explode("@",$user->email);  
+
+        $ingo_id = ingoOfficeUserDomain::check_domain($string[1]);
+
+        $ingo_office = Ingos::where('id',$ingo_id)->first();
 
         if(is_null($ingo_office)){
             $request->session()->flash('alert-danger', 'Please fill in your office information, before creating any project');
