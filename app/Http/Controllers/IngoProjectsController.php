@@ -357,7 +357,6 @@ class IngoProjectsController extends Controller
     public function delete_project($id)
     {   
 
-        
         IngoProjects::destroy($id);
 
         return redirect()->back();

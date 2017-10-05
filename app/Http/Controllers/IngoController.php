@@ -157,11 +157,22 @@ class IngoController extends Controller
 
         $user = Auth::user();
 
+
+
+        $string = explode("@",$user->email);
+
+        // dd($string[1]);  
+
+        $ingo_id = ingoOfficeUserDomain::check_domain($string[1]);
+
+
+        $old_ingo = Ingos::where('id',$ingo_id)->first();
+
         //checking if the ingo info for this user has already been entered or not
         //if so, just update the existing data
         //else, create new data
 
-        $old_ingo = Ingos::where('user_id',$user->id)->first();
+        // $old_ingo = Ingos::where('user_id',$user->id)->first();
 
         if(is_object($old_ingo)){
 
