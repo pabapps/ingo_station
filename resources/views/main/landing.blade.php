@@ -84,7 +84,7 @@
 <section class="widget-section">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-xs-12">
+			<div class="col-md-6 col-xs-12">
 				<div class="item text-center">
 					<span class="item-icon">
 						<i class="fa fa-sliders"></i>
@@ -124,7 +124,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-4 col-xs-12">
+			<div class="col-md-6 col-xs-12">
 				<div class="item text-center">
 					<span class="item-icon">
 						<i class="fa fa-tablet"></i>
@@ -136,7 +136,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-4 col-xs-12">
+			<div class="col-md-12 col-xs-12">
 				<div class="item text-center">
 					<span class="item-icon">
 						<i class="fa fa-life-saver"></i>
