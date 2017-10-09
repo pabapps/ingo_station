@@ -450,7 +450,7 @@
 			 		});
 
 
-			 }else if(theme_id.length>0 && district_id===null){
+			 }else if(theme_id.length>0 && district_id==null){
 
 			 	var jqxhr = $.get("{{URL::to('/')}}/ingo_project/get_project_by_theme", {theme:theme_id}, function(final_array){
 
