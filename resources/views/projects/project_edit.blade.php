@@ -95,9 +95,11 @@
 
 								<div class="field">
 									<div  class="ci-select">
-										<select id="theme" name="theme" required>
-											@if(isset($project->theme))
-											<option value="{{$project->theme}}">{{$project->theme}}</option>
+										<select id="theme" name="theme[]" multiple="multiple" required>
+											@if(isset($themes))
+											@foreach($themes as $theme)
+											<option value="{{$theme}}" selected="selected">{{$theme}}</option>
+											@endforeach
 											@endif
 											<option value="Education">Education</option>
 											<option value="Energy">Energy</option>
@@ -326,6 +328,8 @@
 			autoclose: true
 
 		});
+
+		$('#theme').select2({});
 
 
 		$('#district').select2({

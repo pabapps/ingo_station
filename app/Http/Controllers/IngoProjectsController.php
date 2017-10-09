@@ -204,6 +204,25 @@ class IngoProjectsController extends Controller
 
         $districts = array();
 
+        $themes = array();
+
+        $count = 0;
+
+        $theme_string = $project_detail->theme;
+
+        $theme_string = explode(',',$theme_string);
+
+        foreach ($theme_string as $t_string) {
+            if(strlen($t_string)>0){
+                $themes[$count] = $t_string;
+
+                $count++;
+            }
+        }       
+
+
+
+
         $count = 0;
 
         foreach ($project_district as $p_dist) {
@@ -240,10 +259,11 @@ class IngoProjectsController extends Controller
             $end_date = date("d-m-Y",strtotime($end_date));
 
             return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts)
-            ->with('project_thanas',$thanas)->with('start_date',$newDate)->with('end_date',$end_date);
+            ->with('project_thanas',$thanas)->with('start_date',$newDate)->with('end_date',$end_date)
+            ->with('themes',$themes);
         }else{
             return view('projects.project_edit')->with('project',$project_detail)->with('ingo_office',$ingo_office)->with('districts',$districts)
-            ->with('project_thanas',$thanas)->with('start_date',$newDate);
+            ->with('project_thanas',$thanas)->with('start_date',$newDate)->with('themes',$themes);
         }
         
 
