@@ -10,6 +10,7 @@ use App\ProjectDistrict;
 use App\ProjectUpazila;
 use App\District;
 use App\Upazila;
+use DB;
 
 class MapRelated{
 
@@ -86,7 +87,8 @@ class MapRelated{
 		$theme = $request->theme_id;
 
         //get all the projects that are under this theme
-		$projects = IngoProjects::where('theme',$theme)->get();
+
+		$projects = DB::table('ingo_projects')->where('theme','like','%'.$theme.'%')->get();
 
 		$district_array = array();
 
