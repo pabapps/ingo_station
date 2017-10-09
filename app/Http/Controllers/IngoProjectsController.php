@@ -281,12 +281,6 @@ class IngoProjectsController extends Controller
     {
         $project_id = $id;
 
-
-         if(!empty($request->theme)){
-            
-        }
-
-
         if(!empty($request->district)){
 
             //first delete all the existing district linked to this project
@@ -346,6 +340,19 @@ class IngoProjectsController extends Controller
         }
 
 
+         if(!empty($request->theme)){
+
+            $themes = $request->theme;
+
+            $theme_string = '';
+
+            foreach ($themes as $theme) {
+                $theme_string = $theme_string.$theme.',';
+            }
+            
+            $project = IngoProjects::where('id',$project_id)->update(['theme'=>$theme_string]);
+
+        }
 
 
         if(!empty($request->project_name)){
