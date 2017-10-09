@@ -84,7 +84,7 @@
 
 								<div class="field">
 									<div  class="ci-select">
-										<select id="theme" name="theme" multiple="multiple" required>
+										<select id="theme" name="theme[]" multiple="multiple" required>
 											<option value="Education">Education</option>
 											<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
 											<option value="Energy">Energy</option>
@@ -306,7 +306,7 @@
 
 
 		$('#theme').select2({
-			
+
 		});
 
 

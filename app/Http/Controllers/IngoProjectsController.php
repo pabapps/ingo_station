@@ -115,13 +115,19 @@ class IngoProjectsController extends Controller
 
         // dd($request->all());
 
+        $themes = $request->theme;
 
+        $theme_string = '';
+
+        foreach ($themes as $theme) {
+            $theme_string = $theme_string.$theme.',';
+        }
 
         $ingo_project = new IngoProjects;
 
         $ingo_project->ingo_office_id = $request->ingo_id;
         $ingo_project->project_name = $request->project_name;
-        $ingo_project->theme = $request->theme;
+        $ingo_project->theme = $theme_string;
         $ingo_project->key_partners = $request->partners;
         $ingo_project->start_date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->start_date)->toDateString();
 
