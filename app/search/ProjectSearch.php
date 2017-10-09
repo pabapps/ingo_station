@@ -10,6 +10,9 @@ use App\ProjectDistrict;
 use App\ProjectUpazila;
 use App\District;
 use App\Upazila;
+use Auth;
+
+use App\ingoOfficeCode\IngoOfficeUserDomain;
 
 class ProjectSearch{
 
@@ -17,9 +20,18 @@ class ProjectSearch{
 	//demo funtion
 	public static function district_search(Request $request, User $user){
 
+		$user = Auth::user();
+
+		$string = explode("@",$user->email);
+
+        // dd($string[1]);  
+
+		$ingo_id = ingoOfficeUserDomain::check_domain($string[1]);
+
+
 		$district_id = $request->district_id;
 
-		$ingo_office = Ingos::where('user_id',$user->id)->first();
+		$ingo_office = Ingos::where('id',$ingo_id)->first();
 
 		$project_list = IngoProjects::where('ingo_office_id',$ingo_office->id)->get();
 
@@ -118,5 +130,10 @@ class ProjectSearch{
 		return $final_array;
 
 	}
+
+
+
+
+
 
 }
