@@ -282,6 +282,11 @@ class IngoProjectsController extends Controller
         $project_id = $id;
 
 
+         if(!empty($request->theme)){
+            
+        }
+
+
         if(!empty($request->district)){
 
             //first delete all the existing district linked to this project
@@ -339,6 +344,7 @@ class IngoProjectsController extends Controller
             }
 
         }
+
 
 
 
