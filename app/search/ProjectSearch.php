@@ -20,7 +20,7 @@ class ProjectSearch{
 	//demo funtion
 	public static function district_search(Request $request, User $user){
 
-		$user = Auth::user();
+		$user = $user;
 
 		$string = explode("@",$user->email);
 
@@ -133,7 +133,92 @@ class ProjectSearch{
 
 
 
+	public static function theme_search(Request $request, User $user){
 
+
+		$user = $user;
+
+		$string = explode("@",$user->email);  
+
+		$ingo_id = ingoOfficeUserDomain::check_domain($string[1]);
+
+		$theme = $request->theme;
+
+		$ingo_office = Ingos::where('id',$ingo_id)->first();
+
+		$project_list = 
+		IngoProjects::where('ingo_office_id',$ingo_office->id)->where('theme',$theme)->get();
+
+    //finding disticts
+		$district_id = array();
+		$thana_id = array();
+
+		foreach ($project_list as $project) {
+
+			$project_district_name = ProjectDistrict::where('project_id',$project->id)->get();
+
+			$districts = "";
+
+			foreach ($project_district_name as $district_name) {
+
+				$dist = District::where('id',$district_name->district_id)->first();
+
+				$districts = $districts.$dist->name.",";
+
+			}
+
+			$district_id[$project->id] = $districts;
+
+			$project_thana_name = ProjectUpazila::where('project_id',$project->id)->get();
+
+			$thana_names = "";
+
+			foreach ($project_thana_name as $project_thana) {
+
+				$thana = Upazila::where('id',$project_thana->upazila_id)->first();
+
+				$thana_names = $thana_names.$thana->name.",";
+
+			} 
+
+			$thana_id[$project->id] = $thana_names;
+
+
+
+		}
+
+		$final_array = array();
+
+		$count = 0;
+
+		foreach ($project_list as $project) {
+
+			$district_names = "";
+
+			if(array_key_exists($project->id, $district_id)){
+				$district_names = $district_id[$project->id];
+			}
+
+			$thana_names = "";
+
+			if(array_key_exists($project->id,$thana_id)){
+
+				$thana_names = $thana_id[$project->id];
+
+			}
+
+			$final_array[$count] = array(
+				'project' => $project,
+				'district' => $district_names,
+				'thana' => $thana_names,
+			);
+
+			$count++;
+
+		}
+
+		return $final_array;
+	}
 
 
 }
