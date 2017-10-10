@@ -320,7 +320,7 @@
 			items:1,
 			nav:false,
 			autoHeight:false,
-			autoplay:false,
+			autoplay:true,
 			autoplayTimeout:1000,
 			autoplayHoverPause:false,
 			
