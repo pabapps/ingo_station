@@ -135,6 +135,7 @@
 
 		$('#project-id').select2({
 			placeholder: 'Select a project',
+			allowClear: true,
 			ajax: {
 				dataType: 'json',
 				url: '{{URL::to('/')}}/search/get_project_id',
@@ -155,6 +156,7 @@
 
 		$('#district-id').select2({
 			placeholder: 'Select a district',
+			allowClear: true,
 			ajax: {
 				dataType: 'json',
 				url: '{{URL::to('/')}}/search/get_distict_id',
@@ -174,7 +176,8 @@
 		});
 
 		$('#theme').select2({
-			placeholder: 'Select an option'
+			placeholder: 'Select an option',
+			allowClear: true,
 		});
 
 		$( "#search-box" ).click(function( event ) {
