@@ -84,7 +84,7 @@
 <section class="widget-section">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-xs-12">
+			<div class="col-md-4 col-xs-12">
 				<div class="item text-center">
 					<span class="item-icon">
 						<i class="fa fa-sliders"></i>
@@ -136,7 +136,8 @@
 				</div>
 			</div>
 
-			<div class="col-md-12 col-xs-12">
+
+			<div class="col-md-4 col-xs-12">
 				<div class="item text-center">
 					<span class="item-icon">
 						<i class="fa fa-life-saver"></i>
@@ -215,11 +216,70 @@
 </section>
 
 <div class="owl-carousel owl-theme" id="logo">
-	<div class="item"><img src="{{asset('images/carousel/bbc.jpg')}}" alt="" style=""></div>
-	<div class="item"><img src="{{asset('images/carousel/care.png')}}" alt="" style=""></div>
-	<div class="item"><img src="{{asset('images/carousel/PA.png')}}" alt="" style=""></div>
-	<div class="item"><img src="{{asset('images/carousel/concern.png')}}" alt="" style=""></div>
-	<div class="item"><img src="{{asset('images/carousel/download.png')}}" alt="" style=""></div>
+	<div class="item"><img src="{{asset('images/carousel/PA.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/acf.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/actionaid.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/add_international.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/adra_bangladesh.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/asia_foundation.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/british_red_cross.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/caritas.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/christian_aid.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/concern_universal.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/crs.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/dca.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/diakonia.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/drc.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/fes.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/fhi_360.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/food.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/fred_foundation.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/gain.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/habitat.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/heks.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/helen_keller.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/helpage_international.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/helvetas.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/htbd.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/icco_cooperation.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/ide.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/ifrc.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/ipas.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/isc.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/islamic_relief.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/maf.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/malaria_consortium.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/mcc.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/msf.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/muslim_aid.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/oxfam.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/plan_international.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/red_cross.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/relief_international.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/room_read.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/saferworld.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/save_children.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/shaplaneer.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/sightsavers.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/sil_bangladesh.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/snv.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/solidaridad.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/solidarites_international.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/swiss_red_cross.png')}}" alt="" style=""></div>
+	<div class="item"><img src="{{asset('images/website_logos/tdh.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/tdh_italy.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/tearfund.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/tib.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/traidcraft.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/united_purpose.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/vso.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/wateraid.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/winrock.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/world_concern.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/world_renew.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/world_vision.png')}}" alt="" style="width: 100%, height:100%"></div>
+	<div class="item"><img src="{{asset('images/website_logos/ymca_bangladesh.png')}}" alt="" style="width: 100%, height:100%"></div>
+	
 
 </div>
 
@@ -295,7 +355,7 @@
 			rtl:false,
 			loop:true,
 			margin:10,
-			nav:true,
+			nav:false,
 			autoHeight:true,
 			autoplay:true,
 			autoplayTimeout:1000,
