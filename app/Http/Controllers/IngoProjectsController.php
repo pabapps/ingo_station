@@ -14,7 +14,7 @@ use Crypt;
 use Auth;
 use Response;
 use DB;
-use App\ingoOfficeCode\ingoOfficeUserDomain;
+use App\ingoOfficeCode\IngoOfficeUserDomain;
 
 class IngoProjectsController extends Controller
 {
@@ -46,7 +46,7 @@ class IngoProjectsController extends Controller
 
         $string = explode("@",$user->email);  
 
-        $ingo_id = ingoOfficeUserDomain::check_domain($string[1]);
+        $ingo_id = IngoOfficeUserDomain::check_domain($string[1]);
 
         $ingo_office = Ingos::where('id',$ingo_id)->first();
 

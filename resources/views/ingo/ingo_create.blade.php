@@ -167,7 +167,7 @@
 														<div class="col-lg-3 col-xs-12">
 
 															<select class="js-example-responsive" style="width: 100%" id="theme" name="theme">
-																<option ></option>
+																<option > </option>
 																<option value="Education">Education</option>
 																<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
 																<option value="Energy and Urban Services">Energy and Urban Services</option>
@@ -342,7 +342,9 @@
 
 			// console.log("working on it");
 
-			$("#project-table td").remove();
+			// $("#project-table td").remove();
+
+			table.clear().draw();
 
 			var district_id = $("#district").val();
 
