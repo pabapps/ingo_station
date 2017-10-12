@@ -380,7 +380,7 @@
 			items:1,
 			nav:false,
 			autoHeight:false,
-			autoplay:true,
+			autoplay:false,
 			autoplayTimeout:1000,
 			autoplayHoverPause:false,
 			

@@ -166,7 +166,7 @@
 
 
 
-							<button type="submit" class="btn">Save</button>
+							<button type="submit" class="btn" style="background-color: #4CAF50;">Save</button>
 
 							<a href="{{URL::to('/')}}/ingo/create" class="btn">
 								Cancel
