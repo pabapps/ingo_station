@@ -7,15 +7,15 @@
 @section('content')
 
 <div class="page-hero page-hero-xl page-hero-center" style="background-image: url({{asset('images/pics/p10_people.jpg')}}); opacity: 1;>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="page-hero-content">
-					<h1 class="page-title">Please enter iNGO info</h1>
-				</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="page-hero-content">
+				<h1 class="page-title">Please enter iNGO info</h1>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 <main class="main main-elevated">
@@ -314,6 +314,7 @@
 
 		$('#district').select2({
 			placeholder: 'Select a district',
+			allowClear: true,
 			ajax: {
 				dataType: 'json',
 				url: '{{URL::to('/')}}/get_disticts',
@@ -334,6 +335,7 @@
 
 		$('#theme').select2({
 			placeholder: 'Select an option',
+			allowClear: true,
 		});
 
 
@@ -361,19 +363,10 @@
 			 	var jqxhr = $.get( "{{URL::to('/')}}/ingo_project/get_project_by_district", { district_id: district_id },
 			 		function(final_array) {
 
-			 			
-
 			 			//need to type the remaining code
 			 			var object = JSON.parse(final_array);
 
-			 			var trHTML = '';
-
-			 			for (var i = 0; i < object.length; i++) { 
-
-			 				trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="{{URL::to('/')}}/ingo_project/'+object[i]['project'].id+'/edit" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="{{URL::to('/')}}/ingo_project/delete_project/'+object[i]['project'].id+'" class="job-dashboard-action-delete">Delete</a> </li> </ul>  </td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
-			 			}
-
-			 			$('#project-table').append(trHTML);
+			 			add_to_table(object);
 
 			 		});
 
@@ -384,14 +377,10 @@
 
 			 		var object = JSON.parse(final_array);
 
-			 		var trHTML = '';
+			 		add_to_table(object);
+			 		
 
-			 		for (var i = 0; i < object.length; i++) { 
-
-			 			trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="{{URL::to('/')}}/ingo_project/'+object[i]['project'].id+'/edit" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="{{URL::to('/')}}/ingo_project/delete_project/'+object[i]['project'].id+'" class="job-dashboard-action-delete">Delete</a> </li> </ul>  </td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
-			 		}
-
-			 		$('#project-table').append(trHTML);
+			 		
 
 			 	});
 
@@ -402,15 +391,8 @@
 
 			 		var object = JSON.parse(final_array);
 
-			 		var trHTML = '';
-
-			 		for (var i = 0; i < object.length; i++) { 
-
-			 			trHTML += '<tr><td>' + object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="{{URL::to('/')}}/ingo_project/'+object[i]['project'].id+'/edit" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="{{URL::to('/')}}/ingo_project/delete_project/'+object[i]['project'].id+'" class="job-dashboard-action-delete">Delete</a> </li> </ul>  </td><td>' + object[i]['project'].theme + '</td><td>' + object[i]['district']+'</td><td>'+object[i]['thana']+'</td><td>'+object[i]['project'].start_date+'</td></tr>';
-			 		}
-
-			 		$('#project-table').append(trHTML);
-
+			 		add_to_table(object);
+			 		
 			 	});
 
 			 }else{
@@ -422,6 +404,20 @@
 			});
 
 
+
+		function add_to_table(object){
+
+			for(var i = 0; i<object.length; i++){
+				table.row.add( [
+					object[i]['project'].project_name +'<ul class="job-dashboard-actions"><li> <a href="{{URL::to('/')}}/ingo_project/'+object[i]['project'].id+'/edit" class="job-dashboard-action-edit">Edit</a></li> <li> <a href="{{URL::to('/')}}/ingo_project/delete_project/'+object[i]['project'].id+'" class="job-dashboard-action-delete">Delete</a> </li> </ul>',
+					object[i]['project'].theme,
+					object[i]['district'],
+					object[i]['thana'],
+					object[i]['project'].start_date
+					] ).draw( false );
+			}
+
+		}
 		
 
 
