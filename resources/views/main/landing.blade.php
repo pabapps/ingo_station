@@ -359,6 +359,7 @@
 			autoHeight:true,
 			autoplay:true,
 			autoplayTimeout:1000,
+			dots: false,
 			autoplayHoverPause:false,
 			responsive:{
 				0:{
