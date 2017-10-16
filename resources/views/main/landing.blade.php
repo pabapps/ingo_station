@@ -132,7 +132,7 @@
 
 					<p class="item-title">Who are We:</p>
 
-					<p>International organisations have a long chequered history in Bangladesh and INGOs have been working in multiple ways in all sectors requiring development assistance including health, education, disaster risk reduction, good governance, poverty alleviation, social inclusion etc. However, with many structural barriers still inherent (such as inefficiency, corruption, lack of transparency, accountability and poor law and order conditions), there is a vital role for INGOs to play in bringing about sustained (positive) change.</p>
+					<p align="justify">International organisations have a long chequered history in Bangladesh and INGOs have been working in multiple ways in all sectors requiring development assistance including health, education, disaster risk reduction, good governance, poverty alleviation, social inclusion etc. However, with many structural barriers still inherent (such as inefficiency, corruption, lack of transparency, accountability and poor law and order conditions), there is a vital role for INGOs to play in bringing about sustained (positive) change.</p>
 				</div>
 			</div>
 
@@ -380,8 +380,7 @@
 			items:1,
 			nav:false,
 			autoHeight:false,
-			autoplay:false,
-			autoplayTimeout:1000,
+			autoplay:3000,
 			autoplayHoverPause:false,
 			
 		});
