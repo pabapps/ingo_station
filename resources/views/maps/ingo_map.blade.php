@@ -12,17 +12,17 @@
 @section('content')
 
 <div class="owl-carousel owl-theme" id="main-page">
-<div class="page-hero page-hero-xl page-hero-center" style="background-image: url({{asset('images/pics/p6_boat.jpg')}}); opacity: 1;">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="page-hero-content">
-					<h1 class="page-title">Digital footprint</h1>
+	<div class="page-hero page-hero-xl page-hero-center" style="background-image: url({{asset('images/pics/p6_boat.jpg')}}); opacity: 1;">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="page-hero-content">
+						<h1 class="page-title">Digital footprint</h1>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 <main class="main main-elevated">
 	<div class="container">
@@ -15697,23 +15697,27 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 			var ingo_id = $("#ingo-id").val();
 			
+			if(ingo_id!=null){
+
+				var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_disticts_for_ingos", {ingo_id: ingo_id}, function(district_name){
+
+					var object = JSON.parse(district_name);
+
+					color_map(object['districts']);
+
+					$('#dynamic-ul').empty();
+					$('#dynamic-paragraph').val("");
+
+					document.getElementById("dynamic-paragraph").innerHTML = "<h2>About</h2>";
+
+					$('#dynamic-ul').append('<li class="list-group-item" align="left" >'+object['ingo_office']+'</li>');
+
+
+				});
+
+			}
+
 			
-
-			var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_disticts_for_ingos", {ingo_id: ingo_id}, function(district_name){
-
-				var object = JSON.parse(district_name);
-				
-				color_map(object['districts']);
-
-				$('#dynamic-ul').empty();
-				$('#dynamic-paragraph').val("");
-
-				document.getElementById("dynamic-paragraph").innerHTML = "<h2>About</h2>";
-
-				$('#dynamic-ul').append('<li class="list-group-item" align="left" >'+object['ingo_office']+'</li>');
-				
-
-			});
 
 		});
 
@@ -15721,7 +15725,38 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 			var theme_id = $("#theme-id").val();
 
-			if(theme_id.length>0){
+			var ingo_id = $("#ingo-id").val();
+
+			
+			if(theme_id.length>0 && ingo_id!=null){
+
+
+				console.log("working on it");
+
+				var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_districts_by_theme_ingo_office", {theme_id: theme_id, ingo_id: ingo_id}, function(district_name){
+
+					// var object = JSON.parse(district_name);
+
+					// color_map(object['districts']);
+
+					// $('#dynamic-ul').empty();
+					// $('#dynamic-paragraph').val("");
+
+					// document.getElementById("dynamic-paragraph").innerHTML = "<h2>Projects</h2>";
+
+					// var project_name = object['project_name'];
+					// var project_district_name = object['project_district'];
+
+					// // console.log(project_district_name);
+
+					// for (var i = 0; i < project_name.length; i++) {
+					// 	$('#dynamic-ul').append('<li class="list-group-item"><b>'+project_name[i]+'</b>: '+project_district_name[i]+'</li>');
+					// }
+
+				});
+
+
+			}else if(theme_id.length>0 && ingo_id==null){
 
 				var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_district_ by_theme", {theme_id: theme_id}, function(district_name){
 

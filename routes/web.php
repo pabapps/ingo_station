@@ -77,6 +77,9 @@ Route::get('/info_maps/get_disticts_for_ingos','MapsController@get_disticts_for_
 //get districts by theme
 Route::get('/info_maps/get_district_ by_theme','MapsController@get_district_by_theme');
 
+//get district by ingo_ofice and district
+Route::get('/info_maps/get_districts_by_theme_ingo_office','MapsController@get_districts_by_theme_ingo_office');
+
 Route::resource('/info_maps','MapsController'); 
 
 

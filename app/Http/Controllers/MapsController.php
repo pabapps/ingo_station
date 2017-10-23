@@ -89,6 +89,14 @@ class MapsController extends Controller
     }
 
 
+    public function get_districts_by_theme_ingo_office(Request $request){
+
+        $district_name = MapRelated::get_districts_by_theme_ingo_office($request);
+
+        return json_encode($district_name);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
