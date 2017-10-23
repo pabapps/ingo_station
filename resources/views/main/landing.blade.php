@@ -91,7 +91,7 @@
 					</span>
 
 					<p class="item-title">The aim of the INGO forum is to:</p>
-					<ul>
+					<ul >
 						<li>
 							<p align="justify">
 								Facilitate information exchange, sharing and learning among members and to promote coordination and collaboration in order to improve their practices and jointly provide our input to development actors and policies
@@ -146,7 +146,7 @@
 					<p class="item-title">BASIC PRINCIPLES AND OPERATING GUIDELINES</p>
 
 					<p>We the INGOs operating in Bangladesh commit ourselves to adhering to the following principles and guidelines:</p>
-					<ul>
+					<ul >
 						<li>
 							<p align="justify">
 								We are in Bangladesh to contribute to improvement in the quality of life of the people of Bangladesh.
@@ -167,51 +167,63 @@
 								We will not engage in any partisan political activities within Bangladesh.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We respect the dignity of the peoples of Bangladesh: their cultures, religions and customs.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We support and work with the peoples of Bangladesh based on objective assessment of need alone, and not on any political, ethnic or religious agenda.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We will not discriminate against any individual or group on the grounds of gender, political affiliation, ethnic origin, religious belief or sexual orientation.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We will work to ensure that our work is transparent and undertake to involve program partners and their communities in the planning, management and implementation of programmes.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We are accountable to those whom we seek to assist and to those providing the resources.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								In our recruitment, procurement and other transactions we are guided by suitability, qualification, expertise and experience and not by political, religious, personal or any other considerations that may lead to conflict of interest.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We are committed to comply strictly with international humanitarian principles and human rights law.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We are performance oriented to achieve the best results possible based on targets and achievements agreed with those we work for/with and those we mobilize resources from and we welcome objective evaluation of our work.
 							</p>
 						</li>						
-					</ul>	
+					</ul>
+
+
+
+					<div id="target">
+						<div  class="btn btn-sm">Show More</div>
+					</div>
+
+
 
 				</div>
 			</div>
+			
 		</div>
+
+		
+		
 	</div>
 </section>
 
@@ -386,9 +398,14 @@
 			
 		});
 
+		$('.testing-hide').hide();
+			
 		
+		$( "#target" ).click(function() {
 
-
+			$(".testing-hide").show();
+			
+		});
 
 	});
 
