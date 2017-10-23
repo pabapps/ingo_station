@@ -15735,23 +15735,23 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 				var jqxhr = $.get("{{URL::to('/')}}/info_maps/get_districts_by_theme_ingo_office", {theme_id: theme_id, ingo_id: ingo_id}, function(district_name){
 
-					// var object = JSON.parse(district_name);
+					var object = JSON.parse(district_name);
 
-					// color_map(object['districts']);
+					color_map(object['districts']);
 
-					// $('#dynamic-ul').empty();
-					// $('#dynamic-paragraph').val("");
+					$('#dynamic-ul').empty();
+					$('#dynamic-paragraph').val("");
 
-					// document.getElementById("dynamic-paragraph").innerHTML = "<h2>Projects</h2>";
+					document.getElementById("dynamic-paragraph").innerHTML = "<h2>Projects</h2>";
 
-					// var project_name = object['project_name'];
-					// var project_district_name = object['project_district'];
+					var project_name = object['project_name'];
+					var project_district_name = object['project_district'];
 
-					// // console.log(project_district_name);
+					// console.log(project_district_name);
 
-					// for (var i = 0; i < project_name.length; i++) {
-					// 	$('#dynamic-ul').append('<li class="list-group-item"><b>'+project_name[i]+'</b>: '+project_district_name[i]+'</li>');
-					// }
+					for (var i = 0; i < project_name.length; i++) {
+						$('#dynamic-ul').append('<li class="list-group-item"><b>'+project_name[i]+'</b>: '+project_district_name[i]+'</li>');
+					}
 
 				});
 

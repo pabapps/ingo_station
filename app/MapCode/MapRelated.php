@@ -88,7 +88,19 @@ class MapRelated{
 
         //get all the projects that are under this theme
 
-		$projects = DB::table('ingo_projects')->where('theme','like','%'.$theme.'%')->get();
+		$projects = "";
+       	 if(!empty($request->ingo_id)){
+            
+            $ingo_id = $request->ingo_id;
+
+            $projects = DB::table('ingo_projects')->where('ingo_office_id',$ingo_id)->where('theme','like','%'.$theme.'%')->get();
+        }else{
+
+        	$projects = DB::table('ingo_projects')->where('theme','like','%'.$theme.'%')->get();
+
+        }
+
+		
 
 		$district_array = array();
 
@@ -147,6 +159,8 @@ class MapRelated{
 
 	}
 
+
+	
 
 
 	private static function create_district_array($district_array,$district_id,$count){

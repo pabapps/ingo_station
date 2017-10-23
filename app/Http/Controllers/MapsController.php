@@ -66,7 +66,6 @@ class MapsController extends Controller
     
     public function get_disticts_for_ingos(Request $request){
 
-
         $district_name = MapRelated::get_district_for_ingo($request);        
 
         return json_encode($district_name);
@@ -91,7 +90,7 @@ class MapsController extends Controller
 
     public function get_districts_by_theme_ingo_office(Request $request){
 
-        $district_name = MapRelated::get_districts_by_theme_ingo_office($request);
+        $district_name = MapRelated::get_district_by_theme($request);
 
         return json_encode($district_name);
     }
