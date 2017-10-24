@@ -103,25 +103,28 @@
 								Work together in a collaborative and systematic manner to better achieve our objectives and how to improve our ways of working to maximise our impact and come to a consensus on certain basic guidelines and standardisation where practical for our work in Bangladesh
 							</p>
 						</li>
-						<li>
+						<li class="first-hide">
 							<p align="justify">
 								Engage with the Government on all issues relating to INGOs in Bangladesh
 							</p>
 						</li>
-						<li>
+						<li class="first-hide">
 							<p align="justify">
 								Work together to demonstrate that INGOs operate in Bangladesh with highest standards of transparency, accountability and in line with the MDGs and national development and disaster response goals
 							</p>
 						</li>
 						
-						<li>
+						<li class="first-hide">
 							<p align="justify">
 								Provide peer support
 							</p>
 						</li>
 					</ul>	
-					
+					<div id="first-target">
+						<div  class="btn btn-sm">Show More</div>
+					</div>
 				</div>
+
 			</div>
 
 			<div class="col-md-4 col-xs-12">
@@ -157,12 +160,12 @@
 								Our work focuses on responding to emergencies, reducing the impact of disasters and climate change, addressing the root causes of poverty, meeting basic needs and enabling communities to become more inclusive and self-sufficient.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We respect the constitution and laws of Bangladesh and work within them.
 							</p>
 						</li>
-						<li>
+						<li class="testing-hide">
 							<p align="justify">
 								We will not engage in any partisan political activities within Bangladesh.
 							</p>
@@ -399,11 +402,19 @@
 		});
 
 		$('.testing-hide').hide();
+		$('.first-hide').hide();
 			
 		
 		$( "#target" ).click(function() {
 
 			$(".testing-hide").show();
+			
+		});
+
+
+		$( "#first-target" ).click(function() {
+
+			$(".first-hide").show();
 			
 		});
 
