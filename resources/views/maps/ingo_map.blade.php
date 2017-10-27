@@ -15676,7 +15676,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 				$('#dynamic-ul').empty();
 				$('#dynamic-paragraph').val("");
 
-				document.getElementById("dynamic-paragraph").innerHTML = "<h2>"+object['project'].project_name+"</h2>";
+				document.getElementById("dynamic-paragraph").innerHTML = "<h3>"+object['project'].project_name+"</h3>";
 
 
 				$('#dynamic-ul').append('<li class="list-group-item"  >Key partners:'+object['project'].key_partners+'</li>');

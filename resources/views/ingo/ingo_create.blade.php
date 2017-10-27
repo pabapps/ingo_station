@@ -6,7 +6,7 @@
 @endsection
 @section('content')
 
-<div class="page-hero page-hero-xl page-hero-center" style="background-image: url({{asset('images/pics/p10_people.jpg')}}); opacity: 1;>
+<div class="page-hero page-hero-xl page-hero-center" style="background-image: url({{asset('images/pics/p6_boat.jpg')}}); opacity: 1;">
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
