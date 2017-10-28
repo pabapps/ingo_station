@@ -15506,7 +15506,7 @@
 			<div class="sidebar">
 
 				<aside class="widget widget_ci-company-info-widget">
-					<h3 class="widget-title">INGOS</h3>
+					<h3 class="widget-title" style="text-transform: none !important;">iNGOS</h3>
 
 					<div class="card-info">
 						<div class="card-info-media">
