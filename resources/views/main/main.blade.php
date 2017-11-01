@@ -92,7 +92,13 @@
 								<a href="{{ url('/register') }}">Register</a>
 							</li>
 							@endif
+
+							<li class="menu-item">
+								<a href="{{ url('/register') }}">Contact Us</a>
+							</li>
 						</ul>
+
+						
 						<!-- #navigation -->
 
 						<a href="#mobilemenu" class="mobile-nav-trigger">

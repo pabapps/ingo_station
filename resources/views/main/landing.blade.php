@@ -146,7 +146,7 @@
 						<i class="fa fa-life-saver"></i>
 					</span>
 
-					<p class="item-title">BASIC PRINCIPLES AND OPERATING GUIDELINES</p>
+					<p class="item-title">Basic Principles & Operating Guidelines</p>
 
 					<p>We the INGOs operating in Bangladesh commit ourselves to adhering to the following principles and guidelines:</p>
 					<ul >
