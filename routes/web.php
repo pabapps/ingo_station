@@ -83,7 +83,8 @@ Route::get('/info_maps/get_districts_by_theme_ingo_office','MapsController@get_d
 Route::resource('/info_maps','MapsController'); 
 
 
-
+//route for contact us
+Route::resource('/contact_us','ContactUs\ContactController');
 
 
 

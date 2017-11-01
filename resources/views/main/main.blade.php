@@ -94,7 +94,7 @@
 							@endif
 
 							<li class="menu-item">
-								<a href="{{ url('/register') }}">Contact Us</a>
+								<a href="{{ url('/contact_us/create') }}">Contact Us</a>
 							</li>
 						</ul>
 
