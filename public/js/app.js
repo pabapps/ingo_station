@@ -13007,7 +13007,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -13382,6 +13382,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -13420,7 +13423,7 @@ var render = function() {
         }
       },
       [
-        _c("h3", [_vm._v("Login")]),
+        _c("h3", [_vm._v("Contact Us")]),
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
@@ -13449,13 +13452,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-field" }, [
-      _c("label", { attrs: { for: "username-password" } }, [
-        _vm._v("asdasdnaslk;dnaskjdnbaksnd")
-      ]),
+      _c("label", { attrs: { for: "username-login" } }, [_vm._v("Email")]),
       _vm._v(" "),
-      _c("input", {
-        attrs: { type: "password", name: "password", required: "" }
-      })
+      _c("input", { attrs: { type: "email", name: "email", required: "" } })
     ])
   },
   function() {
@@ -13463,9 +13462,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-field" }, [
-      _c("label", [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v(" Remember me\n\t\t\t")
+      _c("label", { attrs: { for: "username-password" } }, [_vm._v("Message")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field" }, [
+        _c("textarea", {
+          attrs: { id: "about-org", name: "about_org", cols: "4", rows: "4" }
+        })
       ])
     ])
   },
@@ -13475,7 +13477,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-field" }, [
       _c("button", { staticClass: "btn", attrs: { type: "submit" } }, [
-        _vm._v("Login")
+        _vm._v("Submit")
       ])
     ])
   }

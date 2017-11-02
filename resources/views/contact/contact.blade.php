@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Login / Register</title>
+    <title>Contact</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-xs-12">
                     <div class="page-hero-content">
-                        <h1 class="page-title">Login </h1>
+                        <h1 class="page-title">Contact Us</h1>
                     </div>
                 </div>
             </div>
