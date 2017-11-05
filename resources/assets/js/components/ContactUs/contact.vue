@@ -26,10 +26,6 @@
 				<button type="submit" class="btn">Submit</button>
 			</div>
 		</form>
-
-		<div class="form-field">
-			<button type="submit" class="btn" @click="getData">click</button>
-		</div>
 	</div>
 </template>
 
@@ -59,13 +55,11 @@ export default {
 					description: this.description
 				})
 				.then(function (response) {
-					console.log(response.data);
-					var obj = JSON.parse(response.data);
-					console.log(obj);
+					
 
 				})
 				.catch(function (error) {
-					console.log(error);
+					
 				});
 
 			}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ContactUs;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\ContactUs;
 use Validator;
 use Response;
 
@@ -37,32 +38,27 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-      $validator = Validator::make($request->all(), [
-        'name' => 'required',
-        'email' => 'required',
-        'description' => 'required',
-    ]);
 
-      if ($validator->fails()) {
-        // dd("testing");
-         // return Response::json(['errors' => $validator->getMessageBag()->toArray()], 200);
+        $contactUs = new ContactUs;
+
+        $contactUs->name = $request->name;
+        $contactUs->email = $request->email;
+        $contactUs->description = $request->description;
+
+        $contactUs->save();
+
+        dd("done");
+    }
+
+
+
+
+    public function test_get(){
         return response()->json([
             'name' => 'Abigail',
             'state' => 'CA'
         ]);
-
-
     }
-
-
-}
-
-public function test_get(){
-    return response()->json([
-        'name' => 'Abigail',
-        'state' => 'CA'
-    ]);
-}
 
     /**
      * Display the specified resource.

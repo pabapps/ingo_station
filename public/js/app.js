@@ -13007,7 +13007,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -13385,10 +13385,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -13414,13 +13410,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					name: this.name,
 					email: this.email,
 					description: this.description
-				}).then(function (response) {
-					console.log(response.data);
-					var obj = JSON.parse(response.data);
-					console.log(obj);
-				}).catch(function (error) {
-					console.log(error);
-				});
+				}).then(function (response) {}).catch(function (error) {});
 			}
 		},
 		getData: function getData() {
@@ -13545,19 +13535,7 @@ var render = function() {
         _vm._v(" "),
         _vm._m(0)
       ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-field" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn",
-          attrs: { type: "submit" },
-          on: { click: _vm.getData }
-        },
-        [_vm._v("click")]
-      )
-    ])
+    )
   ])
 }
 var staticRenderFns = [
