@@ -13007,7 +13007,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -13391,7 +13391,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	name: 'contact',
 
 	data: function data() {
-		return {};
+		return {
+			name: "",
+			email: "",
+			description: ""
+		};
 	},
 
 	methods: {
@@ -13425,52 +13429,91 @@ var render = function() {
       [
         _c("h3", [_vm._v("Contact Us")]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("div", { staticClass: "form-field" }, [
+          _c("label", { attrs: { for: "username-login" } }, [_vm._v("Name")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.name,
+                expression: "name"
+              }
+            ],
+            attrs: { type: "text", required: "" },
+            domProps: { value: _vm.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { staticClass: "form-field" }, [
+          _c("label", { attrs: { for: "username-login" } }, [_vm._v("Email")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.email,
+                expression: "email"
+              }
+            ],
+            attrs: { type: "email", required: "" },
+            domProps: { value: _vm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.email = $event.target.value
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
-        _vm._m(2),
+        _c("div", { staticClass: "form-field" }, [
+          _c("label", { attrs: { for: "username-password" } }, [
+            _vm._v("Message")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.description,
+                  expression: "description"
+                }
+              ],
+              attrs: { id: "about-org", cols: "4", rows: "4" },
+              domProps: { value: _vm.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.description = $event.target.value
+                }
+              }
+            })
+          ])
+        ]),
         _vm._v(" "),
-        _vm._m(3)
+        _vm._m(0)
       ]
     )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-field" }, [
-      _c("label", { attrs: { for: "username-login" } }, [_vm._v("Email")]),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "email", name: "email", required: "" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-field" }, [
-      _c("label", { attrs: { for: "username-login" } }, [_vm._v("Email")]),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "email", name: "email", required: "" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-field" }, [
-      _c("label", { attrs: { for: "username-password" } }, [_vm._v("Message")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "field" }, [
-        _c("textarea", {
-          attrs: { id: "about-org", name: "about_org", cols: "4", rows: "4" }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

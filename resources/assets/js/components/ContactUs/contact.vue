@@ -4,20 +4,20 @@
 			<h3>Contact Us</h3>
 			
 			<div class="form-field">
-				<label for="username-login">Email</label>
-				<input type="email" name="email" required>
+				<label for="username-login">Name</label>
+				<input type="text" v-model="name" required>
 			</div>
 
 
 			<div class="form-field">
 				<label for="username-login">Email</label>
-				<input type="email" name="email" required>
+				<input type="email" v-model="email"  required>
 			</div>
 
 			<div class="form-field">
 				<label for="username-password">Message</label>
 				<div class="field">
-					<textarea id="about-org" name="about_org" cols="4" rows="4" ></textarea>
+					<textarea id="about-org" v-model="description" cols="4" rows="4" ></textarea>
 				</div>
 			</div>
 
@@ -36,7 +36,9 @@ export default {
 
 	data () {
 		return {
-
+			name: "",
+			email: "",
+			description: ""
 		};
 	},
 	methods:{
