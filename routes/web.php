@@ -84,6 +84,8 @@ Route::resource('/info_maps','MapsController');
 
 
 //route for contact us
+Route::get('/contact_us/test_get','ContactUs\ContactController@test_get');
+
 Route::resource('/contact_us','ContactUs\ContactController');
 
 

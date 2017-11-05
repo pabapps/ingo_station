@@ -13007,7 +13007,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -13385,6 +13385,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -13401,6 +13405,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	methods: {
 		onSubmit: function onSubmit() {
 			console.log("testing");
+
+			if (this.name.length == 0 || this.email.length == 0 || this.description.length == 0) {
+				alert("Please fill all the fields properly before submitting!");
+			} else {
+
+				axios.post('/contact_us', {
+					name: this.name,
+					email: this.email,
+					description: this.description
+				}).then(function (response) {
+					console.log(response.data);
+					var obj = JSON.parse(response.data);
+					console.log(obj);
+				}).catch(function (error) {
+					console.log(error);
+				});
+			}
+		},
+		getData: function getData() {
+			console.log("testing");
+			axios.get('/contact_us/test_get').then(function (response) {
+				console.log(response.data["name"]);
+				// console.log(obj);
+			}).catch(function (error) {
+				console.log(error);
+			});
 		}
 	}
 
@@ -13441,7 +13471,7 @@ var render = function() {
                 expression: "name"
               }
             ],
-            attrs: { type: "text", required: "" },
+            attrs: { type: "text", name: "name" },
             domProps: { value: _vm.name },
             on: {
               input: function($event) {
@@ -13466,7 +13496,7 @@ var render = function() {
                 expression: "email"
               }
             ],
-            attrs: { type: "email", required: "" },
+            attrs: { type: "email", name: "email" },
             domProps: { value: _vm.email },
             on: {
               input: function($event) {
@@ -13494,7 +13524,12 @@ var render = function() {
                   expression: "description"
                 }
               ],
-              attrs: { id: "about-org", cols: "4", rows: "4" },
+              attrs: {
+                id: "about-org",
+                name: "description",
+                cols: "4",
+                rows: "4"
+              },
               domProps: { value: _vm.description },
               on: {
                 input: function($event) {
@@ -13510,7 +13545,19 @@ var render = function() {
         _vm._v(" "),
         _vm._m(0)
       ]
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-field" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn",
+          attrs: { type: "submit" },
+          on: { click: _vm.getData }
+        },
+        [_vm._v("click")]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
