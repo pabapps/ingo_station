@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ContactUs;
 use Mail;
-use App\Mail\contactUs;
+use App\Mail\mailContact;
+use App\User;
 use Validator;
 use Response;
 
@@ -39,7 +40,9 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+
+        $user =  User::where('email', 'raihan.zaman@practicalaction.org.bd')->first();
 
         $contactUs = new ContactUs;
 
@@ -48,6 +51,9 @@ class ContactController extends Controller
         $contactUs->description = $request->description;
 
         $contactUs->save();
+
+        // Mail::to("raihan.zaman@practicalaction.org.bd")->send(new mailContact($contactUs));
+        Mail::to("raihan.zaman@practicalaction.org.bd")->cc("Syed.Mahmud@practicalaction.org.bd")->send(new mailContact($contactUs));
 
         dd("done");
     }
