@@ -15560,10 +15560,10 @@
 
 				</aside>
 
-				<aside class="widget widget_ci-callout-widget">
-					<div class="callout-wrapper">
+				<aside class="card-info">
+					<div class="card-info-media">
 
-						<p id="dynamic-paragraph">
+						<p id="dynamic-paragraph" class="card-info-details">
 							
 						</p>
 

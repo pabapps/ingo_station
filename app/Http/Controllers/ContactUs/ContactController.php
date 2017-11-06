@@ -52,8 +52,8 @@ class ContactController extends Controller
 
         $contactUs->save();
 
-        // Mail::to("raihan.zaman@practicalaction.org.bd")->send(new mailContact($contactUs));
-        Mail::to("raihan.zaman@practicalaction.org.bd")->cc("Syed.Mahmud@practicalaction.org.bd")->send(new mailContact($contactUs));
+        Mail::to("raihan.zaman@practicalaction.org.bd")->send(new mailContact($contactUs));
+        // Mail::to("raihan.zaman@practicalaction.org.bd")->cc("Syed.Mahmud@practicalaction.org.bd")->send(new mailContact($contactUs));
 
         dd("done");
     }
