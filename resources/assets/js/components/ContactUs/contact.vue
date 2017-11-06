@@ -56,6 +56,7 @@ export default {
 				})
 				.then(function (response) {
 					
+					location.reload();
 
 				})
 				.catch(function (error) {

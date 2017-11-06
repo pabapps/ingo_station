@@ -5,6 +5,8 @@ namespace App\Http\Controllers\ContactUs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ContactUs;
+use Mail;
+use App\Mail\contactUs;
 use Validator;
 use Response;
 
