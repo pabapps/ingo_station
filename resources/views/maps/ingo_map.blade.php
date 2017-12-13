@@ -15527,19 +15527,19 @@
 							<div class="card-info-details">
 								<select class="js-example-responsive" style="width: 100%" id="theme-id" name="theme_id">
 									<option ></option>
+									<option value="Agriculture">Agriculture</option>
+									<option value="Child Focused">Child Focused</option>
 									<option value="Education">Education</option>
+									<option value="Disability">Disability</option>
 									<option value="Disaster Risk Reduction">Disaster Risk Reduction</option>
 									<option value="Energy">Energy</option>
-									<option value="Nutrition">Nutrition</option>
-									<option value="Urban Services">Urban Services</option>
-									<option value="Governence">Governence</option>
-									<option value="Water,Sanitation and Hygiene">Water,Sanitation and Hygiene</option>
-									<option value="Health">Health</option>
-									<option value="Agriculture">Agriculture</option>
-									<option value="Poverty">Poverty</option>
 									<option value="Gender">Gender</option>
-									<option value="Disability">Disability</option>
-									<option value="Child Focused">Child Focused</option>
+									<option value="Governence">Governence</option>
+									<option value="Health">Health</option>
+									<option value="Nutrition">Nutrition</option>
+									<option value="Poverty">Poverty</option>
+									<option value="Urban Services">Urban Services</option>
+									<option value="Water,Sanitation and Hygiene">Water,Sanitation and Hygiene</option>
 								</select>
 							</div>
 						</div>
