@@ -52,7 +52,7 @@ class MapsController extends Controller
 
         $query_ingos= "
         SELECT ingos.id , ingos.ingo_name AS text
-        FROM ingos WHERE ingos.ingo_name LIKE '%{$search_term}%'";
+        FROM ingos WHERE ingos.ingo_name LIKE '%{$search_term}%' ORDER BY ingos.ingo_name";
 
         $ingos = DB::select($query_ingos);
 

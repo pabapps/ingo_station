@@ -100,7 +100,7 @@ class GeneralSearchController extends Controller
 
 		$query_projects= "
 		SELECT ingo_projects.id , ingo_projects.project_name AS text
-		FROM ingo_projects WHERE ingo_projects.project_name LIKE '%{$search_term}%'";
+		FROM ingo_projects WHERE ingo_projects.project_name LIKE '%{$search_term}%' ORDER BY ingo_projects.project_name";
 
 		$projects = DB::select($query_projects);
 
