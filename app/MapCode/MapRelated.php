@@ -60,12 +60,7 @@ class MapRelated{
         //get all the district fron the above selected projects`
 		$district_array = array();
 
-		$project_id = array();
-
-		$project_name = array();
-
-		$project_count = 0;
-
+		
 		$count = 0;
 
 		foreach ($projects as $pro) {
@@ -75,20 +70,23 @@ class MapRelated{
 
 			$district_array = $modify_array['district'];
 
-			$project_id[$project_count] = $pro->id;
-
-			$project_name[$project_count] = $pro->project_name;
-
-			$project_count = $project_count + 1;
-
 			$count = $modify_array['count'];
 		}
+
+		// dd($ingo_office->id);
+
+		$query_projects= "
+		SELECT ingo_projects.id , ingo_projects.project_name AS text
+		FROM ingo_projects WHERE ingo_projects.ingo_office_id = '$ingo_office->id' ORDER BY ingo_projects.project_name";
+
+		$projects = DB::select($query_projects);
+
+		// dd($projects);
 
 		$district_name = array(
 			'districts'=> $district_array,
 			'ingo_office'=> $ingo_office->about,
-			'project_id'=>$project_id,
-			'project_name'=>$project_name
+			'projects'=>$projects
 		);
 
 		return $district_name;
@@ -105,16 +103,16 @@ class MapRelated{
         //get all the projects that are under this theme
 
 		$projects = "";
-       	 if(!empty($request->ingo_id)){
-            
-            $ingo_id = $request->ingo_id;
+		if(!empty($request->ingo_id)){
 
-            $projects = DB::table('ingo_projects')->where('ingo_office_id',$ingo_id)->where('theme','like','%'.$theme.'%')->get();
-        }else{
+			$ingo_id = $request->ingo_id;
 
-        	$projects = DB::table('ingo_projects')->where('theme','like','%'.$theme.'%')->get();
+			$projects = DB::table('ingo_projects')->where('ingo_office_id',$ingo_id)->where('theme','like','%'.$theme.'%')->get();
+		}else{
 
-        }
+			$projects = DB::table('ingo_projects')->where('theme','like','%'.$theme.'%')->get();
+
+		}
 
 		
 

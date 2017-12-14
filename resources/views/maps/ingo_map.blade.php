@@ -15599,7 +15599,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 	$(document).ready(function() 
 	{
 
-		var project_array = null;
+		var project_id_array = [];
 
 		$('#main-page').owlCarousel({
 			rtl:false,
@@ -15614,11 +15614,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 			
 		})
 
-		if(project_array==null || project_array==0){
-
+		if(project_id_array.length==0){
+			console.log("hel");
 			$('#project-id').select2({
 				placeholder: 'Select an option',
 				allowClear: true,
+				initSelection: function(element, callback) {                   
+				},
 				ajax: {
 					dataType: 'json',
 					url: '{{URL::to('/')}}/search/get_project_id',
@@ -15637,6 +15639,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 				}
 			});
 
+		}else{
+			console.log("testings asdasd")
+			$('#project-id').select2({
+				placeholder: 'Select an option',
+				allowClear: true,
+				data: project_id_array
+			});
 		}
 
 		
@@ -15711,6 +15720,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 					var object = JSON.parse(district_name);
 
+					// $('#project-id').select2('data', null);
+					// $("#project-id").select2("val", "");
+					$("#project-id").empty();
+
 					color_map(object['districts']);
 
 					$('#dynamic-ul').empty();
@@ -15720,6 +15733,16 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 
 					$('#dynamic-ul').append('<li class="list-group-item" align="left" >'+object['ingo_office']+'</li>');
 
+					project_id_array = object['projects'];
+
+					console.log(project_id_array);
+
+					$('#project-id').select2({
+
+						placeholder: 'Select an option',
+						allowClear: true,
+						data: project_id_array
+					});
 
 				});
 
