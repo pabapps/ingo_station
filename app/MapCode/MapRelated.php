@@ -59,6 +59,13 @@ class MapRelated{
 		$projects = IngoProjects::where('ingo_office_id',$ingo_id)->where('valid',1)->get();
         //get all the district fron the above selected projects`
 		$district_array = array();
+
+		$project_id = array();
+
+		$project_name = array();
+
+		$project_count = 0;
+
 		$count = 0;
 
 		foreach ($projects as $pro) {
@@ -67,12 +74,21 @@ class MapRelated{
 			$modify_array = MapRelated::create_district_array($district_array,$district_id,$count);
 
 			$district_array = $modify_array['district'];
+
+			$project_id[$project_count] = $pro->id;
+
+			$project_name[$project_count] = $pro->project_name;
+
+			$project_count = $project_count + 1;
+
 			$count = $modify_array['count'];
 		}
 
 		$district_name = array(
 			'districts'=> $district_array,
 			'ingo_office'=> $ingo_office->about,
+			'project_id'=>$project_id,
+			'project_name'=>$project_name
 		);
 
 		return $district_name;

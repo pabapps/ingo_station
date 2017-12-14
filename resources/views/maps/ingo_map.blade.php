@@ -15599,6 +15599,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 	$(document).ready(function() 
 	{
 
+		var project_array = null;
+
 		$('#main-page').owlCarousel({
 			rtl:false,
 			loop:true,
@@ -15612,26 +15614,32 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 			
 		})
 
-		$('#project-id').select2({
-			placeholder: 'Select an option',
-			allowClear: true,
-			ajax: {
-				dataType: 'json',
-				url: '{{URL::to('/')}}/search/get_project_id',
-				delay: 250,
-				data: function(params) {
-					return {
-						term: params.term
-					}
-				},
-				processResults: function (data, params) {
-					params.page = params.page || 1;
-					return {
-						results: data
-					};
-				},
-			}
-		});
+		if(project_array==null || project_array==0){
+
+			$('#project-id').select2({
+				placeholder: 'Select an option',
+				allowClear: true,
+				ajax: {
+					dataType: 'json',
+					url: '{{URL::to('/')}}/search/get_project_id',
+					delay: 250,
+					data: function(params) {
+						return {
+							term: params.term
+						}
+					},
+					processResults: function (data, params) {
+						params.page = params.page || 1;
+						return {
+							results: data
+						};
+					},
+				}
+			});
+
+		}
+
+		
 
 		$('#ingo-id').select2({
 			placeholder: 'Select an option',
