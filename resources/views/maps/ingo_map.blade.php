@@ -15615,7 +15615,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 		})
 
 		if(project_id_array.length==0){
-			console.log("hel");
+			
 			$('#project-id').select2({
 				placeholder: 'Select an option',
 				allowClear: true,
@@ -15640,7 +15640,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj-2jqN80dN53Vgp4dzO2jL_N
 			});
 
 		}else{
-			console.log("testings asdasd")
+			
 			$('#project-id').select2({
 				placeholder: 'Select an option',
 				allowClear: true,
